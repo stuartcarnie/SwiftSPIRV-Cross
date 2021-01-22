@@ -119,6 +119,8 @@ extension GLTargetClientVersion: CustomStringConvertible {
             return "vulkan1_0"
         case .vulkan1_1:
             return "vulkan1_1"
+        case .vulkan1_2:
+            return "vulkan1_2"
         case .opengl450:
             return "opengl450"
         }

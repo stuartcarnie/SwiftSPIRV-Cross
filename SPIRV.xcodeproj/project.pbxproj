@@ -87,8 +87,8 @@
 		0535650D25B8CD8200FDAFC0 /* DirStackFileIncluder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0535648125B8CB7300FDAFC0 /* DirStackFileIncluder.h */; };
 		0535650E25B8CD8200FDAFC0 /* ResourceLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 0535647A25B8CB7300FDAFC0 /* ResourceLimits.h */; };
 		0535650F25B8CD8200FDAFC0 /* ResourceLimits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0535648025B8CB7300FDAFC0 /* ResourceLimits.cpp */; };
-		0535652825B8CDFD00FDAFC0 /* glslang_c_shader_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 0535652425B8CDFC00FDAFC0 /* glslang_c_shader_types.h */; };
-		0535652925B8CDFD00FDAFC0 /* glslang_c_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 0535652725B8CDFD00FDAFC0 /* glslang_c_interface.h */; };
+		0535652825B8CDFD00FDAFC0 /* glslang_c_shader_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 0535652425B8CDFC00FDAFC0 /* glslang_c_shader_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0535652925B8CDFD00FDAFC0 /* glslang_c_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 0535652725B8CDFD00FDAFC0 /* glslang_c_interface.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0535653725BA128E00FDAFC0 /* CGLSlang.apinotes in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0535652525B8CDFC00FDAFC0 /* CGLSlang.apinotes */; };
 		0535653825BA128E00FDAFC0 /* glslang_c_interface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0535652725B8CDFD00FDAFC0 /* glslang_c_interface.h */; };
 		0535653925BA128E00FDAFC0 /* glslang_c_shader_types.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0535652425B8CDFC00FDAFC0 /* glslang_c_shader_types.h */; };
@@ -488,6 +488,20 @@
 		0585D1D525BA8A1D00C169B0 /* Optimizer+Passes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0585D1D225BA8A1D00C169B0 /* Optimizer+Passes.swift */; };
 		0585D1E725BA8AE000C169B0 /* libspirv.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0585D11C25BA866E00C169B0 /* libspirv.h */; };
 		0585D1F025BA8B5100C169B0 /* libSPIRVTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0585D1A625BA89EA00C169B0 /* libSPIRVTools.a */; };
+		0585D21C25BA961C00C169B0 /* ResourceLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D20F25BA961C00C169B0 /* ResourceLimits.h */; };
+		0585D21D25BA961C00C169B0 /* glslang_c_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D21025BA961C00C169B0 /* glslang_c_interface.h */; };
+		0585D21E25BA961C00C169B0 /* Types.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D21125BA961C00C169B0 /* Types.h */; };
+		0585D21F25BA961C00C169B0 /* intermediate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D21225BA961C00C169B0 /* intermediate.h */; };
+		0585D22025BA961C00C169B0 /* glslang_c_shader_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D21325BA961C00C169B0 /* glslang_c_shader_types.h */; };
+		0585D22125BA961C00C169B0 /* BaseTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D21425BA961C00C169B0 /* BaseTypes.h */; };
+		0585D22225BA961C00C169B0 /* InitializeGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D21525BA961C00C169B0 /* InitializeGlobals.h */; };
+		0585D22325BA961C00C169B0 /* ShHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D21625BA961C00C169B0 /* ShHandle.h */; };
+		0585D22425BA961C00C169B0 /* arrays.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D21725BA961C00C169B0 /* arrays.h */; };
+		0585D22525BA961C00C169B0 /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D21825BA961C00C169B0 /* Common.h */; };
+		0585D22625BA961C00C169B0 /* ConstantUnion.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D21925BA961C00C169B0 /* ConstantUnion.h */; };
+		0585D22725BA961C00C169B0 /* InfoSink.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D21A25BA961C00C169B0 /* InfoSink.h */; };
+		0585D22825BA961C00C169B0 /* PoolAlloc.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D21B25BA961C00C169B0 /* PoolAlloc.h */; };
+		0585D23925BA99E800C169B0 /* ShaderLang.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D23825BA99E800C169B0 /* ShaderLang.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1120,6 +1134,20 @@
 		0585D1D025BA8A1B00C169B0 /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		0585D1D125BA8A1C00C169B0 /* Optimizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optimizer.swift; sourceTree = "<group>"; };
 		0585D1D225BA8A1D00C169B0 /* Optimizer+Passes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optimizer+Passes.swift"; sourceTree = "<group>"; };
+		0585D20F25BA961C00C169B0 /* ResourceLimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceLimits.h; sourceTree = "<group>"; };
+		0585D21025BA961C00C169B0 /* glslang_c_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glslang_c_interface.h; sourceTree = "<group>"; };
+		0585D21125BA961C00C169B0 /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
+		0585D21225BA961C00C169B0 /* intermediate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = intermediate.h; sourceTree = "<group>"; };
+		0585D21325BA961C00C169B0 /* glslang_c_shader_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glslang_c_shader_types.h; sourceTree = "<group>"; };
+		0585D21425BA961C00C169B0 /* BaseTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTypes.h; sourceTree = "<group>"; };
+		0585D21525BA961C00C169B0 /* InitializeGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitializeGlobals.h; sourceTree = "<group>"; };
+		0585D21625BA961C00C169B0 /* ShHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShHandle.h; sourceTree = "<group>"; };
+		0585D21725BA961C00C169B0 /* arrays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arrays.h; sourceTree = "<group>"; };
+		0585D21825BA961C00C169B0 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		0585D21925BA961C00C169B0 /* ConstantUnion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantUnion.h; sourceTree = "<group>"; };
+		0585D21A25BA961C00C169B0 /* InfoSink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoSink.h; sourceTree = "<group>"; };
+		0585D21B25BA961C00C169B0 /* PoolAlloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoolAlloc.h; sourceTree = "<group>"; };
+		0585D23825BA99E800C169B0 /* ShaderLang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderLang.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1223,6 +1251,8 @@
 		0535637525B6241D00FDAFC0 /* glslang */ = {
 			isa = PBXGroup;
 			children = (
+				0585D23725BA99E800C169B0 /* Public */,
+				0585D20E25BA961C00C169B0 /* Include */,
 				0535645525B8CB3900FDAFC0 /* OSDependent */,
 				053563CD25B624EA00FDAFC0 /* GenericCodeGen */,
 				0535637625B6243F00FDAFC0 /* MachineIndependent */,
@@ -2135,6 +2165,34 @@
 			path = SPIRVTools;
 			sourceTree = "<group>";
 		};
+		0585D20E25BA961C00C169B0 /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				0585D21725BA961C00C169B0 /* arrays.h */,
+				0585D21425BA961C00C169B0 /* BaseTypes.h */,
+				0585D21825BA961C00C169B0 /* Common.h */,
+				0585D21925BA961C00C169B0 /* ConstantUnion.h */,
+				0585D21025BA961C00C169B0 /* glslang_c_interface.h */,
+				0585D21325BA961C00C169B0 /* glslang_c_shader_types.h */,
+				0585D21A25BA961C00C169B0 /* InfoSink.h */,
+				0585D21525BA961C00C169B0 /* InitializeGlobals.h */,
+				0585D21225BA961C00C169B0 /* intermediate.h */,
+				0585D21B25BA961C00C169B0 /* PoolAlloc.h */,
+				0585D20F25BA961C00C169B0 /* ResourceLimits.h */,
+				0585D21625BA961C00C169B0 /* ShHandle.h */,
+				0585D21125BA961C00C169B0 /* Types.h */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
+		0585D23725BA99E800C169B0 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				0585D23825BA99E800C169B0 /* ShaderLang.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -2144,9 +2202,12 @@
 			files = (
 				053564E725B8CD5400FDAFC0 /* GlslangToSpv.h in Headers */,
 				053564FF25B8CD5D00FDAFC0 /* InitializeDll.h in Headers */,
+				0585D21C25BA961C00C169B0 /* ResourceLimits.h in Headers */,
+				0585D23925BA99E800C169B0 /* ShaderLang.h in Headers */,
 				053563DF25B6250C00FDAFC0 /* PpTokens.h in Headers */,
 				053563BB25B624B400FDAFC0 /* reflection.h in Headers */,
 				053564DB25B8CD5400FDAFC0 /* Logger.h in Headers */,
+				0585D22425BA961C00C169B0 /* arrays.h in Headers */,
 				053564DA25B8CD5400FDAFC0 /* SpvTools.h in Headers */,
 				053563AB25B624B400FDAFC0 /* propagateNoContraction.h in Headers */,
 				053563AE25B624B400FDAFC0 /* Scan.h in Headers */,
@@ -2162,28 +2223,39 @@
 				053564DE25B8CD5400FDAFC0 /* NonSemanticDebugPrintf.h in Headers */,
 				053564EC25B8CD5400FDAFC0 /* GLSL.ext.AMD.h in Headers */,
 				0535639E25B624B400FDAFC0 /* LiveTraverser.h in Headers */,
+				0585D22625BA961C00C169B0 /* ConstantUnion.h in Headers */,
 				053564E925B8CD5400FDAFC0 /* GLSL.ext.NV.h in Headers */,
 				053563C025B624B400FDAFC0 /* attribute.h in Headers */,
 				0535650E25B8CD8200FDAFC0 /* ResourceLimits.h in Headers */,
 				053564D925B8CD5400FDAFC0 /* SpvBuilder.h in Headers */,
+				0585D21F25BA961C00C169B0 /* intermediate.h in Headers */,
+				0585D21D25BA961C00C169B0 /* glslang_c_interface.h in Headers */,
 				053563C325B624B400FDAFC0 /* Versions.h in Headers */,
 				053565AB25BA15F100FDAFC0 /* osinclude.h in Headers */,
+				0585D22825BA961C00C169B0 /* PoolAlloc.h in Headers */,
+				0585D22025BA961C00C169B0 /* glslang_c_shader_types.h in Headers */,
 				053564DF25B8CD5400FDAFC0 /* disassemble.h in Headers */,
 				0535652825B8CDFD00FDAFC0 /* glslang_c_shader_types.h in Headers */,
 				053563A525B624B400FDAFC0 /* RemoveTree.h in Headers */,
+				0585D22125BA961C00C169B0 /* BaseTypes.h in Headers */,
 				053564E625B8CD5400FDAFC0 /* GLSL.ext.KHR.h in Headers */,
 				053564EE25B8CD5400FDAFC0 /* spirv.hpp in Headers */,
 				053563A425B624B400FDAFC0 /* ParseHelper.h in Headers */,
 				053564F125B8CD5400FDAFC0 /* GLSL.ext.EXT.h in Headers */,
 				053563F725B6264100FDAFC0 /* build_info.h in Headers */,
+				0585D21E25BA961C00C169B0 /* Types.h in Headers */,
 				053563A025B624B400FDAFC0 /* parseVersions.h in Headers */,
+				0585D22325BA961C00C169B0 /* ShHandle.h in Headers */,
+				0585D22225BA961C00C169B0 /* InitializeGlobals.h in Headers */,
 				053564EB25B8CD5400FDAFC0 /* hex_float.h in Headers */,
 				0535652925B8CDFD00FDAFC0 /* glslang_c_interface.h in Headers */,
 				0535650D25B8CD8200FDAFC0 /* DirStackFileIncluder.h in Headers */,
 				053563E125B6250C00FDAFC0 /* PpContext.h in Headers */,
+				0585D22725BA961C00C169B0 /* InfoSink.h in Headers */,
 				053563B425B624B400FDAFC0 /* glslang_tab.cpp.h in Headers */,
 				053563B325B624B400FDAFC0 /* ScanContext.h in Headers */,
 				053563BE25B624B400FDAFC0 /* gl_types.h in Headers */,
+				0585D22525BA961C00C169B0 /* Common.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

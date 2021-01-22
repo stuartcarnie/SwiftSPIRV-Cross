@@ -23,6 +23,22 @@ import CSPIRVTools
 
 extension SPVTOptimizer {
     
+    /// Registers passes that attempt to improve performance of generated code.
+    ///
+    /// This sequence of passes is subject to constant review and will change
+    /// from time to time.
+    public func registerPerformancePasses() {
+        optimizer.register_performance_passes()
+    }
+    
+    /// Registers passes that attempt to improve the size of generated code.
+    ///
+    /// This sequence of passes is subject to constant review and will change
+    /// from time to time.
+    public func registerSizePasses() {
+        optimizer.register_size_passes()
+    }
+    
     /// Registers a null pass.
     ///
     /// A null pass does nothing to the SPIR-V module to be optimized.

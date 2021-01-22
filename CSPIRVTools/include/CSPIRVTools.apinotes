@@ -71,6 +71,12 @@ Functions:
 
   - Name: spvt_optimizer_register_pass_from_flag
     SwiftName: CSPVTOptimizer.register_pass_from_flag(self:flag:)
+    
+  - Name: spvt_optimizer_register_performance_passes
+    SwiftName: CSPVTOptimizer.register_performance_passes(self:)
+    
+  - Name: spvt_optimizer_register_size_passes
+    SwiftName: CSPVTOptimizer.register_size_passes(self:)
 
   # endregion
 
@@ -78,8 +84,6 @@ Functions:
 
   - Name: spvt_optimizer_register_null_pass
     SwiftName: CSPVTOptimizer.register_null_pass(self:)
-  - Name: spvt_optimizer_register_strip_atomic_counter_memory_pass
-    SwiftName: CSPVTOptimizer.register_strip_atomic_counter_memory_pass(self:)
   - Name: spvt_optimizer_register_strip_debug_info_pass
     SwiftName: CSPVTOptimizer.register_strip_debug_info_pass(self:)
   - Name: spvt_optimizer_register_strip_reflect_info_pass
@@ -190,8 +194,6 @@ Functions:
     SwiftName: CSPVTOptimizer.register_upgrade_memory_model_pass(self:)
   - Name: spvt_optimizer_register_code_sinking_pass
     SwiftName: CSPVTOptimizer.register_code_sinking_pass(self:)
-  - Name: spvt_optimizer_register_generate_web_gpu_initializers_pass
-    SwiftName: CSPVTOptimizer.register_generate_web_gpu_initializers_pass(self:)
   - Name: spvt_optimizer_register_fix_storage_class_pass
     SwiftName: CSPVTOptimizer.register_fix_storage_class_pass(self:)
   - Name: spvt_optimizer_register_legalize_vector_shuffle_pass

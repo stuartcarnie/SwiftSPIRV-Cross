@@ -106,6 +106,17 @@ spvt_vector spvt_optimizer_run_options(spvt_optimizer optimizer,
     return vec;
 }
 
+
+void spvt_optimizer_register_performance_passes(spvt_optimizer optimizer)
+{
+    optimizer->optimizer->RegisterPerformancePasses();
+}
+
+void spvt_optimizer_register_size_passes(spvt_optimizer optimizer)
+{
+    optimizer->optimizer->RegisterSizePasses();
+}
+
 bool spvt_optimizer_register_pass_from_flag(spvt_optimizer optimizer, char const * flag)
 {
     return optimizer->optimizer->RegisterPassFromFlag(flag);

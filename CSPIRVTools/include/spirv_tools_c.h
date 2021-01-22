@@ -108,14 +108,27 @@ SPVT_PUBLIC_API spvt_vector spvt_optimizer_run_options(spvt_optimizer optimizer,
                                                        uint32_t const * original_binary, size_t original_binary_size,
                                                        spv_optimizer_options options);
 
+/// Registers passes that attempt to improve performance of generated code.
+///
+/// This sequence of passes is subject to constant review and will change
+/// from time to time.
+SPVT_PUBLIC_API void spvt_optimizer_register_performance_passes(spvt_optimizer optimizer);
+
+/// Registers passes that attempt to improve the size of generated code.
+///
+/// This sequence of passes is subject to constant review and will change
+/// from time to time.
+SPVT_PUBLIC_API void spvt_optimizer_register_size_passes(spvt_optimizer optimizer);
+
 SPVT_PUBLIC_API bool spvt_optimizer_register_pass_from_flag(spvt_optimizer optimizer, char const * flag);
 
 #pragma mark - Optimizer Passes
 
 // region Optimizer Passes
 
-// Creates a null pass.
-// A null pass does nothing to the SPIR-V module to be optimized.
+/// Creates a null pass.
+/// @details
+/// A null pass does nothing to the SPIR-V module to be optimized.
 SPVT_PUBLIC_API void spvt_optimizer_register_null_pass(spvt_optimizer optimizer);
 
 // Creates a strip-debug-info pass.

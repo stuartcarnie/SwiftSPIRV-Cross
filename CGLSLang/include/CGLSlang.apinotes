@@ -218,6 +218,8 @@ Enumerators:
     SwiftName: vulkan1_0
   - Name: GLSLANG_TARGET_VULKAN_1_1
     SwiftName: vulkan1_1
+  - Name: GLSLANG_TARGET_VULKAN_1_2
+    SwiftName: vulkan1_2
   - Name: GLSLANG_TARGET_OPENGL_450
     SwiftName: opengl450
   - Name: GLSLANG_TARGET_CLIENT_VERSION_COUNT

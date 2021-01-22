@@ -272,15 +272,17 @@ static glslang::EShClient c_shader_client(glslang_client_t client)
 static glslang::EShTargetClientVersion c_shader_client_version(glslang_target_client_version_t client_version)
 {
     switch (client_version) {
+    case GLSLANG_TARGET_VULKAN_1_0:
+        return glslang::EShTargetVulkan_1_0;
     case GLSLANG_TARGET_VULKAN_1_1:
         return glslang::EShTargetVulkan_1_1;
+    case GLSLANG_TARGET_VULKAN_1_2:
+        return glslang::EShTargetVulkan_1_2;
     case GLSLANG_TARGET_OPENGL_450:
         return glslang::EShTargetOpenGL_450;
     default:
-        break;
+        return glslang::EShTargetVulkan_1_0;
     }
-
-    return glslang::EShTargetVulkan_1_0;
 }
 
 static glslang::EShTargetLanguage c_shader_target_language(glslang_target_language_t target_language)
@@ -398,9 +400,15 @@ bool glslang_shader_parse(glslang_shader_t* shader, const glslang_input_t* input
     );
 }
 
-const char* glslang_shader_get_info_log(glslang_shader_t* shader) { return shader->shader->getInfoLog(); }
+const char* glslang_shader_get_info_log(glslang_shader_t* shader)
+{
+    return shader->shader->getInfoLog();
+}
 
-const char* glslang_shader_get_info_debug_log(glslang_shader_t* shader) { return shader->shader->getInfoDebugLog(); }
+const char* glslang_shader_get_info_debug_log(glslang_shader_t* shader)
+{
+    return shader->shader->getInfoDebugLog();
+}
 
 void glslang_shader_delete(glslang_shader_t* shader)
 {
