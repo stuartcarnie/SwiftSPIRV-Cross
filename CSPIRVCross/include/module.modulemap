@@ -1,0 +1,5 @@
+module CSPIRVCross {
+    umbrella "."
+    export *
+    link "c++"
+}

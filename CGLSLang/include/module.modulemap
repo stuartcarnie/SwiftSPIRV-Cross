@@ -1,0 +1,5 @@
+module CGLSlang {
+    umbrella "."
+    export *
+    link "c++"
+}
