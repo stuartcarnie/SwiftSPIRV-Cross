@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0535636625B6223000FDAFC0"
-               BuildableName = "libCGLSlang.a"
-               BlueprintName = "CGLSlang"
+               BuildableName = "libCGLSLang.a"
+               BlueprintName = "CGLSLang"
                ReferencedContainer = "container:SPIRV.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -51,8 +51,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0535636625B6223000FDAFC0"
-            BuildableName = "libCGLSlang.a"
-            BlueprintName = "CGLSlang"
+            BuildableName = "libCGLSLang.a"
+            BlueprintName = "CGLSLang"
             ReferencedContainer = "container:SPIRV.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

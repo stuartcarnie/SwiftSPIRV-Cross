@@ -21,97 +21,12 @@
 import CSPIRVCross
 import Foundation
 
-public protocol Compiler {
-    associatedtype OptionsType: CompilerOptions
-    
-    var entryPoints: [SPVEntryPoint] { get }
-    
-    func makeOptions() -> OptionsType
-    func makeResources() -> SPVResources
-    func compile() throws -> String
-    func compile(options: OptionsType) throws -> String
-    func getType(id: SPVTypeID) -> SPVType?
-    func getVariable(resource: SPVReflectedResource) -> SPVVariable?
-}
-
-public protocol CompilerOptions {}
-
-protocol InternalCompiler: Compiler where Self.OptionsType: InternalCompilerOptions {
-    var compiler: SPVCompiler { get }
-}
-
-protocol InternalCompilerOptions: CompilerOptions {
-    var options: SPVCompilerOptions { get }
-    init(options: SPVCompilerOptions)
-    
-    func apply(to compiler: SPVCompiler)
-}
-
 @frozen
 public struct SPVEntryPoint {
     let data: __spvc_entry_point
     
     public var executionModel: SPVExecutionModel { data.execution_model }
     public var name: String { String(cString: data.name) }
-}
-
-extension InternalCompiler {
-    
-    public var entryPoints: [SPVEntryPoint] {
-        var ptr: UnsafePointer<__spvc_entry_point>?
-        var size: Int = 0
-        
-        if compiler.get_entry_points(list: &ptr, size: &size).errorResult != nil {
-            fatalError("Out of memory.")
-        }
-        
-        return ptr!.withMemoryRebound(to: SPVEntryPoint.self, capacity: size) {
-            Array(UnsafeBufferPointer<SPVEntryPoint>(start: $0, count: size))
-        }
-    }
-    
-    public func makeOptions() -> OptionsType {
-        var options: SPVCompilerOptions?
-        if compiler.create_compiler_options(&options).errorResult != nil {
-            fatalError("Out of memory")
-        }
-        return OptionsType(options: options!)
-    }
-
-    public func makeResources() -> SPVResources {
-        var resources: SPVResources?
-        if compiler.create_shader_resources(&resources).errorResult != nil {
-            fatalError("Out of memory")
-        }
-        
-        return resources!
-    }
-    
-    public func compile() throws -> String {
-        var src: UnsafePointer<Int8>?
-        if let res = compiler.compile(&src).errorResult {
-            throw res
-        }
-        return String(cString: src!)
-    }
-    
-    public func compile(options: OptionsType) throws -> String {
-        options.apply(to: compiler)
-        return try compile()
-    }
-    
-    public func getType(id: SPVTypeID) -> SPVType? {
-        guard let type = compiler.get_type_handle(id) else { return nil }
-        return SPVType(compiler: compiler, type: type)
-    }
-    
-    public func getVariable(resource: SPVReflectedResource) -> SPVVariable? {
-        SPVVariable(compiler: compiler, id: resource.id, baseTypeID: resource.baseTypeID)
-    }
-    
-    public func name(id: SPVTypeID) -> String {
-        String(cString: compiler.get_name(id: id))
-    }
 }
 
 // MARK: - Accessors

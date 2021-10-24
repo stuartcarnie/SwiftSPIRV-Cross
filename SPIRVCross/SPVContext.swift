@@ -46,21 +46,12 @@ public final class SPVContext {
         return v!
     }
     
-    /// Create a compiler backend
+    /// Create a Metal compiler backend
     /// - Parameters:
-    ///   - backend: The target language for the compiler.
     ///   - ir: The IR used to generate the source.
-    ///   - captureMode: Specifies if the compiler takes ownership of the passed IR. 
+    ///   - captureMode: Specifies if the compiler takes ownership of the passed IR.
     /// - Throws: SPVResult.Error
-    /// - Returns: A compiler
-    public func makeCompiler(backend: SPVBackend, ir: SPVParsedIR, captureMode: SPVCaptureMode = .takeOwnership) throws -> SPVCompiler {
-        var c: SPVCompiler?
-        if let res = ctx.create_compiler(backend: backend, ir: ir, captureMode: captureMode, compiler: &c).errorResult {
-            throw res
-        }
-        return c!
-    }
-    
+    /// - Returns: A Metal compiler
     public func makeMetalCompiler(ir: SPVParsedIR, captureMode: SPVCaptureMode = .takeOwnership) throws -> SPVMetalCompiler {
         var c: SPVCompiler?
         if let res = ctx.create_compiler(backend: .msl, ir: ir, captureMode: captureMode, compiler: &c).errorResult {

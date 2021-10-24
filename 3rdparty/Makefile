@@ -1,15 +1,11 @@
-# Build Output
-
-BUILD_DIR:=build
-
 # SPIRV-Tools 
 SPIRV_TOOLS_DIR?=SPIRV-Tools
 SPIRV_TOOLS_EXTERNAL_DIR:=$(SPIRV_TOOLS_DIR)/external
-SPIRV_TOOLS_BUILD_DIR:=$(BUILD_DIR)/spirv_tools_build
+SPIRV_TOOLS_BUILD_DIR:=$(SPIRV_TOOLS_DIR)/build
 
 # glslang
 GLSLANG_DIR?=glslang
-GLSLANG_BUILD_DIR:=$(BUILD_DIR)/glslang_build
+GLSLANG_BUILD_DIR:=$(GLSLANG_DIR)/build
 
 ifeq ($(origin CMAKE), undefined)
   CMAKE := $(shell ./find-cmake.sh)
@@ -45,7 +41,7 @@ build_info.h: $(GLSLANG_BUILD_DIR)/include/glslang/build_info.h
 .PHONY: build_info.h
 
 $(GLSLANG_BUILD_DIR)/include/glslang/build_info.h: $(GLSLANG_DIR)/CHANGES.md $(GLSLANG_DIR)/build_info.h.tmpl $(GLSLANG_BUILD_DIR)/CMakeCache.txt
-	$(MAKE) -C $(GLSLANG_BUILD_DIR) glslang-build-info/fast
+	# $(MAKE) -C $(GLSLANG_BUILD_DIR) glslang-build-info/fast
 
 $(GLSLANG_BUILD_DIR)/CMakeCache.txt: $(GLSLANG_DIR)/CMakeLists.txt
 	mkdir -p $(GLSLANG_BUILD_DIR)
@@ -76,7 +72,7 @@ $(SPIRV_TOOLS_EXTERNAL_DIR)/SPIRV-Headers:
 	pushd $(SPIRV_TOOLS_DIR); \
 	git clone https://github.com/KhronosGroup/SPIRV-Headers.git external/SPIRV-Headers; \
 	cd external/SPIRV-Headers; \
-	git checkout f027d53ded7e230e008d37c8b47ede7cd308e19d; \
+	git checkout e71feddb3f17c5586ff7f4cfb5ed1258b800574b; \
 	popd
 
 print:

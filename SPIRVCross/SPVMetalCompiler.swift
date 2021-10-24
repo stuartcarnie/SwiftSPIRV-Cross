@@ -40,6 +40,62 @@ public struct SPVMetalCompiler {
     public func getSecondaryAutomaticResourceBinding(resource: SPVReflectedResource) -> UInt32 {
         compiler.mslGetSecondaryAutomaticResourceBinding(resource.id)
     }
+    
+    public var entryPoints: [SPVEntryPoint] {
+        var ptr: UnsafePointer<__spvc_entry_point>?
+        var size: Int = 0
+        
+        if compiler.get_entry_points(list: &ptr, size: &size).errorResult != nil {
+            fatalError("Out of memory.")
+        }
+        
+        return ptr!.withMemoryRebound(to: SPVEntryPoint.self, capacity: size) {
+            Array(UnsafeBufferPointer<SPVEntryPoint>(start: $0, count: size))
+        }
+    }
+    
+    public func makeOptions() -> Self.Options {
+        var options: SPVCompilerOptions?
+        if compiler.create_compiler_options(&options).errorResult != nil {
+            fatalError("Out of memory")
+        }
+        return Self.Options(options: options!)
+    }
+
+    public func makeResources() -> SPVResources {
+        var resources: SPVResources?
+        if compiler.create_shader_resources(&resources).errorResult != nil {
+            fatalError("Out of memory")
+        }
+        
+        return resources!
+    }
+    
+    public func compile() throws -> String {
+        var src: UnsafePointer<Int8>?
+        if let res = compiler.compile(&src).errorResult {
+            throw res
+        }
+        return String(cString: src!)
+    }
+    
+    public func compile(options: Self.Options) throws -> String {
+        options.apply(to: compiler)
+        return try compile()
+    }
+    
+    public func getType(id: SPVTypeID) -> SPVType? {
+        guard let type = compiler.get_type_handle(id) else { return nil }
+        return SPVType(compiler: compiler, type: type)
+    }
+    
+    public func getVariable(resource: SPVReflectedResource) -> SPVVariable? {
+        SPVVariable(compiler: compiler, id: resource.id, baseTypeID: resource.baseTypeID)
+    }
+    
+    public func name(id: SPVTypeID) -> String {
+        String(cString: compiler.get_name(id: id))
+    }
 }
 
 extension SPVMetalCompiler {
@@ -67,7 +123,7 @@ extension SPVMetalCompiler {
     }
     
     @frozen
-    public struct Options: InternalCompilerOptions {
+    public struct Options {
         let options: SPVCompilerOptions
         
         init(options: SPVCompilerOptions) {
@@ -75,17 +131,20 @@ extension SPVMetalCompiler {
         }
         
         // MARK: Common Options
+        
+        /// Debug option to always emit temporary variables for all expressions.
+        public var forceTemporary: Bool = false
 
-        /// Flattens multidimensional arrays, e.g. float foo[a][b][c] into single-dimensional arrays,
-        /// e.g. float foo[a * b * c].
-        /// This function does not change the actual SPIRType of any object.
+        /// Flattens multidimensional arrays, e.g. `float foo[a][b][c]` into single-dimensional arrays,
+        /// e.g. `float foo[a * b * c]`.
+        /// This function does not change the actual `SPIRType` of any object.
         /// Only the generated code, including declarations of interface variables are changed to be single array dimension.
         public var flattenMultidimensionalArrays: Bool = false
 
-        /// In vertex shaders, rewrite [-w, w] depth (GL style) to [0, w] depth.
+        /// In vertex shaders, rewrite `[-w, w]` depth (GL style) to `[0, w]` depth.
         public var fixupDepthConvention: Bool = false
 
-        /// Inverts gl_Position.y or equivalent.
+        /// Inverts `gl_Position.y` or equivalent.
         public var flipVertexY: Bool = false
 
         /// Emit OpLine directives if present in the module.
@@ -104,6 +163,8 @@ extension SPVMetalCompiler {
         public var platform: Platform = .macOS
         public var version: MTLLanguageVersion = .version1_2
         public var texelBufferTextureWidth: UInt32 = 4096
+        public var r32UILinearTextureAlignment: UInt32 = 4
+        public var r32UIAlignmentConstantID: UInt32 = 65535
         public var swizzleBufferIndex: UInt32 = 30
         public var indirectParamsBufferIndex: UInt32 = 29
         public var shaderOutputBufferIndex: UInt32 = 28
@@ -127,6 +188,7 @@ extension SPVMetalCompiler {
         public var swizzleTextureSamples: Bool = false
         public var tessDomainOriginLowerLeft: Bool = false
         public var multiview: Bool = false
+        public var multiviewLayeredRendering: Bool = false
         public var viewIndexFromDeviceIndex: Bool = false
         public var dispatchBase: Bool = false
         public var texture1DAs2D: Bool = false
@@ -136,7 +198,7 @@ extension SPVMetalCompiler {
         public var argumentBuffers: Bool = false
 
         /// Ensures vertex and instance indices start at zero.
-        /// This reflects the behavior of HLSL with SV_VertexID and SV_InstanceID.
+        /// This reflects the behavior of HLSL with `SV_VertexID` and `SV_InstanceID`.
         public var enableBaseIndexZero: Bool = false
 
         /// Fragment output in MSL must have at least as many components as the render pass.
@@ -144,12 +206,12 @@ extension SPVMetalCompiler {
         public var padFragmentOutputComponents: Bool = false
 
         /// Use Metal's native frame-buffer fetch API for subpass inputs.
-        public var iOSFramebufferFetchSubpass: Bool = false
+        public var useFramebufferFetchSubpasses: Bool = false
 
         /// Enables use of "fma" intrinsic for invariant float math
         public var invariantFloatMath: Bool = false
 
-        /// Emulate texturecube_array with texture2d_array for iOS where this type is not available
+        /// Emulate `texturecube_array` with `texture2d_array` for iOS where this type is not available
         public var emulateCubemapArray: Bool = false
 
         // Allow user to enable decoration binding
@@ -182,9 +244,43 @@ extension SPVMetalCompiler {
         /// to index the output buffer.
         public var vertexForTessellation: Bool = false
         
+        /// Assume that SubpassData images have multiple layers. Layered input attachments
+        /// are addressed relative to the Layer output from the vertex pipeline. This option
+        /// has no effect with multiview, since all input attachments are assumed to be layered
+        /// and will be addressed using the current ViewIndex.
+        public var arrayedSubpassInput: Bool = false
+        
+        /// Whether to use SIMD-group or quadgroup functions to implement group nnon-uniform
+        /// operations. Some GPUs on iOS do not support the SIMD-group functions, only the
+        /// quadgroup functions.
+        public var iosUseSimdgroupFunctions: Bool = false
+        
+        /// If set, the subgroup size will be assumed to be one, and subgroup-related
+        /// builtins and operations will be emitted accordingly. This mode is intended to
+        /// be used by MoltenVK on hardware/software configurations which do not provide
+        /// sufficient support for subgroups.
+        public var emulateSubgroups: Bool = false
+        
+        /// If nonzero, a fixed subgroup size to assume. Metal, similarly to `VK_EXT_subgroup_size_control`,
+        /// allows the SIMD-group size (aka thread execution width) to vary depending on
+        /// register usage and requirements. In certain circumstances--for example, a pipeline
+        /// in MoltenVK without `VK_PIPELINE_SHADER_STAGE_CREATE_ALLOW_VARYING_SUBGROUP_SIZE_BIT_EXT`--
+        /// this is undesirable. This fixes the value of the SubgroupSize builtin, instead of
+        /// mapping it to the Metal builtin `[[thread_execution_width]]`. If the thread
+        /// execution width is reduced, the extra invocations will appear to be inactive.
+        /// If zero, the SubgroupSize will be allowed to vary, and the builtin will be mapped
+        /// to the Metal `[[thread_execution_width]]` builtin.
+        public var fixedSubgroupSize: UInt32 = 0
+        
+        /// If set, a dummy `[[sample_id]]` input is added to a fragment shader if none is present.
+        /// This will force the shader to run at sample rate, assuming Metal does not optimize
+        /// the extra threads away.
+        public var forceSampleRateShading: Bool = false
+        
         // MARK: Private
         
         static let commonBools: [(spvc_compiler_option, KeyPath<Self, Bool>)] = [
+            (SPVC_COMPILER_OPTION_FORCE_TEMPORARY, \.forceTemporary),
             (SPVC_COMPILER_OPTION_FLATTEN_MULTIDIMENSIONAL_ARRAYS, \.flattenMultidimensionalArrays),
             (SPVC_COMPILER_OPTION_FIXUP_DEPTH_CONVENTION, \.fixupDepthConvention),
             (SPVC_COMPILER_OPTION_FLIP_VERTEX_Y, \.flipVertexY),
@@ -201,26 +297,33 @@ extension SPVMetalCompiler {
             (SPVC_COMPILER_OPTION_MSL_SWIZZLE_TEXTURE_SAMPLES, \.swizzleTextureSamples),
             (SPVC_COMPILER_OPTION_MSL_TESS_DOMAIN_ORIGIN_LOWER_LEFT, \.tessDomainOriginLowerLeft),
             (SPVC_COMPILER_OPTION_MSL_MULTIVIEW, \.multiview),
+            (SPVC_COMPILER_OPTION_MSL_MULTIVIEW_LAYERED_RENDERING, \.multiviewLayeredRendering),
             (SPVC_COMPILER_OPTION_MSL_VIEW_INDEX_FROM_DEVICE_INDEX, \.viewIndexFromDeviceIndex),
             (SPVC_COMPILER_OPTION_MSL_DISPATCH_BASE, \.dispatchBase),
             (SPVC_COMPILER_OPTION_MSL_TEXTURE_1D_AS_2D, \.texture1DAs2D),
             (SPVC_COMPILER_OPTION_MSL_ARGUMENT_BUFFERS, \.argumentBuffers),
             (SPVC_COMPILER_OPTION_MSL_ENABLE_BASE_INDEX_ZERO, \.enableBaseIndexZero),
             (SPVC_COMPILER_OPTION_MSL_PAD_FRAGMENT_OUTPUT_COMPONENTS, \.padFragmentOutputComponents),
-            (SPVC_COMPILER_OPTION_MSL_IOS_FRAMEBUFFER_FETCH_SUBPASS, \.iOSFramebufferFetchSubpass),
+            (SPVC_COMPILER_OPTION_MSL_FRAMEBUFFER_FETCH_SUBPASS, \.useFramebufferFetchSubpasses),
             (SPVC_COMPILER_OPTION_MSL_INVARIANT_FP_MATH, \.invariantFloatMath),
             (SPVC_COMPILER_OPTION_MSL_EMULATE_CUBEMAP_ARRAY, \.emulateCubemapArray),
             (SPVC_COMPILER_OPTION_MSL_ENABLE_DECORATION_BINDING, \.enableDecorationBinding),
-            (SPVC_COMPILER_OPTION_MSL_TEXEL_BUFFER_TEXTURE_WIDTH, \.textureBufferNative),
+            (SPVC_COMPILER_OPTION_MSL_TEXTURE_BUFFER_NATIVE, \.textureBufferNative),
             (SPVC_COMPILER_OPTION_MSL_FORCE_ACTIVE_ARGUMENT_BUFFER_RESOURCES, \.forceActiveArgumentBufferResources),
             (SPVC_COMPILER_OPTION_MSL_FORCE_NATIVE_ARRAYS, \.forceNativeArrays),
             (SPVC_COMPILER_OPTION_MSL_ENABLE_CLIP_DISTANCE_USER_VARYING, \.enableClipDistanceUserVarying),
             (SPVC_COMPILER_OPTION_MSL_MULTI_PATCH_WORKGROUP, \.multiPatchWorkgroup),
             (SPVC_COMPILER_OPTION_MSL_VERTEX_FOR_TESSELLATION, \.vertexForTessellation),
+            (SPVC_COMPILER_OPTION_MSL_ARRAYED_SUBPASS_INPUT, \.arrayedSubpassInput),
+            (SPVC_COMPILER_OPTION_MSL_IOS_USE_SIMDGROUP_FUNCTIONS, \.iosUseSimdgroupFunctions),
+            (SPVC_COMPILER_OPTION_MSL_EMULATE_SUBGROUPS, \.emulateSubgroups),
+            (SPVC_COMPILER_OPTION_MSL_FORCE_SAMPLE_RATE_SHADING, \.forceSampleRateShading),
         ]
         
         static let mslUInt32s: [(spvc_compiler_option, KeyPath<Self, UInt32>)] = [
             (SPVC_COMPILER_OPTION_MSL_TEXEL_BUFFER_TEXTURE_WIDTH, \.texelBufferTextureWidth),
+            (SPVC_COMPILER_OPTION_MSL_R32UI_LINEAR_TEXTURE_ALIGNMENT, \.r32UILinearTextureAlignment),
+            (SPVC_COMPILER_OPTION_MSL_R32UI_ALIGNMENT_CONSTANT_ID, \.r32UIAlignmentConstantID),
             (SPVC_COMPILER_OPTION_MSL_SWIZZLE_BUFFER_INDEX, \.swizzleBufferIndex),
             (SPVC_COMPILER_OPTION_MSL_INDIRECT_PARAMS_BUFFER_INDEX, \.indirectParamsBufferIndex),
             (SPVC_COMPILER_OPTION_MSL_SHADER_OUTPUT_BUFFER_INDEX, \.shaderOutputBufferIndex),
@@ -234,6 +337,7 @@ extension SPVMetalCompiler {
             (SPVC_COMPILER_OPTION_MSL_SHADER_INPUT_WORKGROUP_INDEX, \.shaderInputWorkgroupIndex),
             (SPVC_COMPILER_OPTION_MSL_DEVICE_INDEX, \.deviceIndex),
             (SPVC_COMPILER_OPTION_MSL_ENABLE_FRAG_OUTPUT_MASK, \.enableFragOutputMask),
+            (SPVC_COMPILER_OPTION_MSL_FIXED_SUBGROUP_SIZE, \.fixedSubgroupSize),
         ]
         
         func apply(to compiler: SPVCompiler) {
@@ -282,8 +386,4 @@ extension MTLLanguageVersion {
             fatalError()
         }
     }
-}
-
-extension SPVMetalCompiler: InternalCompiler {
-    public typealias OptionsType = Self.Options
 }

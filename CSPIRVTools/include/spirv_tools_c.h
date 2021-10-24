@@ -422,6 +422,13 @@ SPVT_PUBLIC_API void spvt_optimizer_register_dead_insert_elim_pass(spvt_optimize
 // eliminated with standard dead code elimination.
 SPVT_PUBLIC_API void spvt_optimizer_register_aggressive_dce_pass(spvt_optimizer optimizer);
 
+// Creates a remove-unused-interface-variables pass.
+// Removes variables referenced on the |OpEntryPoint| instruction that are not
+// referenced in the entry point function or any function in its call tree. Note
+// that this could cause the shader interface to no longer match other shader
+// stages.
+SPVT_PUBLIC_API void spvt_optimizer_register_remove_unused_interface_variables_pass(spvt_optimizer optimizer);
+
 // Create line propagation pass
 // This pass propagates line information based on the rules for OpLine and
 // OpNoline and clones an appropriate line instruction into every instruction
@@ -747,6 +754,15 @@ SPVT_PUBLIC_API void spvt_optimizer_register_wrap_op_kill_pass(spvt_optimizer op
 // VK_AMD_shader_trinary_minmax with equivalent code using core instructions and
 // capabilities.
 SPVT_PUBLIC_API void spvt_optimizer_register_amd_ext_to_khr_pass(spvt_optimizer optimizer);
+
+// Replaces the internal version of GLSLstd450 InterpolateAt* extended
+// instructions with the externally valid version. The internal version allows
+// an OpLoad of the interpolant for the first argument. This pass removes the
+// OpLoad and replaces it with its pointer. glslang and possibly other
+// frontends will create the internal version for HLSL. This pass will be part
+// of HLSL legalization and should be called after interpolants have been
+// propagated into their final positions.
+SPVT_PUBLIC_API void spvt_optimizer_register_interpolate_fixup_pass(spvt_optimizer optimizer);
 
 // endregion
 

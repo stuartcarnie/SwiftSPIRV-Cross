@@ -42,8 +42,9 @@ extension SPVTOptimizer {
     /// Registers a null pass.
     ///
     /// A null pass does nothing to the SPIR-V module to be optimized.
-    public func registerNullPass() {
+    public func registerNullPass() -> Self {
         optimizer.register_null_pass()
+        return self
     }
 
     /// Registers a strip-debug-info pass.
@@ -266,8 +267,10 @@ extension SPVTOptimizer {
     /// This pass is most effective when preceeded by passes which eliminate
     /// local loads and stores, effectively propagating constant values where
     /// possible.
-    public func registerDeadBranchElimPass() {
+    @discardableResult
+    public func registerDeadBranchElimPass() -> Self {
         optimizer.register_dead_branch_elim_pass()
+        return self
     }
 
     /// Registers an SSA local variable load/store elimination pass.
@@ -288,8 +291,9 @@ extension SPVTOptimizer {
     /// `registerLocalAccessChainConvertPass`.
     /// `registerLocalSingleStoreElimPass` and `registerLocalSingleBlockElimPass`
     /// will reduce the work that this pass has to do.
-    public func registerLocalMultiStoreEliminationPass() {
+    public func registerLocalMultiStoreEliminationPass() -> Self {
         optimizer.register_local_multi_store_elim_pass()
+        return self
     }
 
     /// Registers a local-access-chain-conversion pass.
@@ -309,8 +313,9 @@ extension SPVTOptimizer {
     /// subsequent analysis and elimination of these variables along with their
     /// loads and stores allowing values to propagate to their points of use where
     /// possible.
-    public func registerLocalAccessChainConvertPass() {
+    public func registerLocalAccessChainConvertPass() -> Self {
         optimizer.register_local_access_chain_convert_pass()
+        return self
     }
 
     /// Registers a local single store elimination pass.
@@ -333,8 +338,9 @@ extension SPVTOptimizer {
     /// This pass will reduce the work needed to be done by LocalSingleBlockElim
     /// and LocalMultiStoreElim and can improve the effectiveness of other passes
     /// such as DeadBranchElimination which depend on values for their analysis.
-    public func registerLocalSingleStoreElimPass() {
+    public func registerLocalSingleStoreElimPass() -> Self {
         optimizer.register_local_single_store_elim_pass()
+        return self
     }
 
     /// Registers an insert/extract elimination pass.
@@ -348,8 +354,9 @@ extension SPVTOptimizer {
     /// Besides removing extracts this pass enables subsequent dead code elimination
     /// passes to delete the inserts. This pass performs best after access chains are
     /// converted to inserts and extracts and local loads and stores are eliminated.
-    public func registerInsertExtractElimPass() {
+    public func registerInsertExtractElimPass() -> Self {
         optimizer.register_insert_extract_elim_pass()
+        return self
     }
 
     /// Registers a dead insert elimination pass.
@@ -366,8 +373,9 @@ extension SPVTOptimizer {
     /// pass can be advantageous on its own, it is also advantageous to execute
     /// this pass after `registerInsertExtractElimPass` as it will remove any unused
     /// inserts created by that pass.
-    public func registerDeadInsertElimPass() {
+    public func registerDeadInsertElimPass() -> Self {
         optimizer.register_dead_insert_elim_pass()
+        return self
     }
 
     /// Registers an aggressive dead code elimination pass.
@@ -392,8 +400,22 @@ extension SPVTOptimizer {
     /// Conversion, which tends to cause cycles of dead code to be left after
     /// Store/Load elimination passes are completed. These cycles cannot be
     /// eliminated with standard dead code elimination.
-    public func registerAggressiveDeadCodeEliminationPass() {
+    @discardableResult
+    public func registerAggressiveDeadCodeEliminationPass() -> Self {
         optimizer.register_aggressive_dce_pass()
+        return self
+    }
+    
+    /// Registers a remove-unused-interface-variables pass.
+    ///
+    /// Removes variables referenced on the |OpEntryPoint| instruction that are not
+    /// referenced in the entry point function or any function in its call tree. Note
+    /// that this could cause the shader interface to no longer match other shader
+    /// stages.
+    @discardableResult
+    public func registerRemoveUnusedInterfaceVariablesPass() -> Self {
+        optimizer.register_remove_unused_interface_variables_pass()
+        return self
     }
 
     /// Registers a line propagation pass
@@ -408,8 +430,9 @@ extension SPVTOptimizer {
     /// be run before any such pass. It is a bookend pass with EliminateDeadLines
     /// which can be used to remove redundant line instructions at the end of a
     /// run of such passes and reduce final output file size.
-    public func registerPropagateLineInfoPass() {
+    public func registerPropagateLineInfoPass() -> Self {
         optimizer.register_propagate_line_info_pass()
+        return self
     }
 
     /// Registers a dead line elimination pass
@@ -423,15 +446,17 @@ extension SPVTOptimizer {
     /// delete, move and clone instructions. DeadLineElim should be run after
     /// PropagateLines and all such subsequent passes. Normally it would be one
     /// of the last passes to be run.
-    public func registerRedundantLineInfoElimPass() {
+    public func registerRedundantLineInfoElimPass() -> Self {
         optimizer.register_redundant_line_info_elim_pass()
+        return self
     }
 
     /// Registers a compact ids pass.
     ///
     /// The pass remaps result ids to a compact and gapless range starting from %1.
-    public func registerCompactIdsPass() {
+    public func registerCompactIdsPass() -> Self {
         optimizer.register_compact_ids_pass()
+        return self
     }
 
     /// Registers a remove duplicate pass.
@@ -441,8 +466,9 @@ extension SPVTOptimizer {
     /// * duplicate extended instruction imports;
     /// * duplicate types;
     /// * duplicate decorations.
-    public func registerRemoveDuplicatesPass() {
+    public func registerRemoveDuplicatesPass() -> Self {
         optimizer.register_remove_duplicates_pass()
+        return self
     }
 
     /// Registers a control-flow-graph cleanup pass.
@@ -452,16 +478,18 @@ extension SPVTOptimizer {
     /// following functionality:
     ///
     /// - Removal of unreachable basic blocks.
-    public func registerCfgCleanupPass() {
+    public func registerCfgCleanupPass() -> Self {
         optimizer.register_cfg_cleanup_pass()
+        return self
     }
 
     /// Registers a dead-variable-elimination pass.
     /// 
     /// This pass will delete module scope variables, along with their decorations,
     /// that are not referenced.
-    public func registerDeadVariableEliminationPass() {
+    public func registerDeadVariableEliminationPass() -> Self {
         optimizer.register_dead_variable_elimination_pass()
+        return self
     }
 
     /// Registers a merge-return pass.
@@ -478,16 +506,18 @@ extension SPVTOptimizer {
     ///
     /// These conditions are guaranteed to be met after running dead-branch
     /// elimination.
-    public func registerMergeReturnPass() {
+    public func registerMergeReturnPass() -> Self {
         optimizer.register_merge_return_pass()
+        return self
     }
 
     /// Registers a value-numbering pass.
     ///
     /// This pass will look for instructions in the same basic block that compute the
     /// same value, and remove the redundant ones.
-    public func registerLocalRedundancyEliminationPass() {
+    public func registerLocalRedundancyEliminationPass() -> Self {
         optimizer.register_local_redundancy_elimination_pass()
+        return self
     }
 
     /// Registers a loop-invariant-code-motion pass.
@@ -584,8 +614,10 @@ extension SPVTOptimizer {
     /// - seealso:
     ///
     /// [Further reading](https://dl.acm.org/doi/10.1145/103135.103136)
-    public func registerConditionalConstantPropagationPass() {
+    @discardableResult
+    public func registerConditionalConstantPropagationPass() -> Self {
         optimizer.register_ccp_pass()
+        return self
     }
 
     /// Registers a workaround-driver-bugs pass.
@@ -644,8 +676,10 @@ extension SPVTOptimizer {
     /// - important:
     /// Only variables that are local to the function and of supported types are
     /// processed (see `IsSSATargetVar` for details).
-    public func registerStaticSingleAssignmentRewritePass() {
+    @discardableResult
+    public func registerStaticSingleAssignmentRewritePass() -> Self {
         optimizer.register_ssa_rewrite_pass()
+        return self
     }
 
     /// Registers a convert-relaxed-to-half pass.
@@ -866,6 +900,21 @@ extension SPVTOptimizer {
     /// capabilities.
     public func registerAmdExtToKhrPass() {
         optimizer.register_amd_ext_to_khr_pass()
+    }
+    
+    /// Registers a pass to replace 
+    ///
+    /// Replaces the internal version of GLSLstd450 InterpolateAt* extended
+    /// instructions with the externally valid version. The internal version allows
+    /// an OpLoad of the interpolant for the first argument. This pass removes the
+    /// OpLoad and replaces it with its pointer. glslang and possibly other
+    /// frontends will create the internal version for HLSL. This pass will be part
+    /// of HLSL legalization and should be called after interpolants have been
+    /// propagated into their final positions.
+    @discardableResult
+    public func registerInterpolateFixupPass() -> Self {
+        optimizer.register_interpolate_fixup_pass()
+        return self
     }
 }
 

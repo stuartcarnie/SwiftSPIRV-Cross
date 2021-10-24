@@ -238,6 +238,11 @@ void spvt_optimizer_register_aggressive_dce_pass(spvt_optimizer optimizer)
     optimizer->optimizer->RegisterPass(CreateAggressiveDCEPass());
 }
 
+void spvt_optimizer_register_remove_unused_interface_variables_pass(spvt_optimizer optimizer)
+{
+    optimizer->optimizer->RegisterPass(CreateRemoveUnusedInterfaceVariablesPass());
+}
+
 void spvt_optimizer_register_propagate_line_info_pass(spvt_optimizer optimizer) 
 {
     optimizer->optimizer->RegisterPass(CreatePropagateLineInfoPass());
@@ -431,4 +436,9 @@ void spvt_optimizer_register_wrap_op_kill_pass(spvt_optimizer optimizer)
 void spvt_optimizer_register_amd_ext_to_khr_pass(spvt_optimizer optimizer) 
 {
     optimizer->optimizer->RegisterPass(CreateAmdExtToKhrPass());
+}
+
+void spvt_optimizer_register_interpolate_fixup_pass(spvt_optimizer optimizer)
+{
+    optimizer->optimizer->RegisterPass(CreateInterpolateFixupPass());
 }

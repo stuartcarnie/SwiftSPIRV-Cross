@@ -19,21 +19,21 @@
 // SOFTWARE.
 
 import Foundation
-import CGLSlang
+import CGLSLang
 
 var initialized: Bool = {
     glslang_initialize_process()
     return true
 }()
 
-public class GLShader {
+@objc public class GLShader: NSObject {
     public enum ShaderError: Error {
         case preprocess, parse
     }
     
     let source: String
     var input: glslang_input_s
-    let shader: CGLSlangShader
+    let shader: CGLSLangShader
     
     public init(source: String, stage: GLStage,
                 input: GLEnvironmentInput = GLEnvironmentInput(),
@@ -60,7 +60,7 @@ public class GLShader {
                 includer: nil,
                 includer_context: nil)
         }
-        shader = CGLSlangShader(input: &self.input)
+        shader = CGLSLangShader(input: &self.input)
     }
     
     public func parse(messages: GLMessageOptions = []) throws {

@@ -18,9 +18,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import CGLSlang
+import CGLSLang
 
-public typealias GLStage = CGLSlang.GLStage
+public typealias GLStage = CGLSLang.GLStage
 
 extension GLStage: CustomStringConvertible {
     public var description: String {
@@ -57,7 +57,11 @@ extension GLStage: CustomStringConvertible {
     }
 }
 
-public typealias GLStageOptions = CGLSlang.GLStageOptions
+extension GLStage: CustomDebugStringConvertible {
+    public var debugDescription: String { description }
+}
+
+public typealias GLStageOptions = CGLSLang.GLStageOptions
 
 extension GLStageOptions: CaseIterable {
     public static var allCases: [Self] = [
@@ -67,7 +71,7 @@ extension GLStageOptions: CaseIterable {
     ]
 }
 
-public typealias GLSource = CGLSlang.GLSource
+public typealias GLSource = CGLSLang.GLSource
 
 extension GLSource: CustomStringConvertible {
     public var description: String {
@@ -82,7 +86,7 @@ extension GLSource: CustomStringConvertible {
     }
 }
 
-public typealias GLClient = CGLSlang.GLClient
+public typealias GLClient = CGLSLang.GLClient
 
 extension GLClient: CustomStringConvertible {
     public var description: String {
@@ -97,7 +101,7 @@ extension GLClient: CustomStringConvertible {
     }
 }
 
-public typealias GLTargetLanguage = CGLSlang.GLTargetLanguage
+public typealias GLTargetLanguage = CGLSLang.GLTargetLanguage
 
 extension GLTargetLanguage: CustomStringConvertible {
     public var description: String {
@@ -110,7 +114,7 @@ extension GLTargetLanguage: CustomStringConvertible {
     }
 }
 
-public typealias GLTargetClientVersion = CGLSlang.GLTargetClientVersion
+public typealias GLTargetClientVersion = CGLSLang.GLTargetClientVersion
 
 extension GLTargetClientVersion: CustomStringConvertible {
     public var description: String {
@@ -127,7 +131,7 @@ extension GLTargetClientVersion: CustomStringConvertible {
     }
 }
 
-public typealias GLTargetLanguageVersion = CGLSlang.GLTargetLanguageVersion
+public typealias GLTargetLanguageVersion = CGLSLang.GLTargetLanguageVersion
 
 extension GLTargetLanguageVersion: CustomStringConvertible {
     public var description: String {
@@ -148,7 +152,7 @@ extension GLTargetLanguageVersion: CustomStringConvertible {
     }
 }
 
-public typealias GLExecutable = CGLSlang.GLExecutable
+public typealias GLExecutable = CGLSLang.GLExecutable
 
 extension GLExecutable: CustomStringConvertible {
     public var description: String {
@@ -161,7 +165,7 @@ extension GLExecutable: CustomStringConvertible {
     }
 }
 
-public typealias GLOptimizationLevel = CGLSlang.GLOptimizationLevel
+public typealias GLOptimizationLevel = CGLSLang.GLOptimizationLevel
 
 extension GLOptimizationLevel: CustomStringConvertible {
     public var description: String {
@@ -178,7 +182,7 @@ extension GLOptimizationLevel: CustomStringConvertible {
     }
 }
 
-public typealias GLTextureSamplerTransformMode = CGLSlang.GLTextureSamplerTransformMode
+public typealias GLTextureSamplerTransformMode = CGLSLang.GLTextureSamplerTransformMode
 
 extension GLTextureSamplerTransformMode: CustomStringConvertible {
     public var description: String {
@@ -191,7 +195,7 @@ extension GLTextureSamplerTransformMode: CustomStringConvertible {
     }
 }
 
-public typealias GLMessageOptions = CGLSlang.GLMessageOptions
+public typealias GLMessageOptions = CGLSLang.GLMessageOptions
 
 extension GLMessageOptions: CaseIterable {
     public static var allCases: [Self] = [
@@ -202,7 +206,7 @@ extension GLMessageOptions: CaseIterable {
     ]
 }
 
-public typealias GLReflectionOptions = CGLSlang.GLReflectionOptions
+public typealias GLReflectionOptions = CGLSLang.GLReflectionOptions
 
 extension GLReflectionOptions: CaseIterable {
     public static var allCases: [Self] = [
@@ -212,7 +216,7 @@ extension GLReflectionOptions: CaseIterable {
     ]
 }
 
-public typealias GLProfile = CGLSlang.GLProfile
+public typealias GLProfile = CGLSLang.GLProfile
 
 extension GLProfile: CustomStringConvertible {
     public var description: String {
@@ -231,7 +235,7 @@ extension GLProfile: CustomStringConvertible {
     }
 }
 
-public typealias GLIncluderType = CGLSlang.GLIncluderType
+public typealias GLIncluderType = CGLSLang.GLIncluderType
 
 extension GLIncluderType: CustomStringConvertible {
     public var description: String {

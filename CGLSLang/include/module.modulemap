@@ -1,4 +1,4 @@
-module CGLSlang {
+module CGLSLang {
     umbrella "."
     export *
     link "c++"

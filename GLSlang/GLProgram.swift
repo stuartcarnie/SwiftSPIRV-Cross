@@ -19,14 +19,14 @@
 // SOFTWARE.
 
 import Foundation
-import CGLSlang
+import CGLSLang
 
 public class GLProgram {
     public enum ProgramError: Error {
         case link, noStage
     }
     
-    let program = CGLSlangProgram()
+    let program = CGLSLangProgram()
     
     public init() {}
     

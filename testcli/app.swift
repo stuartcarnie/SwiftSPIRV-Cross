@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import GLSlang
+import GLSLang
 import SPIRVCross
 import SPIRVTools
 
@@ -18,7 +18,18 @@ struct Test {
          #version 450
          #extension GL_GOOGLE_include_directive : enable
 
+         #define static
+
+         #define FOO 10.3
+
+         layout(push_constant) uniform Push
+         {
+            float phosphor_power;
+         } params;
+
          layout(location = 0) out vec4 FragColor;
+
+         static const float should_go_away = 3.0 / 4.0;
 
          void main()
          {
@@ -27,7 +38,7 @@ struct Test {
              if (false)
                  FragColor = vec4(1, 2, 3, 4);
              a = 6;
-             FragColor = vec4(1, 0, 0, a);
+             FragColor = vec4(1, FOO, 0, a);
          }
         """#
         let vertShader = GLShader(source: code, stage: stage)
@@ -53,10 +64,14 @@ struct Test {
             try prog.link()
             let vertSpv1 = try prog.generate(stage: stage)
             let opt = SPVTOptimizer(environment: .universal1_5)
-//            opt.registerDeadBranchElimPass()
-//            opt.registerStaticSingleAssignmentRewritePass();
-//            opt.registerAggressiveDeadCodeEliminationPass()
-            vertSpv = opt.optimize(spirv: vertSpv1)!
+            opt.registerConditionalConstantPropagationPass()
+                .registerDeadBranchElimPass()
+                .registerAggressiveDeadCodeEliminationPass()
+                .registerStaticSingleAssignmentRewritePass()
+                .registerAggressiveDeadCodeEliminationPass()
+
+            //vertSpv = opt.optimize(spirv: vertSpv1)!
+            vertSpv = vertSpv1
         } catch GLProgram.ProgramError.link {
             print("Link error")
             print(prog.infoLog)
@@ -70,7 +85,16 @@ struct Test {
         
         do {
             let vertMtl = try ctx.makeMetalCompiler(ir: try ctx.parse(data: vertSpv))
+            
             var opt = vertMtl.makeOptions()
+            let res = vertMtl.makeResources()
+            let ubo = res.pushConstants
+
+            let tID  = vertMtl.getType(id: ubo[0].typeID)
+            let btID = vertMtl.getType(id: ubo[0].baseTypeID)
+            
+            let vb = vertMtl.getVariable(resource: ubo[0])
+            
             opt.swizzleTextureSamples = false
             opt.forceNativeArrays = false
             opt.version = .version2_1

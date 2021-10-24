@@ -1,62 +1,62 @@
 ---
-Name: CGLSlang
+Name: CGLSLang
 SwiftInferImportAsMember: true
 Availability: available
 
 Typedefs:
   - Name: glslang_shader
-    SwiftName: CGLSlangShader
+    SwiftName: CGLSLangShader
     SwiftWrapper: struct
   - Name: glslang_program
-    SwiftName: CGLSlangProgram
+    SwiftName: CGLSLangProgram
     SwiftWrapper: struct
 
 Functions:
   # region glslang_shader_t
 
   - Name: glslang_shader_create
-    SwiftName: CGLSlangShader.init(input:)
+    SwiftName: CGLSLangShader.init(input:)
   - Name: glslang_shader_delete
     Nullability: [N]
   - Name: glslang_shader_preprocess
-    SwiftName: CGLSlangShader.preprocess(self:input:)
+    SwiftName: CGLSLangShader.preprocess(self:input:)
   - Name: glslang_shader_parse
-    SwiftName: CGLSlangShader.parse(self:input:)
+    SwiftName: CGLSLangShader.parse(self:input:)
   - Name: glslang_shader_get_preprocessed_code
-    SwiftName: getter:CGLSlangShader.preprocessed_code(self:)
+    SwiftName: getter:CGLSLangShader.preprocessed_code(self:)
   - Name: glslang_shader_get_info_log
-    SwiftName: getter:CGLSlangShader.info_log(self:)
+    SwiftName: getter:CGLSLangShader.info_log(self:)
   - Name: glslang_shader_get_info_debug_log
-    SwiftName: getter:CGLSlangShader.info_debug_log(self:)
+    SwiftName: getter:CGLSLangShader.info_debug_log(self:)
 
   # endregion
 
   # region glslang_program_t
 
   - Name: glslang_program_create
-    SwiftName: CGLSlangProgram.init()
+    SwiftName: CGLSLangProgram.init()
     NullabilityOfRet: N
   - Name: glslang_program_delete
     Nullability: [N]
   - Name: glslang_program_add_shader
-    SwiftName: CGLSlangProgram.add_shader(self:_:)
+    SwiftName: CGLSLangProgram.add_shader(self:_:)
     Nullability: [N, N]
   - Name: glslang_program_link
-    SwiftName: CGLSlangProgram.link(self:messages:)
+    SwiftName: CGLSLangProgram.link(self:messages:)
   - Name: glslang_program_SPIRV_generate
-    SwiftName: CGLSlangProgram.spirv_generate(self:stage:)
+    SwiftName: CGLSLangProgram.spirv_generate(self:stage:)
   - Name: glslang_program_SPIRV_get_size
-    SwiftName: getter:CGLSlangProgram.spirv_size(self:)
+    SwiftName: getter:CGLSLangProgram.spirv_size(self:)
   - Name: glslang_program_SPIRV_get
-    SwiftName: CGLSlangProgram.spirv_get(self:_:)
+    SwiftName: CGLSLangProgram.spirv_get(self:_:)
   - Name: glslang_program_SPIRV_get_ptr
-    SwiftName: getter:CGLSlangProgram.spirv_pointer(self:)
+    SwiftName: getter:CGLSLangProgram.spirv_pointer(self:)
   - Name: glslang_program_SPIRV_get_messages
-    SwiftName: getter:CGLSlangProgram.spirv_messages(self:)
+    SwiftName: getter:CGLSLangProgram.spirv_messages(self:)
   - Name: glslang_program_get_info_log
-    SwiftName: getter:CGLSlangProgram.info_log(self:)
+    SwiftName: getter:CGLSLangProgram.info_log(self:)
   - Name: glslang_program_get_info_debug_log
-    SwiftName: getter:CGLSlangProgram.info_debug_log(self:)
+    SwiftName: getter:CGLSLangProgram.info_debug_log(self:)
 
   # endregion
 

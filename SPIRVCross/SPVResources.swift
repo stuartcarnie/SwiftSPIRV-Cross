@@ -54,7 +54,6 @@ extension SPVResources {
 public struct SPVReflectedResource {
     let data: __spvc_reflected_resource
     
-    @inline(__always)
     public var id: SPVVariableID { data.id }
     public var baseTypeID: SPVTypeID { data.base_type_id }
     public var typeID: SPVTypeID { data.type_id }

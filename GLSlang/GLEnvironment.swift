@@ -19,7 +19,7 @@
 // SOFTWARE.
 
 import Foundation
-import CGLSlang
+import CGLSLang
 
 public struct GLEnvironmentInput {
     public enum DefaultVersion: Int32 {

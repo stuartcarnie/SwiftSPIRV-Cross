@@ -75,6 +75,10 @@ extension SPVTargetEnvironment: CustomStringConvertible {
     }
 }
 
+extension SPVTargetEnvironment: CustomDebugStringConvertible {
+    public var debugDescription: String { description }
+}
+
 extension SPVLevel: CustomStringConvertible {
     public var description: String {
         switch self {
@@ -92,4 +96,8 @@ extension SPVLevel: CustomStringConvertible {
             return "debug"
         }
     }
+}
+
+extension SPVLevel: CustomDebugStringConvertible {
+    public var debugDescription: String { description }
 }

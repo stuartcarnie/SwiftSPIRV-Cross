@@ -20,7 +20,9 @@
 
 import CSPIRVCross
 
-extension SpvExecutionModel: CustomStringConvertible {
+public typealias SPVExecutionModel = CSPIRVCross.SPVExecutionModel
+
+extension SPVExecutionModel: CustomStringConvertible {
     public var description: String {
         switch self {
         case .vertex:
@@ -54,9 +56,13 @@ extension SpvExecutionModel: CustomStringConvertible {
         case .callableKHR:
             return "callableKHR"
         case .__max:
-            return "max"
+            return "__max"
         }
     }
+}
+
+extension SPVExecutionModel: CustomDebugStringConvertible {
+    public var debugDescription: String { description }
 }
 
 public typealias SPVBaseType = CSPIRVCross.SPVBaseType
@@ -110,6 +116,10 @@ extension SPVBaseType: CustomStringConvertible {
     }
 }
 
+extension SPVBaseType: CustomDebugStringConvertible {
+    public var debugDescription: String { description }
+}
+
 extension SPVBackend: CustomStringConvertible {
     public var description: String {
         switch self {
@@ -128,6 +138,8 @@ extension SPVBackend: CustomStringConvertible {
         }
     }
 }
+
+public typealias SPVDecoration = CSPIRVCross.SPVDecoration
 
 extension SPVDecoration: CustomStringConvertible {
     public var description: String {
@@ -266,6 +278,12 @@ extension SPVDecoration: CustomStringConvertible {
     }
 }
 
+extension SPVDecoration: CustomDebugStringConvertible {
+    public var debugDescription: String { description }
+}
+
+public typealias SPVResourceType = CSPIRVCross.SPVResourceType
+
 extension SPVResourceType: CustomStringConvertible {
     public var description: String {
         switch self {
@@ -302,6 +320,12 @@ extension SPVResourceType: CustomStringConvertible {
         }
     }
 }
+
+extension SPVResourceType: CustomDebugStringConvertible {
+    public var debugDescription: String { description }
+}
+
+public typealias SPVStorageClass = CSPIRVCross.SPVStorageClass
 
 extension SPVStorageClass: CustomStringConvertible {
     public var description: String {
@@ -352,6 +376,12 @@ extension SPVStorageClass: CustomStringConvertible {
     }
 }
 
+extension SPVStorageClass: CustomDebugStringConvertible {
+    public var debugDescription: String { description }
+}
+
+public typealias SPVDim = CSPIRVCross.SPVDim
+
 extension SPVDim: CustomStringConvertible {
     public var description: String {
         switch self {
@@ -374,6 +404,12 @@ extension SPVDim: CustomStringConvertible {
         }
     }
 }
+
+extension SPVDim: CustomDebugStringConvertible {
+    public var debugDescription: String { description }
+}
+
+public typealias SPVImageFormat = CSPIRVCross.SPVImageFormat
 
 extension SPVImageFormat: CustomStringConvertible {
     public var description: String {
@@ -464,7 +500,13 @@ extension SPVImageFormat: CustomStringConvertible {
     }
 }
 
-extension SpvAccessQualifier: CustomStringConvertible {
+extension SPVImageFormat: CustomDebugStringConvertible {
+    public var debugDescription: String { description }
+}
+
+public typealias SPVAccessQualifier = CSPIRVCross.SPVAccessQualifier
+
+extension SPVAccessQualifier: CustomStringConvertible {
     public var description: String {
         switch self {
         case .readOnly:
@@ -477,4 +519,8 @@ extension SpvAccessQualifier: CustomStringConvertible {
             return "max"
         }
     }
+}
+
+extension SPVAccessQualifier: CustomDebugStringConvertible {
+    public var debugDescription: String { description }
 }

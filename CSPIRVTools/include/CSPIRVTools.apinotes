@@ -126,6 +126,8 @@ Functions:
     SwiftName: CSPVTOptimizer.register_dead_insert_elim_pass(self:)
   - Name: spvt_optimizer_register_aggressive_dce_pass
     SwiftName: CSPVTOptimizer.register_aggressive_dce_pass(self:)
+  - Name: spvt_optimizer_register_remove_unused_interface_variables_pass
+    SwiftName: CSPVTOptimizer.register_remove_unused_interface_variables_pass(self:)    
   - Name: spvt_optimizer_register_propagate_line_info_pass
     SwiftName: CSPVTOptimizer.register_propagate_line_info_pass(self:)
   - Name: spvt_optimizer_register_redundant_line_info_elim_pass
@@ -210,7 +212,9 @@ Functions:
     SwiftName: CSPVTOptimizer.register_wrap_op_kill_pass(self:)
   - Name: spvt_optimizer_register_amd_ext_to_khr_pass
     SwiftName: CSPVTOptimizer.register_amd_ext_to_khr_pass(self:)
-
+  - Name: spvt_optimizer_register_interpolate_fixup_pass
+    SwiftName: CSPVTOptimizer.register_interpolate_fixup_pass(self:)
+    
   # endregion
 
 Tags:
