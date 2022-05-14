@@ -16,7 +16,7 @@ extern "C" {
 #endif
 
 #include <stddef.h>
-#include <libspirv.h>
+#include <CSPIRVTools/libspirv.h>
 
 #define SPVT_PUBLIC_API
 
@@ -59,6 +59,10 @@ typedef enum spv_target_env_t {
   SPV_TARGET_ENV_VULKAN_1_1_SPIRV_1_4,
   SPV_TARGET_ENV_UNIVERSAL_1_5,  // SPIR-V 1.5 latest revision, no other restrictions.
   SPV_TARGET_ENV_VULKAN_1_2,     // Vulkan 1.2 latest revision.
+  SPV_TARGET_ENV_UNIVERSAL_1_6,  // SPIR-V 1.6 latest revision, no other restrictions.
+  SPV_TARGET_ENV_VULKAN_1_3,     // Vulkan 1.3 latest revision.
+    
+  SPV_TARGET_ENV_MAX // Keep this as the last enum value.
 } spv_target_env_t;
 
 #pragma mark - Typedefs
@@ -143,6 +147,11 @@ SPVT_PUBLIC_API void spvt_optimizer_register_strip_debug_info_pass(spvt_optimize
 // the future.
 SPVT_PUBLIC_API void spvt_optimizer_register_strip_reflect_info_pass(spvt_optimizer optimizer);
 
+// Creates a strip-nonsemantic-info pass.
+// A strip-nonsemantic-info pass removes all reflections and explicitly
+// non-semantic instructions.
+SPVT_PUBLIC_API void spvt_optimizer_register_strip_non_semantic_info_pass(spvt_optimizer optimizer);
+
 // Creates an eliminate-dead-functions pass.
 // An eliminate-dead-functions pass will remove all functions that are not in
 // the call trees rooted at entry points and exported functions.  These
@@ -201,11 +210,11 @@ SPVT_PUBLIC_API void spvt_optimizer_register_freeze_spec_constant_value_pass(spv
 // and can be changed in future. A spec constant is foldable if all of its
 // value(s) can be determined from the module. E.g., an integer spec constant
 // defined with OpSpecConstantOp instruction can be folded if its value won't
-// change later. This pass will replace the original OpSpecContantOp instruction
-// with an OpConstant instruction. When folding composite spec constants,
-// new instructions may be inserted to define the components of the composite
-// constant first, then the original spec constants will be replaced by
-// OpConstantComposite instructions.
+// change later. This pass will replace the original OpSpecConstantOp
+// instruction with an OpConstant instruction. When folding composite spec
+// constants, new instructions may be inserted to define the components of the
+// composite constant first, then the original spec constants will be replaced
+// by OpConstantComposite instructions.
 //
 // There are some operations not supported yet:
 //   OpSConvert, OpFConvert, OpQuantizeToF16 and
@@ -231,7 +240,7 @@ SPVT_PUBLIC_API void spvt_optimizer_register_unify_constant_pass(spvt_optimizer 
 
 // Creates a eliminate-dead-constant pass.
 // A eliminate-dead-constant pass removes dead constants, including normal
-// contants defined by OpConstant, OpConstantComposite, OpConstantTrue, or
+// constants defined by OpConstant, OpConstantComposite, OpConstantTrue, or
 // OpConstantFalse and spec constants defined by OpSpecConstant,
 // OpSpecConstantComposite, OpSpecConstantTrue, OpSpecConstantFalse or
 // OpSpecConstantOp.
@@ -295,7 +304,7 @@ SPVT_PUBLIC_API void spvt_optimizer_register_inline_opaque_pass(spvt_optimizer o
 // Only modules with relaxed logical addressing (see opt/instruction.h) are
 // currently processed.
 //
-// This pass is most effective if preceeded by Inlining and
+// This pass is most effective if preceded by Inlining and
 // LocalAccessChainConvert. This pass will reduce the work needed to be done
 // by LocalSingleStoreElim and LocalMultiStoreElim.
 //
@@ -313,7 +322,7 @@ SPVT_PUBLIC_API void spvt_optimizer_register_local_single_block_load_store_elim_
 // Note that some branches and blocks may be left to avoid creating invalid
 // control flow. Improving this is left to future work.
 //
-// This pass is most effective when preceeded by passes which eliminate
+// This pass is most effective when preceded by passes which eliminate
 // local loads and stores, effectively propagating constant values where
 // possible.
 SPVT_PUBLIC_API void spvt_optimizer_register_dead_branch_elim_pass(spvt_optimizer optimizer);
@@ -330,7 +339,7 @@ SPVT_PUBLIC_API void spvt_optimizer_register_dead_branch_elim_pass(spvt_optimize
 // are currently processed. Currently modules with any extensions enabled are
 // not processed. This is left for future work.
 //
-// This pass is most effective if preceeded by Inlining and
+// This pass is most effective if preceded by Inlining and
 // LocalAccessChainConvert. LocalSingleStoreElim and LocalSingleBlockElim
 // will reduce the work that this pass has to do.
 SPVT_PUBLIC_API void spvt_optimizer_register_local_multi_store_elim_pass(spvt_optimizer optimizer);
@@ -541,7 +550,7 @@ SPVT_PUBLIC_API void spvt_optimizer_register_redundancy_elimination_pass(spvt_op
 SPVT_PUBLIC_API void spvt_optimizer_register_scalar_replacement_pass(spvt_optimizer optimizer, uint32_t size_limit);
 
 // Create a private to local pass.
-// This pass looks for variables delcared in the private storage class that are
+// This pass looks for variables declared in the private storage class that are
 // used in only one function.  Those variables are moved to the function storage
 // class in the function that they are used.
 SPVT_PUBLIC_API void spvt_optimizer_register_private_to_local_pass(spvt_optimizer optimizer);
@@ -735,6 +744,19 @@ SPVT_PUBLIC_API void spvt_optimizer_register_fix_storage_class_pass(spvt_optimiz
 //   inclusive.
 SPVT_PUBLIC_API void spvt_optimizer_register_graphics_robust_access_pass(spvt_optimizer optimizer);
 
+// Create a pass to spread Volatile semantics to variables with SMIDNV,
+// WarpIDNV, SubgroupSize, SubgroupLocalInvocationId, SubgroupEqMask,
+// SubgroupGeMask, SubgroupGtMask, SubgroupLeMask, or SubgroupLtMask BuiltIn
+// decorations or OpLoad for them when the shader model is the ray generation,
+// closest hit, miss, intersection, or callable. This pass can be used for
+// VUID-StandaloneSpirv-VulkanMemoryModel-04678 and
+// VUID-StandaloneSpirv-VulkanMemoryModel-04679 (See "Standalone SPIR-V
+// Validation" section of Vulkan spec "Appendix A: Vulkan Environment for
+// SPIR-V"). When the SPIR-V version is 1.6 or above, the pass also spreads
+// the Volatile semantics to a variable with HelperInvocation BuiltIn decoration
+// in the fragement shader.
+SPVT_PUBLIC_API void spvt_optimizer_register_spread_volatile_semantics_pass(spvt_optimizer optimizer);
+
 // Create descriptor scalar replacement pass.
 // This pass replaces every array variable |desc| that has a DescriptorSet and
 // Binding decorations with a new variable for each element of the array.
@@ -763,6 +785,18 @@ SPVT_PUBLIC_API void spvt_optimizer_register_amd_ext_to_khr_pass(spvt_optimizer 
 // of HLSL legalization and should be called after interpolants have been
 // propagated into their final positions.
 SPVT_PUBLIC_API void spvt_optimizer_register_interpolate_fixup_pass(spvt_optimizer optimizer);
+
+// Removes unused components from composite input variables. Current
+// implementation just removes trailing unused components from input arrays.
+// The pass performs best after maximizing dead code removal. A subsequent dead
+// code elimination pass would be beneficial in removing newly unused component
+// types.
+SPVT_PUBLIC_API void spvt_optimizer_register_eliminate_dead_input_components_pass(spvt_optimizer optimizer);
+
+// Creates a remove-dont-inline pass to remove the |DontInline| function control
+// from every function in the module.  This is useful if you want the inliner to
+// inline these functions some reason.
+SPVT_PUBLIC_API void spvt_optimizer_register_remove_dont_inline_pass(spvt_optimizer optimizer);
 
 // endregion
 

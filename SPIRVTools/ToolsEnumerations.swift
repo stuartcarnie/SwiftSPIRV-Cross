@@ -71,6 +71,10 @@ extension SPVTargetEnvironment: CustomStringConvertible {
             return "universal1_5"
         case .vulkan1_2:
             return "vulkan1_2"
+        case .universal1_6:
+            return "universal1_6"
+        case .vulkan1_3:
+            return "vulkan1_3"
         }
     }
 }

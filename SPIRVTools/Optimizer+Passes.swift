@@ -64,6 +64,14 @@ extension SPVTOptimizer {
     public func registerStripReflectInfoPass() {
         optimizer.register_strip_reflect_info_pass()
     }
+    
+    /// Registers a strip-nonsemantic-info pass.
+    ///
+    /// A strip-nonsemantic-info pass removes all reflections and explicitly
+    /// non-semantic instructions.
+    public func registerStripNonSemanticInfoPass() {
+        optimizer.register_strip_non_semantic_info_pass()
+    }
 
     /// Registers an eliminate-dead-functions pass.
     ///
@@ -121,11 +129,11 @@ extension SPVTOptimizer {
     /// and can be changed in future. A spec constant is foldable if all of its
     /// value(s) can be determined from the module. E.g., an integer spec constant
     /// defined with `OpSpecConstantOp` instruction can be folded if its value won't
-    /// change later. This pass will replace the original `OpSpecContantOp` instruction
-    /// with an `OpConstant` instruction. When folding composite spec constants,
-    /// new instructions may be inserted to define the components of the composite
-    /// constant first, then the original spec constants will be replaced by
-    /// `OpConstantComposite` instructions.
+    /// change later. This pass will replace the original `OpSpecConstantOp`
+    /// instruction with an `OpConstant` instruction. When folding composite spec
+    /// constants, new instructions may be inserted to define the components of the
+    /// composite constant first, then the original spec constants will be replaced
+    /// by `OpConstantComposite` instructions.
     ///
     /// - Note:
     /// There are some operations not supported yet:
@@ -161,7 +169,7 @@ extension SPVTOptimizer {
     /// Registers a eliminate-dead-constant pass.
     ///
     /// A eliminate-dead-constant pass removes dead constants, including normal
-    /// contants defined by `OpConstant`, `OpConstantComposite`, `OpConstantTrue`, or
+    /// constants defined by `OpConstant`, `OpConstantComposite`, `OpConstantTrue`, or
     /// `OpConstantFalse` and spec constants defined by `OpSpecConstant`,
     /// `OpSpecConstantComposite`, `OpSpecConstantTrue`, `OpSpecConstantFalse` or
     /// `OpSpecConstantOp`.
@@ -241,7 +249,7 @@ extension SPVTOptimizer {
     /// currently processed.
     ///
     /// - Important
-    /// This pass is most effective if preceeded by Inlining and
+    /// This pass is most effective if preceded by Inlining and
     /// `registerLocalAccessChainConvertPass`. This pass will reduce the work needed to be done
     /// by `registerLocalSingleStoreElimPass` and `registerLocalMultiStoreElimPass`.
     ///
@@ -264,7 +272,7 @@ extension SPVTOptimizer {
     /// control flow. Improving this is left to future work.
     ///
     /// - Important
-    /// This pass is most effective when preceeded by passes which eliminate
+    /// This pass is most effective when preceded by passes which eliminate
     /// local loads and stores, effectively propagating constant values where
     /// possible.
     @discardableResult
@@ -287,7 +295,7 @@ extension SPVTOptimizer {
     /// not processed. This is left for future work.
     ///
     /// - Important
-    /// This pass is most effective if preceeded by Inlining and
+    /// This pass is most effective if preceded by Inlining and
     /// `registerLocalAccessChainConvertPass`.
     /// `registerLocalSingleStoreElimPass` and `registerLocalSingleBlockElimPass`
     /// will reduce the work that this pass has to do.
@@ -871,6 +879,23 @@ extension SPVTOptimizer {
         optimizer.register_graphics_robust_access_pass()
     }
 
+    /// Register a pass to spread Volatile semantics.
+    ///
+    /// This pass will spread Volatile semantics to variables with `SMIDNV`,
+    /// `WarpIDNV`, `SubgroupSize`, `SubgroupLocalInvocationId`, `SubgroupEqMask`,
+    /// `SubgroupGeMask`, `SubgroupGtMask`, `SubgroupLeMask`, or `SubgroupLtMask` BuiltIn
+    /// decorations or `OpLoad` for them when the shader model is the ray generation,
+    /// closest hit, miss, intersection, or callable. This pass can be used for
+    /// VUID-StandaloneSpirv-VulkanMemoryModel-04678 and
+    /// VUID-StandaloneSpirv-VulkanMemoryModel-04679 (See "Standalone SPIR-V
+    /// Validation" section of Vulkan spec "Appendix A: Vulkan Environment for
+    /// SPIR-V"). When the SPIR-V version is 1.6 or above, the pass also spreads
+    /// the Volatile semantics to a variable with HelperInvocation BuiltIn decoration
+    /// in the fragement shader.
+    public func registerSpreadVolatileSemanticsPass() {
+        optimizer.register_spread_volatile_semantics_pass()
+    }
+
     /// Registers a descriptor-scalar-replacement pass.
     ///
     /// This pass replaces every array variable `desc` that has a DescriptorSet and
@@ -904,7 +929,7 @@ extension SPVTOptimizer {
     
     /// Registers a pass to replace 
     ///
-    /// Replaces the internal version of GLSLstd450 InterpolateAt* extended
+    /// Replaces the internal version of GLSLstd450 InterpolateAt extended
     /// instructions with the externally valid version. The internal version allows
     /// an OpLoad of the interpolant for the first argument. This pass removes the
     /// OpLoad and replaces it with its pointer. glslang and possibly other
@@ -916,5 +941,25 @@ extension SPVTOptimizer {
         optimizer.register_interpolate_fixup_pass()
         return self
     }
+    
+    /// Registers a pass to remove unused components from composite input variables.
+    ///
+    /// The current implementation just removes trailing unused components from input arrays.
+    /// The pass performs best after maximizing dead code removal. A subsequent dead
+    /// code elimination pass would be beneficial in removing newly unused component
+    /// types.
+    public func registerEliminateDeadInputComponentsPass() {
+        optimizer.register_eliminate_dead_input_components_pass()
+    }
+    
+    /// Register a remove-dont-inline pass.
+    ///
+    /// This pass will remove the `|DontInline|` function control
+    /// from every function in the module.  This is useful if you want the inliner to
+    /// inline these functions some reason.
+    public func register() {
+        optimizer.register_remove_dont_inline_pass()
+    }
+
 }
 

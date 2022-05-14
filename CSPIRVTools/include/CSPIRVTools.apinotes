@@ -88,6 +88,8 @@ Functions:
     SwiftName: CSPVTOptimizer.register_strip_debug_info_pass(self:)
   - Name: spvt_optimizer_register_strip_reflect_info_pass
     SwiftName: CSPVTOptimizer.register_strip_reflect_info_pass(self:)
+  - Name: spvt_optimizer_register_strip_non_semantic_info_pass
+    SwiftName: CSPVTOptimizer.register_strip_non_semantic_info_pass(self:)
   - Name: spvt_optimizer_register_eliminate_dead_functions_pass
     SwiftName: CSPVTOptimizer.register_eliminate_dead_functions_pass(self:)
   - Name: spvt_optimizer_register_eliminate_dead_members_pass
@@ -206,6 +208,8 @@ Functions:
     SwiftName: CSPVTOptimizer.register_split_invalid_unreachable_pass(self:)
   - Name: spvt_optimizer_register_graphics_robust_access_pass
     SwiftName: CSPVTOptimizer.register_graphics_robust_access_pass(self:)
+  - Name: spvt_optimizer_register_spread_volatile_semantics_pass
+    SwiftName: CSPVTOptimizer.register_spread_volatile_semantics_pass(self:)
   - Name: spvt_optimizer_register_descriptor_scalar_replacement_pass
     SwiftName: CSPVTOptimizer.register_descriptor_scalar_replacement_pass(self:)
   - Name: spvt_optimizer_register_wrap_op_kill_pass
@@ -214,7 +218,11 @@ Functions:
     SwiftName: CSPVTOptimizer.register_amd_ext_to_khr_pass(self:)
   - Name: spvt_optimizer_register_interpolate_fixup_pass
     SwiftName: CSPVTOptimizer.register_interpolate_fixup_pass(self:)
-    
+  - Name: spvt_optimizer_register_eliminate_dead_input_components_pass
+    SwiftName: CSPVTOptimizer.register_eliminate_dead_input_components_pass(self:)
+  - Name: spvt_optimizer_register_remove_dont_inline_pass
+    SwiftName: CSPVTOptimizer.register_remove_dont_inline_pass(self:)
+
   # endregion
 
 Tags:
@@ -278,6 +286,12 @@ Enumerators:
     SwiftName: universal1_5
   - Name: SPV_TARGET_ENV_VULKAN_1_2
     SwiftName: vulkan1_2
+  - Name: SPV_TARGET_ENV_UNIVERSAL_1_6
+    SwiftName: universal1_6
+  - Name: SPV_TARGET_ENV_VULKAN_1_3
+    SwiftName: vulkan1_3
+  - Name: SPV_TARGET_ENV_MAX
+    Availability: nonswift
 
   # endregion
 

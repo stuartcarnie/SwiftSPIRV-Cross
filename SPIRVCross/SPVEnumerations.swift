@@ -266,12 +266,38 @@ extension SPVDecoration: CustomStringConvertible {
             return "restrictPointer"
         case .aliasedPointer:
             return "aliasedPointer"
+        case .referencedIndirectlyINTEL:
+            return "referencedIndirectlyINTEL"
         case .counterBuffer:
             return "counterBuffer"
         case .hlslSemanticGOOGLE:
             return "hlslSemanticGOOGLE"
         case .userTypeGOOGLE:
             return "userTypeGOOGLE"
+        case .registerINTEL:
+            return "registerINTEL"
+        case .memoryINTEL:
+            return "memoryINTEL"
+        case .numbanksINTEL:
+            return "numbanksINTEL"
+        case .bankwidthINTEL:
+            return "bankwidthINTEL"
+        case .maxPrivateCopiesINTEL:
+            return "maxPrivateCopiesINTEL"
+        case .singlepumpINTEL:
+            return "singlepumpINTEL"
+        case .doublepumpINTEL:
+            return "doublepumpINTEL"
+        case .maxReplicatesINTEL:
+            return "maxReplicatesINTEL"
+        case .simpleDualPortINTEL:
+            return "simpleDualPortINTEL"
+        case .mergeINTEL:
+            return "mergeINTEL"
+        case .bankBitsINTEL:
+            return "bankBitsINTEL"
+        case .forcePow2DepthINTEL:
+            return "forcePow2DepthINTEL"
         case .max:
             return "max"
         }
@@ -369,6 +395,8 @@ extension SPVStorageClass: CustomStringConvertible {
         case .shaderRecordBufferKHR:
             return "shaderRecordBufferKHR"
         case .physicalStorageBuffer:
+            return "physicalStorageBuffer"
+        case .codeSectionINTEL:
             return "physicalStorageBuffer"
         case .max:
             return "max"
@@ -494,6 +522,10 @@ extension SPVImageFormat: CustomStringConvertible {
             return "r16ui"
         case .r8ui:
             return "r8ui"
+        case .r64ui:
+            return "r64ui"
+        case .r64i:
+            return "r64i"
         case .max:
             return "max"
         }

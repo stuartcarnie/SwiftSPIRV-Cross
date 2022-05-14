@@ -125,6 +125,8 @@ extension GLTargetClientVersion: CustomStringConvertible {
             return "vulkan1_1"
         case .vulkan1_2:
             return "vulkan1_2"
+        case .vulkan1_3:
+            return "vulkan1_3"
         case .opengl450:
             return "opengl450"
         }
@@ -148,6 +150,8 @@ extension GLTargetLanguageVersion: CustomStringConvertible {
             return "spv1_4"
         case .spv1_5:
             return "spv1_5"
+        case .spv1_6:
+            return "spv1_6"
         }
     }
 }

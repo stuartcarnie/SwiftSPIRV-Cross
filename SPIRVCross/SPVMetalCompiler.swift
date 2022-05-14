@@ -382,6 +382,8 @@ extension MTLLanguageVersion {
             return makeVersion(major: 2, minor: 2)
         case .version2_3:
             return makeVersion(major: 2, minor: 3)
+        case .version2_4:
+            return makeVersion(major: 2, minor: 4)
         @unknown default:
             fatalError()
         }

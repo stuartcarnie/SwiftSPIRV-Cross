@@ -22,7 +22,7 @@ MACOS_SDK_VERSION := $(shell xcrun --sdk macosx --show-sdk-version)
 # need to check the current SDK is either >= 10.16 or 11.0
 TARGET_ARCHITECTURES ?= $(shell ./version_gte.sh $(MACOS_SDK_VERSION) 11.0 || ./version_gte.sh $(MACOS_SDK_VERSION) 10.16 && echo 'arm64;x86_64' || echo 'x86_64')
 
-all: libSPIRV-Tools-opt.a build_info.h
+all: spirv-update-ext build_info.h
 
 install: all
 .PHONY: install
@@ -55,24 +55,25 @@ clean-spirv:
 	rm -rf $(SPIRV_TOOLS_EXTERNAL_DIR)/SPIRV-Headers
 .PHONY : clean-spirv
 
-libSPIRV-Tools-opt.a: $(SPIRV_TOOLS_BUILD_DIR)/source/opt/libSPIRV-Tools-opt.a
-.PHONY : libSPIRV-Tools-opt.a
+spirv-generate: $(SPIRV_TOOLS_BUILD_DIR)/CMakeCache.txt
+	$(MAKE) -j$(NCPUS) -C $(SPIRV_TOOLS_BUILD_DIR) extinst_tables core_tables enum_string_mapping spirv-tools-build-version
+.PHONY: spirv-generate
 
-$(SPIRV_TOOLS_BUILD_DIR)/source/opt/libSPIRV-Tools-opt.a: $(SPIRV_TOOLS_BUILD_DIR)/CMakeCache.txt
-	mkdir -p $(SPIRV_TOOLS_BUILD_DIR)
-	$(MAKE) -j$(NCPUS) -C $(SPIRV_TOOLS_BUILD_DIR) SPIRV-Tools-opt
+spirv-update-ext: spirv-generate
+	rsync --delete -vaE --include='*.h' --include='*.inc' --exclude='*' SPIRV-Tools/build/ ../CSPIRVTools/ext/
+
+spirv-sync-headers: $(SPIRV_TOOLS_EXTERNAL_DIR)/SPIRV-Headers
+	rsync --delete -vaE SPIRV-Tools/external/SPIRV-Headers/include/ ../CSPIRVTools/SPIRV-Headers/include/
 
 $(SPIRV_TOOLS_BUILD_DIR)/CMakeCache.txt: $(SPIRV_TOOLS_DIR)/CMakeLists.txt $(SPIRV_TOOLS_EXTERNAL_DIR)/SPIRV-Headers
 	mkdir -p $(SPIRV_TOOLS_BUILD_DIR)
-	$(CMAKE) -B $(SPIRV_TOOLS_BUILD_DIR) -S $(SPIRV_TOOLS_DIR) -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_OSX_ARCHITECTURES='$(TARGET_ARCHITECTURES)' -DSPIRV_WERROR=OFF
+	$(CMAKE) -B $(SPIRV_TOOLS_BUILD_DIR) -S $(SPIRV_TOOLS_DIR) -DCMAKE_BUILD_TYPE=RelWithDebInfo
 
-# SHA for SPIRV-Headers comes from 
-# https://github.com/KhronosGroup/SPIRV-Tools/blob/21f7c5675da3a45c13024dc1169438eb4e8f7e0c/DEPS#L9
 $(SPIRV_TOOLS_EXTERNAL_DIR)/SPIRV-Headers:
 	pushd $(SPIRV_TOOLS_DIR); \
 	git clone https://github.com/KhronosGroup/SPIRV-Headers.git external/SPIRV-Headers; \
 	cd external/SPIRV-Headers; \
-	git checkout e71feddb3f17c5586ff7f4cfb5ed1258b800574b; \
+	git checkout `grep "spirv_headers_revision':" ../../DEPS | sed -E "s|.*': '||;s|',||"`; \
 	popd
 
 print:

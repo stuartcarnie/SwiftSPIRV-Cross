@@ -92,11 +92,10 @@
 		0535653825BA128E00FDAFC0 /* glslang_c_interface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0535652725B8CDFD00FDAFC0 /* glslang_c_interface.h */; };
 		0535653925BA128E00FDAFC0 /* glslang_c_shader_types.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0535652425B8CDFC00FDAFC0 /* glslang_c_shader_types.h */; };
 		0535653A25BA128E00FDAFC0 /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0535652325B8CDDA00FDAFC0 /* module.modulemap */; };
-		0535655B25BA13EF00FDAFC0 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535655A25BA13EF00FDAFC0 /* Enumerations.swift */; };
+		0535655B25BA13EF00FDAFC0 /* GLEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535655A25BA13EF00FDAFC0 /* GLEnumerations.swift */; };
 		0535656225BA146500FDAFC0 /* GLEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535656125BA146500FDAFC0 /* GLEnvironment.swift */; };
 		0535656925BA148600FDAFC0 /* GLProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535656825BA148600FDAFC0 /* GLProgram.swift */; };
 		0535657025BA149400FDAFC0 /* GLShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535656F25BA149400FDAFC0 /* GLShader.swift */; };
-		0535658025BA153600FDAFC0 /* libGLSLang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0535654725BA13D600FDAFC0 /* libGLSLang.a */; };
 		0535659B25BA15EB00FDAFC0 /* ossource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0535645C25B8CB3900FDAFC0 /* ossource.cpp */; };
 		053565AB25BA15F100FDAFC0 /* osinclude.h in Headers */ = {isa = PBXBuildFile; fileRef = 0535645E25B8CB3900FDAFC0 /* osinclude.h */; };
 		053565B925BA16A300FDAFC0 /* glslang_c_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053565B825BA16A300FDAFC0 /* glslang_c_interface.cpp */; };
@@ -126,8 +125,8 @@
 		0535665325BA1CE900FDAFC0 /* spirv_cross_parsed_ir.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0535663825BA1CE900FDAFC0 /* spirv_cross_parsed_ir.hpp */; };
 		0535665425BA1CE900FDAFC0 /* spirv_glsl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0535663925BA1CE900FDAFC0 /* spirv_glsl.hpp */; };
 		0535665B25BA1CF500FDAFC0 /* GLSL.std.450.h in Headers */ = {isa = PBXBuildFile; fileRef = 0535665A25BA1CF500FDAFC0 /* GLSL.std.450.h */; };
-		0535667525BA1DA500FDAFC0 /* spirv_cross_c.h in Headers */ = {isa = PBXBuildFile; fileRef = 0535667325BA1DA400FDAFC0 /* spirv_cross_c.h */; };
-		0535667625BA1DA500FDAFC0 /* spirv.h in Headers */ = {isa = PBXBuildFile; fileRef = 0535667425BA1DA500FDAFC0 /* spirv.h */; };
+		0535667525BA1DA500FDAFC0 /* spirv_cross_c.h in Headers */ = {isa = PBXBuildFile; fileRef = 0535667325BA1DA400FDAFC0 /* spirv_cross_c.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0535667625BA1DA500FDAFC0 /* spirv.h in Headers */ = {isa = PBXBuildFile; fileRef = 0535667425BA1DA500FDAFC0 /* spirv.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0535668225BA1E6900FDAFC0 /* spirv_cross_c.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0535667325BA1DA400FDAFC0 /* spirv_cross_c.h */; };
 		0535668325BA1E6900FDAFC0 /* spirv.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0535667425BA1DA500FDAFC0 /* spirv.h */; };
 		0535668425BA1E6900FDAFC0 /* CSPIRVCross.apinotes in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0535667125BA1D9600FDAFC0 /* CSPIRVCross.apinotes */; };
@@ -143,10 +142,60 @@
 		053566C425BA1EDF00FDAFC0 /* SPVVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566B725BA1EDC00FDAFC0 /* SPVVariable.swift */; };
 		053566C525BA1EDF00FDAFC0 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566B825BA1EDD00FDAFC0 /* Global.swift */; };
 		053566C625BA1EDF00FDAFC0 /* SPVType+Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566B925BA1EDE00FDAFC0 /* SPVType+Struct.swift */; };
-		053566C725BA1EDF00FDAFC0 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566BA25BA1EDE00FDAFC0 /* Enumerations.swift */; };
+		053566C725BA1EDF00FDAFC0 /* SPVEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566BA25BA1EDE00FDAFC0 /* SPVEnumerations.swift */; };
 		053566C825BA1EDF00FDAFC0 /* SPVContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566BB25BA1EDF00FDAFC0 /* SPVContext.swift */; };
 		053566CF25BA1EF300FDAFC0 /* libCSPIRVCross.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0535661025BA1C7F00FDAFC0 /* libCSPIRVCross.a */; };
-		053566D625BA1F2700FDAFC0 /* libSPIRVCross.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0535669425BA1EB300FDAFC0 /* libSPIRVCross.a */; };
+		057DDA06282F12D4002A5877 /* control_dependence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 057DDA04282F12D4002A5877 /* control_dependence.cpp */; };
+		057DDA07282F12D4002A5877 /* control_dependence.h in Headers */ = {isa = PBXBuildFile; fileRef = 057DDA05282F12D4002A5877 /* control_dependence.h */; };
+		057DDA0D282F262C002A5877 /* CSPIRVCross.apinotes in Headers */ = {isa = PBXBuildFile; fileRef = 0535667125BA1D9600FDAFC0 /* CSPIRVCross.apinotes */; settings = {ATTRIBUTES = (Public, ); }; };
+		057DDA0E282F262F002A5877 /* module.modulemap in Headers */ = {isa = PBXBuildFile; fileRef = 0535667225BA1D9600FDAFC0 /* module.modulemap */; settings = {ATTRIBUTES = (Public, ); }; };
+		057DDA0F282F2636002A5877 /* CSPIRVTools.apinotes in Headers */ = {isa = PBXBuildFile; fileRef = 0585D06125BA76B800C169B0 /* CSPIRVTools.apinotes */; settings = {ATTRIBUTES = (Public, ); }; };
+		057DDA10282F2638002A5877 /* module.modulemap in Headers */ = {isa = PBXBuildFile; fileRef = 0585D06025BA76B700C169B0 /* module.modulemap */; settings = {ATTRIBUTES = (Public, ); }; };
+		057DDA14282F2978002A5877 /* CGLSLang.h in Headers */ = {isa = PBXBuildFile; fileRef = 057DDA11282F2799002A5877 /* CGLSLang.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		057DDA15282F29DA002A5877 /* CGLSLang.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 057DDA11282F2799002A5877 /* CGLSLang.h */; };
+		057DDA17282F2A60002A5877 /* CSPIRVCross.h in Headers */ = {isa = PBXBuildFile; fileRef = 057DDA16282F2A60002A5877 /* CSPIRVCross.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		057DDA18282F2A90002A5877 /* CSPIRVCross.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 057DDA16282F2A60002A5877 /* CSPIRVCross.h */; };
+		057DDA1A282F2AB8002A5877 /* CSPIRVTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 057DDA19282F2AB8002A5877 /* CSPIRVTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		057DDA1B282F2AEF002A5877 /* CSPIRVTools.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 057DDA19282F2AB8002A5877 /* CSPIRVTools.h */; };
+		057DDA28282F7996002A5877 /* SPIRV.docc in Sources */ = {isa = PBXBuildFile; fileRef = 057DDA27282F7996002A5877 /* SPIRV.docc */; };
+		057DDA29282F7996002A5877 /* SPIRV.h in Headers */ = {isa = PBXBuildFile; fileRef = 057DDA26282F7996002A5877 /* SPIRV.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		057DDA2D282F79A9002A5877 /* libCGLSLang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0535636725B6223000FDAFC0 /* libCGLSLang.a */; };
+		057DDA2E282F79A9002A5877 /* libCSPIRVCross.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0535661025BA1C7F00FDAFC0 /* libCSPIRVCross.a */; };
+		057DDA2F282F79A9002A5877 /* libCSPIRVTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0585CA3E25BA751E00C169B0 /* libCSPIRVTools.a */; };
+		057DDA40282F79D0002A5877 /* GLEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535656125BA146500FDAFC0 /* GLEnvironment.swift */; };
+		057DDA41282F79D0002A5877 /* GLProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535656825BA148600FDAFC0 /* GLProgram.swift */; };
+		057DDA42282F79D0002A5877 /* GLEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535655A25BA13EF00FDAFC0 /* GLEnumerations.swift */; };
+		057DDA43282F79D0002A5877 /* GLShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0535656F25BA149400FDAFC0 /* GLShader.swift */; };
+		057DDA44282F7AA9002A5877 /* Compiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566B625BA1EDC00FDAFC0 /* Compiler.swift */; };
+		057DDA45282F7AB8002A5877 /* Decoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566B025BA1ED700FDAFC0 /* Decoration.swift */; };
+		057DDA46282F7ABD002A5877 /* SPVEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566BA25BA1EDE00FDAFC0 /* SPVEnumerations.swift */; };
+		057DDA47282F7ACC002A5877 /* SPVType+Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566B925BA1EDE00FDAFC0 /* SPVType+Struct.swift */; };
+		057DDA48282F7ACC002A5877 /* SPVType+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566AF25BA1ED700FDAFC0 /* SPVType+Image.swift */; };
+		057DDA49282F7ACC002A5877 /* SPVType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566B125BA1ED800FDAFC0 /* SPVType.swift */; };
+		057DDA4A282F7ACC002A5877 /* SPVType+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566B425BA1EDA00FDAFC0 /* SPVType+Array.swift */; };
+		057DDA4B282F7ACC002A5877 /* SPVMetalCompiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566B525BA1EDB00FDAFC0 /* SPVMetalCompiler.swift */; };
+		057DDA4C282F7ACC002A5877 /* SPVResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566B325BA1ED900FDAFC0 /* SPVResult.swift */; };
+		057DDA4D282F7ACC002A5877 /* SPVResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566B225BA1ED900FDAFC0 /* SPVResources.swift */; };
+		057DDA4E282F7ACC002A5877 /* SPVContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566BB25BA1EDF00FDAFC0 /* SPVContext.swift */; };
+		057DDA4F282F7ACC002A5877 /* SPVVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566B725BA1EDC00FDAFC0 /* SPVVariable.swift */; };
+		057DDA50282F7ACC002A5877 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053566B825BA1EDD00FDAFC0 /* Global.swift */; };
+		057DDA51282F7AFB002A5877 /* ToolsEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0585D1D025BA8A1B00C169B0 /* ToolsEnumerations.swift */; };
+		057DDA52282F7AFB002A5877 /* Optimizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0585D1D125BA8A1C00C169B0 /* Optimizer.swift */; };
+		057DDA53282F7AFB002A5877 /* Optimizer+Passes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0585D1D225BA8A1D00C169B0 /* Optimizer+Passes.swift */; };
+		057DDA54282F7B2C002A5877 /* SPIRV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 057DDA24282F7996002A5877 /* SPIRV.framework */; };
+		057DDA55282F7B2C002A5877 /* SPIRV.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 057DDA24282F7996002A5877 /* SPIRV.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		057DDA5F282F872E002A5877 /* eliminate_dead_input_components_pass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 057DDA59282F872E002A5877 /* eliminate_dead_input_components_pass.cpp */; };
+		057DDA60282F872E002A5877 /* desc_sroa_util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 057DDA5A282F872E002A5877 /* desc_sroa_util.cpp */; };
+		057DDA61282F872E002A5877 /* desc_sroa_util.h in Headers */ = {isa = PBXBuildFile; fileRef = 057DDA5B282F872E002A5877 /* desc_sroa_util.h */; };
+		057DDA62282F872E002A5877 /* strip_nonsemantic_info_pass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 057DDA5C282F872E002A5877 /* strip_nonsemantic_info_pass.cpp */; };
+		057DDA63282F872E002A5877 /* eliminate_dead_input_components_pass.h in Headers */ = {isa = PBXBuildFile; fileRef = 057DDA5D282F872E002A5877 /* eliminate_dead_input_components_pass.h */; };
+		057DDA64282F872E002A5877 /* strip_nonsemantic_info_pass.h in Headers */ = {isa = PBXBuildFile; fileRef = 057DDA5E282F872E002A5877 /* strip_nonsemantic_info_pass.h */; };
+		057DDA67282F8765002A5877 /* spread_volatile_semantics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 057DDA65282F8764002A5877 /* spread_volatile_semantics.cpp */; };
+		057DDA68282F8765002A5877 /* spread_volatile_semantics.h in Headers */ = {isa = PBXBuildFile; fileRef = 057DDA66282F8765002A5877 /* spread_volatile_semantics.h */; };
+		057DDA6D282F87DB002A5877 /* remove_dontinline_pass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 057DDA69282F87DA002A5877 /* remove_dontinline_pass.cpp */; };
+		057DDA6E282F87DB002A5877 /* remove_dontinline_pass.h in Headers */ = {isa = PBXBuildFile; fileRef = 057DDA6A282F87DA002A5877 /* remove_dontinline_pass.h */; };
+		057DDA6F282F87DB002A5877 /* replace_desc_array_access_using_var_index.h in Headers */ = {isa = PBXBuildFile; fileRef = 057DDA6B282F87DB002A5877 /* replace_desc_array_access_using_var_index.h */; };
+		057DDA70282F87DB002A5877 /* replace_desc_array_access_using_var_index.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 057DDA6C282F87DB002A5877 /* replace_desc_array_access_using_var_index.cpp */; };
 		0585CD5C25BA766E00C169B0 /* spirv_target_env.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0585CA5825BA766900C169B0 /* spirv_target_env.cpp */; };
 		0585CD5D25BA766E00C169B0 /* spirv_fuzzer_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585CA5925BA766900C169B0 /* spirv_fuzzer_options.h */; };
 		0585CD5E25BA766E00C169B0 /* assembly_grammar.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585CA5A25BA766900C169B0 /* assembly_grammar.h */; };
@@ -285,7 +334,6 @@
 		0585CE1E25BA766F00C169B0 /* inst_buff_addr_check_pass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0585CB2225BA766B00C169B0 /* inst_buff_addr_check_pass.cpp */; };
 		0585CE1F25BA766F00C169B0 /* def_use_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0585CB2325BA766B00C169B0 /* def_use_manager.cpp */; };
 		0585CE2025BA766F00C169B0 /* wrap_opkill.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585CB2425BA766B00C169B0 /* wrap_opkill.h */; };
-		0585CE2125BA766F00C169B0 /* strip_reflect_info_pass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0585CB2525BA766B00C169B0 /* strip_reflect_info_pass.cpp */; };
 		0585CE2225BA766F00C169B0 /* empty_pass.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585CB2625BA766B00C169B0 /* empty_pass.h */; };
 		0585CE2325BA766F00C169B0 /* decoration_manager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585CB2725BA766B00C169B0 /* decoration_manager.h */; };
 		0585CE2425BA766F00C169B0 /* ccp_pass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0585CB2825BA766B00C169B0 /* ccp_pass.cpp */; };
@@ -355,7 +403,6 @@
 		0585CE6425BA766F00C169B0 /* passes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585CB6825BA766B00C169B0 /* passes.h */; };
 		0585CE6525BA766F00C169B0 /* fold.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0585CB6925BA766B00C169B0 /* fold.cpp */; };
 		0585CE6625BA766F00C169B0 /* amd_ext_to_khr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0585CB6A25BA766B00C169B0 /* amd_ext_to_khr.cpp */; };
-		0585CE6725BA766F00C169B0 /* strip_reflect_info_pass.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585CB6B25BA766B00C169B0 /* strip_reflect_info_pass.h */; };
 		0585CE6825BA766F00C169B0 /* scalar_replacement_pass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0585CB6C25BA766B00C169B0 /* scalar_replacement_pass.cpp */; };
 		0585CE6925BA766F00C169B0 /* simplification_pass.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585CB6D25BA766B00C169B0 /* simplification_pass.h */; };
 		0585CE6A25BA766F00C169B0 /* remove_duplicates_pass.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585CB6E25BA766B00C169B0 /* remove_duplicates_pass.h */; };
@@ -469,7 +516,7 @@
 		0585D04F25BA767000C169B0 /* validation_state.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0585CD5925BA766E00C169B0 /* validation_state.cpp */; };
 		0585D05025BA767000C169B0 /* validate_primitives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0585CD5A25BA766E00C169B0 /* validate_primitives.cpp */; };
 		0585D05125BA767000C169B0 /* decoration.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585CD5B25BA766E00C169B0 /* decoration.h */; };
-		0585D06325BA76B900C169B0 /* spirv_tools_c.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D06225BA76B900C169B0 /* spirv_tools_c.h */; };
+		0585D06325BA76B900C169B0 /* spirv_tools_c.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D06225BA76B900C169B0 /* spirv_tools_c.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0585D06C25BA76CD00C169B0 /* spirv_tools_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0585D06B25BA76CD00C169B0 /* spirv_tools_c.cpp */; };
 		0585D11D25BA866E00C169B0 /* libspirv.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0585D11825BA866E00C169B0 /* libspirv.hpp */; };
 		0585D11E25BA866E00C169B0 /* linker.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0585D11925BA866E00C169B0 /* linker.hpp */; };
@@ -481,11 +528,10 @@
 		0585D19925BA89B800C169B0 /* module.modulemap in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0585D06025BA76B700C169B0 /* module.modulemap */; };
 		0585D19A25BA89B800C169B0 /* spirv_tools_c.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0585D06225BA76B900C169B0 /* spirv_tools_c.h */; };
 		0585D1CF25BA8A0500C169B0 /* libCSPIRVTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0585CA3E25BA751E00C169B0 /* libCSPIRVTools.a */; };
-		0585D1D325BA8A1D00C169B0 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0585D1D025BA8A1B00C169B0 /* Enumerations.swift */; };
+		0585D1D325BA8A1D00C169B0 /* ToolsEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0585D1D025BA8A1B00C169B0 /* ToolsEnumerations.swift */; };
 		0585D1D425BA8A1D00C169B0 /* Optimizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0585D1D125BA8A1C00C169B0 /* Optimizer.swift */; };
 		0585D1D525BA8A1D00C169B0 /* Optimizer+Passes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0585D1D225BA8A1D00C169B0 /* Optimizer+Passes.swift */; };
 		0585D1E725BA8AE000C169B0 /* libspirv.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0585D11C25BA866E00C169B0 /* libspirv.h */; };
-		0585D1F025BA8B5100C169B0 /* libSPIRVTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0585D1A625BA89EA00C169B0 /* libSPIRVTools.a */; };
 		0585D21C25BA961C00C169B0 /* ResourceLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D20F25BA961C00C169B0 /* ResourceLimits.h */; };
 		0585D21D25BA961C00C169B0 /* glslang_c_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D21025BA961C00C169B0 /* glslang_c_interface.h */; };
 		0585D21E25BA961C00C169B0 /* Types.h in Headers */ = {isa = PBXBuildFile; fileRef = 0585D21125BA961C00C169B0 /* Types.h */; };
@@ -515,19 +561,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0535658125BA153600FDAFC0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 054A77C225B527B900F2F3D6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0535654625BA13D600FDAFC0;
-			remoteInfo = GLSlang;
-		};
 		0535658925BA153D00FDAFC0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 054A77C225B527B900F2F3D6 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0535636625B6223000FDAFC0;
 			remoteInfo = CGLSlang;
+		};
+		057DDA56282F7B2C002A5877 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 054A77C225B527B900F2F3D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 057DDA23282F7996002A5877;
+			remoteInfo = SPIRV;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -547,6 +593,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				057DDA15282F29DA002A5877 /* CGLSLang.h in CopyFiles */,
 				0535653725BA128E00FDAFC0 /* CGLSLang.apinotes in CopyFiles */,
 				0535653825BA128E00FDAFC0 /* glslang_c_interface.h in CopyFiles */,
 				0535653925BA128E00FDAFC0 /* glslang_c_shader_types.h in CopyFiles */,
@@ -560,11 +607,23 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				057DDA18282F2A90002A5877 /* CSPIRVCross.h in CopyFiles */,
 				0535668225BA1E6900FDAFC0 /* spirv_cross_c.h in CopyFiles */,
 				0535668325BA1E6900FDAFC0 /* spirv.h in CopyFiles */,
 				0535668425BA1E6900FDAFC0 /* CSPIRVCross.apinotes in CopyFiles */,
 				0535668525BA1E6900FDAFC0 /* module.modulemap in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		057DDA58282F7B2C002A5877 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				057DDA55282F7B2C002A5877 /* SPIRV.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0585D19725BA89A200C169B0 /* CopyFiles */ = {
@@ -573,6 +632,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				057DDA1B282F2AEF002A5877 /* CSPIRVTools.h in CopyFiles */,
 				0585D1E725BA8AE000C169B0 /* libspirv.h in CopyFiles */,
 				0585D19825BA89B800C169B0 /* CSPIRVTools.apinotes in CopyFiles */,
 				0585D19925BA89B800C169B0 /* module.modulemap in CopyFiles */,
@@ -672,7 +732,7 @@
 		0535652525B8CDFC00FDAFC0 /* CGLSLang.apinotes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.apinotes; path = CGLSLang.apinotes; sourceTree = "<group>"; };
 		0535652725B8CDFD00FDAFC0 /* glslang_c_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glslang_c_interface.h; sourceTree = "<group>"; };
 		0535654725BA13D600FDAFC0 /* libGLSLang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGLSLang.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0535655A25BA13EF00FDAFC0 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
+		0535655A25BA13EF00FDAFC0 /* GLEnumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLEnumerations.swift; sourceTree = "<group>"; };
 		0535656125BA146500FDAFC0 /* GLEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLEnvironment.swift; sourceTree = "<group>"; };
 		0535656825BA148600FDAFC0 /* GLProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLProgram.swift; sourceTree = "<group>"; };
 		0535656F25BA149400FDAFC0 /* GLShader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLShader.swift; sourceTree = "<group>"; };
@@ -721,8 +781,31 @@
 		053566B725BA1EDC00FDAFC0 /* SPVVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPVVariable.swift; sourceTree = "<group>"; };
 		053566B825BA1EDD00FDAFC0 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		053566B925BA1EDE00FDAFC0 /* SPVType+Struct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SPVType+Struct.swift"; sourceTree = "<group>"; };
-		053566BA25BA1EDE00FDAFC0 /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
+		053566BA25BA1EDE00FDAFC0 /* SPVEnumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPVEnumerations.swift; sourceTree = "<group>"; };
 		053566BB25BA1EDF00FDAFC0 /* SPVContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPVContext.swift; sourceTree = "<group>"; };
+		057DDA04282F12D4002A5877 /* control_dependence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = control_dependence.cpp; sourceTree = "<group>"; };
+		057DDA05282F12D4002A5877 /* control_dependence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = control_dependence.h; sourceTree = "<group>"; };
+		057DDA11282F2799002A5877 /* CGLSLang.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGLSLang.h; sourceTree = "<group>"; };
+		057DDA16282F2A60002A5877 /* CSPIRVCross.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPIRVCross.h; sourceTree = "<group>"; };
+		057DDA19282F2AB8002A5877 /* CSPIRVTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSPIRVTools.h; sourceTree = "<group>"; };
+		057DDA1C282F3C6D002A5877 /* SPIRVCross.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SPIRVCross.xcconfig; sourceTree = "<group>"; };
+		057DDA1D282F3C9E002A5877 /* GLSLang.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GLSLang.xcconfig; sourceTree = "<group>"; };
+		057DDA1E282F3CDA002A5877 /* SPIRVTools.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SPIRVTools.xcconfig; sourceTree = "<group>"; };
+		057DDA24282F7996002A5877 /* SPIRV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SPIRV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		057DDA26282F7996002A5877 /* SPIRV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPIRV.h; sourceTree = "<group>"; };
+		057DDA27282F7996002A5877 /* SPIRV.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = SPIRV.docc; sourceTree = "<group>"; };
+		057DDA59282F872E002A5877 /* eliminate_dead_input_components_pass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eliminate_dead_input_components_pass.cpp; sourceTree = "<group>"; };
+		057DDA5A282F872E002A5877 /* desc_sroa_util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = desc_sroa_util.cpp; sourceTree = "<group>"; };
+		057DDA5B282F872E002A5877 /* desc_sroa_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = desc_sroa_util.h; sourceTree = "<group>"; };
+		057DDA5C282F872E002A5877 /* strip_nonsemantic_info_pass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = strip_nonsemantic_info_pass.cpp; sourceTree = "<group>"; };
+		057DDA5D282F872E002A5877 /* eliminate_dead_input_components_pass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eliminate_dead_input_components_pass.h; sourceTree = "<group>"; };
+		057DDA5E282F872E002A5877 /* strip_nonsemantic_info_pass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strip_nonsemantic_info_pass.h; sourceTree = "<group>"; };
+		057DDA65282F8764002A5877 /* spread_volatile_semantics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spread_volatile_semantics.cpp; sourceTree = "<group>"; };
+		057DDA66282F8765002A5877 /* spread_volatile_semantics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spread_volatile_semantics.h; sourceTree = "<group>"; };
+		057DDA69282F87DA002A5877 /* remove_dontinline_pass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = remove_dontinline_pass.cpp; sourceTree = "<group>"; };
+		057DDA6A282F87DA002A5877 /* remove_dontinline_pass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = remove_dontinline_pass.h; sourceTree = "<group>"; };
+		057DDA6B282F87DB002A5877 /* replace_desc_array_access_using_var_index.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = replace_desc_array_access_using_var_index.h; sourceTree = "<group>"; };
+		057DDA6C282F87DB002A5877 /* replace_desc_array_access_using_var_index.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = replace_desc_array_access_using_var_index.cpp; sourceTree = "<group>"; };
 		0585CA3E25BA751E00C169B0 /* libCSPIRVTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCSPIRVTools.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0585CA4A25BA754000C169B0 /* CSPIRVTools.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CSPIRVTools.xcconfig; sourceTree = "<group>"; };
 		0585CA5825BA766900C169B0 /* spirv_target_env.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spirv_target_env.cpp; sourceTree = "<group>"; };
@@ -863,7 +946,6 @@
 		0585CB2225BA766B00C169B0 /* inst_buff_addr_check_pass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = inst_buff_addr_check_pass.cpp; sourceTree = "<group>"; };
 		0585CB2325BA766B00C169B0 /* def_use_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = def_use_manager.cpp; sourceTree = "<group>"; };
 		0585CB2425BA766B00C169B0 /* wrap_opkill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wrap_opkill.h; sourceTree = "<group>"; };
-		0585CB2525BA766B00C169B0 /* strip_reflect_info_pass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = strip_reflect_info_pass.cpp; sourceTree = "<group>"; };
 		0585CB2625BA766B00C169B0 /* empty_pass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = empty_pass.h; sourceTree = "<group>"; };
 		0585CB2725BA766B00C169B0 /* decoration_manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decoration_manager.h; sourceTree = "<group>"; };
 		0585CB2825BA766B00C169B0 /* ccp_pass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ccp_pass.cpp; sourceTree = "<group>"; };
@@ -933,7 +1015,6 @@
 		0585CB6825BA766B00C169B0 /* passes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = passes.h; sourceTree = "<group>"; };
 		0585CB6925BA766B00C169B0 /* fold.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fold.cpp; sourceTree = "<group>"; };
 		0585CB6A25BA766B00C169B0 /* amd_ext_to_khr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = amd_ext_to_khr.cpp; sourceTree = "<group>"; };
-		0585CB6B25BA766B00C169B0 /* strip_reflect_info_pass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strip_reflect_info_pass.h; sourceTree = "<group>"; };
 		0585CB6C25BA766B00C169B0 /* scalar_replacement_pass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scalar_replacement_pass.cpp; sourceTree = "<group>"; };
 		0585CB6D25BA766B00C169B0 /* simplification_pass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simplification_pass.h; sourceTree = "<group>"; };
 		0585CB6E25BA766B00C169B0 /* remove_duplicates_pass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = remove_duplicates_pass.h; sourceTree = "<group>"; };
@@ -1140,7 +1221,7 @@
 		0585D16F25BA87F100C169B0 /* spv-amd-shader-ballot.insts.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = "spv-amd-shader-ballot.insts.inc"; sourceTree = "<group>"; };
 		0585D17025BA87F100C169B0 /* spv-amd-shader-explicit-vertex-parameter.insts.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = "spv-amd-shader-explicit-vertex-parameter.insts.inc"; sourceTree = "<group>"; };
 		0585D1A625BA89EA00C169B0 /* libSPIRVTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSPIRVTools.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0585D1D025BA8A1B00C169B0 /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
+		0585D1D025BA8A1B00C169B0 /* ToolsEnumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsEnumerations.swift; sourceTree = "<group>"; };
 		0585D1D125BA8A1C00C169B0 /* Optimizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optimizer.swift; sourceTree = "<group>"; };
 		0585D1D225BA8A1D00C169B0 /* Optimizer+Passes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optimizer+Passes.swift"; sourceTree = "<group>"; };
 		0585D20F25BA961C00C169B0 /* ResourceLimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceLimits.h; sourceTree = "<group>"; };
@@ -1164,7 +1245,6 @@
 		058A7B342724DFC900643BF0 /* interp_fixup_pass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interp_fixup_pass.h; sourceTree = "<group>"; };
 		058A7B352724DFC900643BF0 /* remove_unused_interface_variables_pass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = remove_unused_interface_variables_pass.cpp; sourceTree = "<group>"; };
 		058A7B3C2724DFE900643BF0 /* NonSemanticShaderDebugInfo100.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NonSemanticShaderDebugInfo100.h; sourceTree = "<group>"; };
-		058A7B3D2724DFE900643BF0 /* extinst.nonsemantic.shader.debuginfo.100.grammar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = extinst.nonsemantic.shader.debuginfo.100.grammar.json; sourceTree = "<group>"; };
 		058A7B412724E11C00643BF0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		058A7B422724E16400643BF0 /* NonSemanticVulkanDebugInfo100.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NonSemanticVulkanDebugInfo100.h; sourceTree = "<group>"; };
 		058A7B432724E16400643BF0 /* nonsemantic.vulkan.debuginfo.100.insts.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = nonsemantic.vulkan.debuginfo.100.insts.inc; sourceTree = "<group>"; };
@@ -1178,9 +1258,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0585D1F025BA8B5100C169B0 /* libSPIRVTools.a in Frameworks */,
-				053566D625BA1F2700FDAFC0 /* libSPIRVCross.a in Frameworks */,
-				0535658025BA153600FDAFC0 /* libGLSLang.a in Frameworks */,
+				057DDA54282F7B2C002A5877 /* SPIRV.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1211,6 +1289,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				053566CF25BA1EF300FDAFC0 /* libCSPIRVCross.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		057DDA21282F7996002A5877 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				057DDA2D282F79A9002A5877 /* libCGLSLang.a in Frameworks */,
+				057DDA2E282F79A9002A5877 /* libCSPIRVCross.a in Frameworks */,
+				057DDA2F282F79A9002A5877 /* libCSPIRVTools.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1356,20 +1444,13 @@
 		053563F525B6263000FDAFC0 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				0535640025B6269000FDAFC0 /* glslang */,
+				057DDA11282F2799002A5877 /* CGLSLang.h */,
 				0535652525B8CDFC00FDAFC0 /* CGLSLang.apinotes */,
 				0535652725B8CDFD00FDAFC0 /* glslang_c_interface.h */,
 				0535652425B8CDFC00FDAFC0 /* glslang_c_shader_types.h */,
 				0535652325B8CDDA00FDAFC0 /* module.modulemap */,
 			);
 			path = include;
-			sourceTree = "<group>";
-		};
-		0535640025B6269000FDAFC0 /* glslang */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = glslang;
 			sourceTree = "<group>";
 		};
 		0535645525B8CB3900FDAFC0 /* OSDependent */ = {
@@ -1444,7 +1525,8 @@
 		0535654825BA13D600FDAFC0 /* GLSlang */ = {
 			isa = PBXGroup;
 			children = (
-				0535655A25BA13EF00FDAFC0 /* Enumerations.swift */,
+				057DDA1D282F3C9E002A5877 /* GLSLang.xcconfig */,
+				0535655A25BA13EF00FDAFC0 /* GLEnumerations.swift */,
 				0535656125BA146500FDAFC0 /* GLEnvironment.swift */,
 				0535656825BA148600FDAFC0 /* GLProgram.swift */,
 				0535656F25BA149400FDAFC0 /* GLShader.swift */,
@@ -1546,6 +1628,7 @@
 		0535661E25BA1CB600FDAFC0 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				057DDA16282F2A60002A5877 /* CSPIRVCross.h */,
 				0535667325BA1DA400FDAFC0 /* spirv_cross_c.h */,
 				0535667425BA1DA500FDAFC0 /* spirv.h */,
 				0535667125BA1D9600FDAFC0 /* CSPIRVCross.apinotes */,
@@ -1557,9 +1640,10 @@
 		0535669525BA1EB300FDAFC0 /* SPIRVCross */ = {
 			isa = PBXGroup;
 			children = (
+				057DDA1C282F3C6D002A5877 /* SPIRVCross.xcconfig */,
 				053566B625BA1EDC00FDAFC0 /* Compiler.swift */,
 				053566B025BA1ED700FDAFC0 /* Decoration.swift */,
-				053566BA25BA1EDE00FDAFC0 /* Enumerations.swift */,
+				053566BA25BA1EDE00FDAFC0 /* SPVEnumerations.swift */,
 				053566B825BA1EDD00FDAFC0 /* Global.swift */,
 				053566BB25BA1EDF00FDAFC0 /* SPVContext.swift */,
 				053566B525BA1EDB00FDAFC0 /* SPVMetalCompiler.swift */,
@@ -1585,6 +1669,7 @@
 				0585CA4925BA752600C169B0 /* CSPIRVTools */,
 				0585D1A725BA89EA00C169B0 /* SPIRVTools */,
 				0535634125B5395800FDAFC0 /* testcli */,
+				057DDA25282F7996002A5877 /* SPIRV */,
 				054A77CC25B527B900F2F3D6 /* Products */,
 				054A77E625B528A600F2F3D6 /* Frameworks */,
 			);
@@ -1600,6 +1685,7 @@
 				0535669425BA1EB300FDAFC0 /* libSPIRVCross.a */,
 				0585CA3E25BA751E00C169B0 /* libCSPIRVTools.a */,
 				0585D1A625BA89EA00C169B0 /* libSPIRVTools.a */,
+				057DDA24282F7996002A5877 /* SPIRV.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1610,6 +1696,15 @@
 				0535659525BA15AF00FDAFC0 /* libc++.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		057DDA25282F7996002A5877 /* SPIRV */ = {
+			isa = PBXGroup;
+			children = (
+				057DDA26282F7996002A5877 /* SPIRV.h */,
+				057DDA27282F7996002A5877 /* SPIRV.docc */,
+			);
+			path = SPIRV;
 			sourceTree = "<group>";
 		};
 		0585CA4925BA752600C169B0 /* CSPIRVTools */ = {
@@ -1628,6 +1723,7 @@
 		0585CA5225BA754C00C169B0 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				057DDA19282F2AB8002A5877 /* CSPIRVTools.h */,
 				0585D06125BA76B800C169B0 /* CSPIRVTools.apinotes */,
 				0585D06025BA76B700C169B0 /* module.modulemap */,
 				0585D06225BA76B900C169B0 /* spirv_tools_c.h */,
@@ -1750,14 +1846,6 @@
 		0585CAD025BA766A00C169B0 /* opt */ = {
 			isa = PBXGroup;
 			children = (
-				058A7B492724E29F00643BF0 /* convert_to_sampled_image_pass.cpp */,
-				058A7B482724E29F00643BF0 /* convert_to_sampled_image_pass.h */,
-				058A7B312724DFC900643BF0 /* dataflow.cpp */,
-				058A7B322724DFC900643BF0 /* dataflow.h */,
-				058A7B332724DFC900643BF0 /* interp_fixup_pass.cpp */,
-				058A7B342724DFC900643BF0 /* interp_fixup_pass.h */,
-				058A7B352724DFC900643BF0 /* remove_unused_interface_variables_pass.cpp */,
-				058A7B302724DFC900643BF0 /* remove_unused_interface_variables_pass.h */,
 				0585CB2D25BA766B00C169B0 /* aggressive_dead_code_elim_pass.cpp */,
 				0585CB8725BA766B00C169B0 /* aggressive_dead_code_elim_pass.h */,
 				0585CB6A25BA766B00C169B0 /* amd_ext_to_khr.cpp */,
@@ -1788,10 +1876,16 @@
 				0585CB7425BA766B00C169B0 /* const_folding_rules.h */,
 				0585CB1F25BA766B00C169B0 /* constants.cpp */,
 				0585CB4625BA766B00C169B0 /* constants.h */,
+				057DDA04282F12D4002A5877 /* control_dependence.cpp */,
+				057DDA05282F12D4002A5877 /* control_dependence.h */,
 				0585CB3E25BA766B00C169B0 /* convert_to_half_pass.cpp */,
 				0585CB1125BA766A00C169B0 /* convert_to_half_pass.h */,
+				058A7B492724E29F00643BF0 /* convert_to_sampled_image_pass.cpp */,
+				058A7B482724E29F00643BF0 /* convert_to_sampled_image_pass.h */,
 				0585CB4C25BA766B00C169B0 /* copy_prop_arrays.cpp */,
 				0585CB5325BA766B00C169B0 /* copy_prop_arrays.h */,
+				058A7B312724DFC900643BF0 /* dataflow.cpp */,
+				058A7B322724DFC900643BF0 /* dataflow.h */,
 				0585CB3125BA766B00C169B0 /* dead_branch_elim_pass.cpp */,
 				0585CB6125BA766B00C169B0 /* dead_branch_elim_pass.h */,
 				0585CB5525BA766B00C169B0 /* dead_insert_elim_pass.cpp */,
@@ -1804,6 +1898,8 @@
 				0585CB2725BA766B00C169B0 /* decoration_manager.h */,
 				0585CB2325BA766B00C169B0 /* def_use_manager.cpp */,
 				0585CB1425BA766A00C169B0 /* def_use_manager.h */,
+				057DDA5A282F872E002A5877 /* desc_sroa_util.cpp */,
+				057DDA5B282F872E002A5877 /* desc_sroa_util.h */,
 				0585CB4925BA766B00C169B0 /* desc_sroa.cpp */,
 				0585CB1E25BA766B00C169B0 /* desc_sroa.h */,
 				0585CB8025BA766B00C169B0 /* dominator_analysis.cpp */,
@@ -1816,6 +1912,8 @@
 				0585CB5D25BA766B00C169B0 /* eliminate_dead_functions_pass.h */,
 				0585CB2E25BA766B00C169B0 /* eliminate_dead_functions_util.cpp */,
 				0585CB5E25BA766B00C169B0 /* eliminate_dead_functions_util.h */,
+				057DDA59282F872E002A5877 /* eliminate_dead_input_components_pass.cpp */,
+				057DDA5D282F872E002A5877 /* eliminate_dead_input_components_pass.h */,
 				0585CB4725BA766B00C169B0 /* eliminate_dead_members_pass.cpp */,
 				0585CB3A25BA766B00C169B0 /* eliminate_dead_members_pass.h */,
 				0585CB2625BA766B00C169B0 /* empty_pass.h */,
@@ -1857,6 +1955,8 @@
 				0585CB8625BA766B00C169B0 /* instruction.h */,
 				0585CAEE25BA766A00C169B0 /* instrument_pass.cpp */,
 				0585CB3725BA766B00C169B0 /* instrument_pass.h */,
+				058A7B332724DFC900643BF0 /* interp_fixup_pass.cpp */,
+				058A7B342724DFC900643BF0 /* interp_fixup_pass.h */,
 				0585CB8125BA766B00C169B0 /* ir_builder.h */,
 				0585CB3625BA766B00C169B0 /* ir_context.cpp */,
 				0585CAF725BA766A00C169B0 /* ir_context.h */,
@@ -1921,8 +2021,14 @@
 				0585CADC25BA766A00C169B0 /* register_pressure.h */,
 				0585CB7325BA766B00C169B0 /* relax_float_ops_pass.cpp */,
 				0585CB1225BA766A00C169B0 /* relax_float_ops_pass.h */,
+				057DDA69282F87DA002A5877 /* remove_dontinline_pass.cpp */,
+				057DDA6A282F87DA002A5877 /* remove_dontinline_pass.h */,
 				0585CB0725BA766A00C169B0 /* remove_duplicates_pass.cpp */,
 				0585CB6E25BA766B00C169B0 /* remove_duplicates_pass.h */,
+				058A7B352724DFC900643BF0 /* remove_unused_interface_variables_pass.cpp */,
+				058A7B302724DFC900643BF0 /* remove_unused_interface_variables_pass.h */,
+				057DDA6C282F87DB002A5877 /* replace_desc_array_access_using_var_index.cpp */,
+				057DDA6B282F87DB002A5877 /* replace_desc_array_access_using_var_index.h */,
 				0585CB7D25BA766B00C169B0 /* replace_invalid_opc.cpp */,
 				0585CAE925BA766A00C169B0 /* replace_invalid_opc.h */,
 				0585CB6325BA766B00C169B0 /* scalar_analysis_nodes.h */,
@@ -1935,14 +2041,16 @@
 				0585CB9925BA766B00C169B0 /* set_spec_constant_default_value_pass.h */,
 				0585CB3025BA766B00C169B0 /* simplification_pass.cpp */,
 				0585CB6D25BA766B00C169B0 /* simplification_pass.h */,
+				057DDA65282F8764002A5877 /* spread_volatile_semantics.cpp */,
+				057DDA66282F8765002A5877 /* spread_volatile_semantics.h */,
 				0585CAFE25BA766A00C169B0 /* ssa_rewrite_pass.cpp */,
 				0585CB5625BA766B00C169B0 /* ssa_rewrite_pass.h */,
 				0585CB4825BA766B00C169B0 /* strength_reduction_pass.cpp */,
 				0585CB2C25BA766B00C169B0 /* strength_reduction_pass.h */,
 				0585CAFD25BA766A00C169B0 /* strip_debug_info_pass.cpp */,
 				0585CAE425BA766A00C169B0 /* strip_debug_info_pass.h */,
-				0585CB2525BA766B00C169B0 /* strip_reflect_info_pass.cpp */,
-				0585CB6B25BA766B00C169B0 /* strip_reflect_info_pass.h */,
+				057DDA5C282F872E002A5877 /* strip_nonsemantic_info_pass.cpp */,
+				057DDA5E282F872E002A5877 /* strip_nonsemantic_info_pass.h */,
 				0585CB8825BA766B00C169B0 /* struct_cfg_analysis.cpp */,
 				0585CB2125BA766B00C169B0 /* struct_cfg_analysis.h */,
 				0585CADD25BA766A00C169B0 /* tree_iterator.h */,
@@ -2136,7 +2244,6 @@
 		0585D0CD25BA855900C169B0 /* unified1 */ = {
 			isa = PBXGroup;
 			children = (
-				058A7B3D2724DFE900643BF0 /* extinst.nonsemantic.shader.debuginfo.100.grammar.json */,
 				058A7B3C2724DFE900643BF0 /* NonSemanticShaderDebugInfo100.h */,
 				0585D0CE25BA855900C169B0 /* extinst.spv-amd-shader-explicit-vertex-parameter.grammar.json */,
 				0585D0CF25BA855900C169B0 /* extinst.nonsemantic.debugprintf.grammar.json */,
@@ -2194,7 +2301,8 @@
 		0585D1A725BA89EA00C169B0 /* SPIRVTools */ = {
 			isa = PBXGroup;
 			children = (
-				0585D1D025BA8A1B00C169B0 /* Enumerations.swift */,
+				057DDA1E282F3CDA002A5877 /* SPIRVTools.xcconfig */,
+				0585D1D025BA8A1B00C169B0 /* ToolsEnumerations.swift */,
 				0585D1D125BA8A1C00C169B0 /* Optimizer.swift */,
 				0585D1D225BA8A1D00C169B0 /* Optimizer+Passes.swift */,
 			);
@@ -2269,6 +2377,7 @@
 				053564DE25B8CD5400FDAFC0 /* NonSemanticDebugPrintf.h in Headers */,
 				053564EC25B8CD5400FDAFC0 /* GLSL.ext.AMD.h in Headers */,
 				0535639E25B624B400FDAFC0 /* LiveTraverser.h in Headers */,
+				057DDA14282F2978002A5877 /* CGLSLang.h in Headers */,
 				0585D22625BA961C00C169B0 /* ConstantUnion.h in Headers */,
 				053564E925B8CD5400FDAFC0 /* GLSL.ext.NV.h in Headers */,
 				053563C025B624B400FDAFC0 /* attribute.h in Headers */,
@@ -2315,8 +2424,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				057DDA17282F2A60002A5877 /* CSPIRVCross.h in Headers */,
 				0535664325BA1CE900FDAFC0 /* spirv_cross_error_handling.hpp in Headers */,
 				0535663D25BA1CE900FDAFC0 /* spirv_cross_c.h in Headers */,
+				057DDA0E282F262F002A5877 /* module.modulemap in Headers */,
+				057DDA0D282F262C002A5877 /* CSPIRVCross.apinotes in Headers */,
 				0535665025BA1CE900FDAFC0 /* spirv_cross_containers.hpp in Headers */,
 				0535663C25BA1CE900FDAFC0 /* spirv_common.hpp in Headers */,
 				0535667525BA1DA500FDAFC0 /* spirv_cross_c.h in Headers */,
@@ -2342,12 +2454,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		057DDA1F282F7996002A5877 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				057DDA29282F7996002A5877 /* SPIRV.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0585CA3A25BA751E00C169B0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				057DDA1A282F2AB8002A5877 /* CSPIRVTools.h in Headers */,
+				057DDA10282F2638002A5877 /* module.modulemap in Headers */,
 				0585D01925BA767000C169B0 /* spirv_optimizer_options.h in Headers */,
 				0585CE4125BA766F00C169B0 /* inline_exhaustive_pass.h in Headers */,
+				057DDA0F282F2636002A5877 /* CSPIRVTools.apinotes in Headers */,
+				0585D06325BA76B900C169B0 /* spirv_tools_c.h in Headers */,
 				0585CDE125BA766F00C169B0 /* strip_debug_info_pass.h in Headers */,
 				0585CE8325BA766F00C169B0 /* aggressive_dead_code_elim_pass.h in Headers */,
 				0585CE7D25BA766F00C169B0 /* ir_builder.h in Headers */,
@@ -2382,11 +2506,13 @@
 				0585CDC225BA766F00C169B0 /* name_mapper.h in Headers */,
 				0585D04825BA767000C169B0 /* instruction.h in Headers */,
 				0585CDF325BA766F00C169B0 /* ir_context.h in Headers */,
+				057DDA6E282F87DB002A5877 /* remove_dontinline_pass.h in Headers */,
 				0585CDCD25BA766F00C169B0 /* disassemble.h in Headers */,
 				0585CE5025BA766F00C169B0 /* eliminate_dead_constant_pass.h in Headers */,
 				0585CDFC25BA766F00C169B0 /* unify_const_pass.h in Headers */,
 				0585CE8225BA766F00C169B0 /* instruction.h in Headers */,
 				0585CD6E25BA766F00C169B0 /* bitutils.h in Headers */,
+				057DDA6F282F87DB002A5877 /* replace_desc_array_access_using_var_index.h in Headers */,
 				0585CE9725BA766F00C169B0 /* type_manager.h in Headers */,
 				0585CD7325BA766F00C169B0 /* spirv_target_env.h in Headers */,
 				0585CD6725BA766E00C169B0 /* make_unique.h in Headers */,
@@ -2403,18 +2529,19 @@
 				0585CE8125BA766F00C169B0 /* loop_descriptor.h in Headers */,
 				0585D11D25BA866E00C169B0 /* libspirv.hpp in Headers */,
 				0585CE8B25BA766F00C169B0 /* licm_pass.h in Headers */,
+				057DDA64282F872E002A5877 /* strip_nonsemantic_info_pass.h in Headers */,
 				0585CD5E25BA766E00C169B0 /* assembly_grammar.h in Headers */,
 				0585CE9625BA766F00C169B0 /* dominator_tree.h in Headers */,
 				0585CE6425BA766F00C169B0 /* passes.h in Headers */,
 				0585CE2B25BA766F00C169B0 /* inst_debug_printf_pass.h in Headers */,
 				0585CE1525BA766F00C169B0 /* local_redundancy_elimination.h in Headers */,
 				0585CE9525BA766F00C169B0 /* set_spec_constant_default_value_pass.h in Headers */,
+				057DDA63282F872E002A5877 /* eliminate_dead_input_components_pass.h in Headers */,
 				0585CE4E25BA766F00C169B0 /* log.h in Headers */,
 				0585CDBC25BA766F00C169B0 /* spirv_constant.h in Headers */,
 				0585CE4725BA766F00C169B0 /* upgrade_memory_model.h in Headers */,
 				0585D02525BA767000C169B0 /* construct.h in Headers */,
 				0585CDFF25BA766F00C169B0 /* types.h in Headers */,
-				0585CE6725BA766F00C169B0 /* strip_reflect_info_pass.h in Headers */,
 				0585CDDC25BA766F00C169B0 /* local_single_store_elim_pass.h in Headers */,
 				0585D12025BA866E00C169B0 /* instrument.hpp in Headers */,
 				0585CE3E25BA766F00C169B0 /* flatten_decoration_pass.h in Headers */,
@@ -2422,6 +2549,7 @@
 				0585D01D25BA767000C169B0 /* extensions.h in Headers */,
 				0585CDAF25BA766F00C169B0 /* latest_version_opencl_std_header.h in Headers */,
 				0585CE5F25BA766F00C169B0 /* scalar_analysis_nodes.h in Headers */,
+				057DDA68282F8765002A5877 /* spread_volatile_semantics.h in Headers */,
 				0585D05125BA767000C169B0 /* decoration.h in Headers */,
 				0585CDEC25BA766F00C169B0 /* instruction_list.h in Headers */,
 				0585CE5225BA766F00C169B0 /* ssa_rewrite_pass.h in Headers */,
@@ -2430,7 +2558,6 @@
 				0585CDC025BA766F00C169B0 /* text_handler.h in Headers */,
 				058A7B362724DFC900643BF0 /* remove_unused_interface_variables_pass.h in Headers */,
 				0585CDEB25BA766F00C169B0 /* propagator.h in Headers */,
-				0585D06325BA76B900C169B0 /* spirv_tools_c.h in Headers */,
 				0585CDDA25BA766F00C169B0 /* tree_iterator.h in Headers */,
 				0585CE1D25BA766F00C169B0 /* struct_cfg_analysis.h in Headers */,
 				0585CE6C25BA766F00C169B0 /* reflect.h in Headers */,
@@ -2441,6 +2568,7 @@
 				0585CD6925BA766E00C169B0 /* small_vector.h in Headers */,
 				0585CE2725BA766F00C169B0 /* inst_buff_addr_check_pass.h in Headers */,
 				0585CDD225BA766F00C169B0 /* merge_return_pass.h in Headers */,
+				057DDA61282F872E002A5877 /* desc_sroa_util.h in Headers */,
 				0585CD6F25BA766F00C169B0 /* hex_float.h in Headers */,
 				0585D03B25BA767000C169B0 /* validate_scopes.h in Headers */,
 				0585CE0D25BA766F00C169B0 /* convert_to_half_pass.h in Headers */,
@@ -2463,6 +2591,7 @@
 				0585CDB325BA766F00C169B0 /* enum_string_mapping.h in Headers */,
 				0585CE7125BA766F00C169B0 /* scalar_replacement_pass.h in Headers */,
 				0585CD6225BA766E00C169B0 /* text.h in Headers */,
+				057DDA07282F12D4002A5877 /* control_dependence.h in Headers */,
 				0585CD6825BA766E00C169B0 /* string_utils.h in Headers */,
 				0585CDC625BA766F00C169B0 /* spirv_endian.h in Headers */,
 				0585CDD425BA766F00C169B0 /* loop_fusion.h in Headers */,
@@ -2533,12 +2662,13 @@
 				0535633C25B5395800FDAFC0 /* Sources */,
 				0535633D25B5395800FDAFC0 /* Frameworks */,
 				0535633E25B5395800FDAFC0 /* CopyFiles */,
+				057DDA58282F7B2C002A5877 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0535658225BA153600FDAFC0 /* PBXTargetDependency */,
 				0535658A25BA153D00FDAFC0 /* PBXTargetDependency */,
+				057DDA57282F7B2C002A5877 /* PBXTargetDependency */,
 			);
 			name = testcli;
 			productName = testcli;
@@ -2615,6 +2745,24 @@
 			productReference = 0535669425BA1EB300FDAFC0 /* libSPIRVCross.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		057DDA23282F7996002A5877 /* SPIRV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 057DDA2A282F7996002A5877 /* Build configuration list for PBXNativeTarget "SPIRV" */;
+			buildPhases = (
+				057DDA1F282F7996002A5877 /* Headers */,
+				057DDA20282F7996002A5877 /* Sources */,
+				057DDA21282F7996002A5877 /* Frameworks */,
+				057DDA22282F7996002A5877 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SPIRV;
+			productName = SPIRV;
+			productReference = 057DDA24282F7996002A5877 /* SPIRV.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		0585CA3D25BA751E00C169B0 /* CSPIRVTools */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0585CA3F25BA751E00C169B0 /* Build configuration list for PBXNativeTarget "CSPIRVTools" */;
@@ -2676,6 +2824,9 @@
 						CreatedOnToolsVersion = 12.3;
 						LastSwiftMigration = 1230;
 					};
+					057DDA23282F7996002A5877 = {
+						CreatedOnToolsVersion = 13.3;
+					};
 					0585CA3D25BA751E00C169B0 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -2705,9 +2856,20 @@
 				0585CA3D25BA751E00C169B0 /* CSPIRVTools */,
 				0585D1A525BA89EA00C169B0 /* SPIRVTools */,
 				0535633F25B5395800FDAFC0 /* testcli */,
+				057DDA23282F7996002A5877 /* SPIRV */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		057DDA22282F7996002A5877 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0535633C25B5395800FDAFC0 /* Sources */ = {
@@ -2775,7 +2937,7 @@
 			files = (
 				0535656225BA146500FDAFC0 /* GLEnvironment.swift in Sources */,
 				0535656925BA148600FDAFC0 /* GLProgram.swift in Sources */,
-				0535655B25BA13EF00FDAFC0 /* Enumerations.swift in Sources */,
+				0535655B25BA13EF00FDAFC0 /* GLEnumerations.swift in Sources */,
 				0535657025BA149400FDAFC0 /* GLShader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2812,7 +2974,35 @@
 				053566C525BA1EDF00FDAFC0 /* Global.swift in Sources */,
 				053566C625BA1EDF00FDAFC0 /* SPVType+Struct.swift in Sources */,
 				053566C425BA1EDF00FDAFC0 /* SPVVariable.swift in Sources */,
-				053566C725BA1EDF00FDAFC0 /* Enumerations.swift in Sources */,
+				053566C725BA1EDF00FDAFC0 /* SPVEnumerations.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		057DDA20282F7996002A5877 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				057DDA49282F7ACC002A5877 /* SPVType.swift in Sources */,
+				057DDA52282F7AFB002A5877 /* Optimizer.swift in Sources */,
+				057DDA28282F7996002A5877 /* SPIRV.docc in Sources */,
+				057DDA41282F79D0002A5877 /* GLProgram.swift in Sources */,
+				057DDA4A282F7ACC002A5877 /* SPVType+Array.swift in Sources */,
+				057DDA53282F7AFB002A5877 /* Optimizer+Passes.swift in Sources */,
+				057DDA4C282F7ACC002A5877 /* SPVResult.swift in Sources */,
+				057DDA4D282F7ACC002A5877 /* SPVResources.swift in Sources */,
+				057DDA51282F7AFB002A5877 /* ToolsEnumerations.swift in Sources */,
+				057DDA42282F79D0002A5877 /* GLEnumerations.swift in Sources */,
+				057DDA40282F79D0002A5877 /* GLEnvironment.swift in Sources */,
+				057DDA50282F7ACC002A5877 /* Global.swift in Sources */,
+				057DDA4F282F7ACC002A5877 /* SPVVariable.swift in Sources */,
+				057DDA45282F7AB8002A5877 /* Decoration.swift in Sources */,
+				057DDA4E282F7ACC002A5877 /* SPVContext.swift in Sources */,
+				057DDA44282F7AA9002A5877 /* Compiler.swift in Sources */,
+				057DDA4B282F7ACC002A5877 /* SPVMetalCompiler.swift in Sources */,
+				057DDA43282F79D0002A5877 /* GLShader.swift in Sources */,
+				057DDA47282F7ACC002A5877 /* SPVType+Struct.swift in Sources */,
+				057DDA46282F7ABD002A5877 /* SPVEnumerations.swift in Sources */,
+				057DDA48282F7ACC002A5877 /* SPVType+Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2820,6 +3010,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				057DDA06282F12D4002A5877 /* control_dependence.cpp in Sources */,
+				057DDA5F282F872E002A5877 /* eliminate_dead_input_components_pass.cpp in Sources */,
 				0585D02725BA767000C169B0 /* validate_non_uniform.cpp in Sources */,
 				0585D02D25BA767000C169B0 /* validate_debug.cpp in Sources */,
 				0585CE8925BA766F00C169B0 /* basic_block.cpp in Sources */,
@@ -2854,6 +3046,7 @@
 				0585CE9925BA766F00C169B0 /* loop_peeling.cpp in Sources */,
 				0585CDDE25BA766F00C169B0 /* code_sink.cpp in Sources */,
 				0585CDB425BA766F00C169B0 /* spirv_fuzzer_options.cpp in Sources */,
+				057DDA6D282F87DB002A5877 /* remove_dontinline_pass.cpp in Sources */,
 				0585CE2C25BA766F00C169B0 /* simplification_pass.cpp in Sources */,
 				058A7B392724DFC900643BF0 /* interp_fixup_pass.cpp in Sources */,
 				0585CDD025BA766F00C169B0 /* register_pressure.cpp in Sources */,
@@ -2876,6 +3069,7 @@
 				0585CE9425BA766F00C169B0 /* scalar_analysis_simplification.cpp in Sources */,
 				0585D04525BA767000C169B0 /* validate_literals.cpp in Sources */,
 				0585CDEA25BA766F00C169B0 /* instrument_pass.cpp in Sources */,
+				057DDA70282F87DB002A5877 /* replace_desc_array_access_using_var_index.cpp in Sources */,
 				0585CD6C25BA766F00C169B0 /* string_utils.cpp in Sources */,
 				0585CE6F25BA766F00C169B0 /* relax_float_ops_pass.cpp in Sources */,
 				0585CDE825BA766F00C169B0 /* inst_bindless_check_pass.cpp in Sources */,
@@ -2923,8 +3117,10 @@
 				0585CE6525BA766F00C169B0 /* fold.cpp in Sources */,
 				0585CE3825BA766F00C169B0 /* instruction_list.cpp in Sources */,
 				0585CE0325BA766F00C169B0 /* remove_duplicates_pass.cpp in Sources */,
+				057DDA62282F872E002A5877 /* strip_nonsemantic_info_pass.cpp in Sources */,
 				0585CDC325BA766F00C169B0 /* spirv_reducer_options.cpp in Sources */,
 				0585CE0F25BA766F00C169B0 /* inline_pass.cpp in Sources */,
+				057DDA60282F872E002A5877 /* desc_sroa_util.cpp in Sources */,
 				0585CDCC25BA766F00C169B0 /* ext_inst.cpp in Sources */,
 				0585D02E25BA767000C169B0 /* validate_builtins.cpp in Sources */,
 				0585D03625BA767000C169B0 /* function.cpp in Sources */,
@@ -2946,6 +3142,7 @@
 				0585D04A25BA767000C169B0 /* validate_layout.cpp in Sources */,
 				0585CDBA25BA766F00C169B0 /* spirv_endian.cpp in Sources */,
 				0585CDC725BA766F00C169B0 /* name_mapper.cpp in Sources */,
+				057DDA67282F8765002A5877 /* spread_volatile_semantics.cpp in Sources */,
 				0585D04125BA767000C169B0 /* validate_logicals.cpp in Sources */,
 				0585CE8825BA766F00C169B0 /* local_access_chain_convert_pass.cpp in Sources */,
 				0585CE6825BA766F00C169B0 /* scalar_replacement_pass.cpp in Sources */,
@@ -2956,7 +3153,6 @@
 				0585CE7725BA766F00C169B0 /* value_number_table.cpp in Sources */,
 				0585CDED25BA766F00C169B0 /* feature_manager.cpp in Sources */,
 				0585CDF925BA766F00C169B0 /* strip_debug_info_pass.cpp in Sources */,
-				0585CE2125BA766F00C169B0 /* strip_reflect_info_pass.cpp in Sources */,
 				0585CE0625BA766F00C169B0 /* module.cpp in Sources */,
 				0585CE5125BA766F00C169B0 /* dead_insert_elim_pass.cpp in Sources */,
 				0585CDB625BA766F00C169B0 /* spirv_validator_options.cpp in Sources */,
@@ -2999,7 +3195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0585D1D325BA8A1D00C169B0 /* Enumerations.swift in Sources */,
+				0585D1D325BA8A1D00C169B0 /* ToolsEnumerations.swift in Sources */,
 				0585D1D425BA8A1D00C169B0 /* Optimizer.swift in Sources */,
 				0585D1D525BA8A1D00C169B0 /* Optimizer+Passes.swift in Sources */,
 			);
@@ -3008,15 +3204,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0535658225BA153600FDAFC0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0535654625BA13D600FDAFC0 /* GLSLang */;
-			targetProxy = 0535658125BA153600FDAFC0 /* PBXContainerItemProxy */;
-		};
 		0535658A25BA153D00FDAFC0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0535636625B6223000FDAFC0 /* CGLSLang */;
 			targetProxy = 0535658925BA153D00FDAFC0 /* PBXContainerItemProxy */;
+		};
+		057DDA57282F7B2C002A5877 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 057DDA23282F7996002A5877 /* SPIRV */;
+			targetProxy = 057DDA56282F7B2C002A5877 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -3052,7 +3248,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				EXECUTABLE_PREFIX = lib;
-				MODULEMAP_FILE = "$(SRCROOT)/$(PRODUCT_NAME)/include/module.modulemap";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -3067,7 +3262,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				EXECUTABLE_PREFIX = lib;
-				MODULEMAP_FILE = "$(SRCROOT)/$(PRODUCT_NAME)/include/module.modulemap";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -3075,6 +3269,7 @@
 		};
 		0535654E25BA13D600FDAFC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 057DDA1D282F3C9E002A5877 /* GLSLang.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -3093,6 +3288,7 @@
 		};
 		0535654F25BA13D600FDAFC0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 057DDA1D282F3C9E002A5877 /* GLSLang.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -3134,6 +3330,7 @@
 		};
 		0535669B25BA1EB300FDAFC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 057DDA1C282F3C6D002A5877 /* SPIRVCross.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -3152,6 +3349,7 @@
 		};
 		0535669C25BA1EB300FDAFC0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 057DDA1C282F3C6D002A5877 /* SPIRVCross.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -3284,6 +3482,68 @@
 			};
 			name = Release;
 		};
+		057DDA2B282F7996002A5877 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stuartcarnie.SPIRV;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		057DDA2C282F7996002A5877 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stuartcarnie.SPIRV;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		0585CA4025BA751E00C169B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0585CA4A25BA754000C169B0 /* CSPIRVTools.xcconfig */;
@@ -3312,6 +3572,7 @@
 		};
 		0585D1AD25BA89EA00C169B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 057DDA1E282F3CDA002A5877 /* SPIRVTools.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -3330,6 +3591,7 @@
 		};
 		0585D1AE25BA89EA00C169B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 057DDA1E282F3CDA002A5877 /* SPIRVTools.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -3398,6 +3660,15 @@
 			buildConfigurations = (
 				054A77D125B527B900F2F3D6 /* Debug */,
 				054A77D225B527B900F2F3D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		057DDA2A282F7996002A5877 /* Build configuration list for PBXNativeTarget "SPIRV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				057DDA2B282F7996002A5877 /* Debug */,
+				057DDA2C282F7996002A5877 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

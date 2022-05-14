@@ -1,5 +1,5 @@
 module CSPIRVCross {
-    umbrella "."
+    umbrella header "CSPIRVCross.h"
     export *
     link "c++"
 }

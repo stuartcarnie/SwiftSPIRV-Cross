@@ -27,7 +27,7 @@ using namespace spvtools;
 #endif
 
 ENUM_CHECK(spv_target_env, SPV_ENV_UNIVERSAL_1_0, SPV_TARGET_ENV_UNIVERSAL_1_0);
-ENUM_CHECK(spv_target_env, SPV_ENV_VULKAN_1_2, SPV_TARGET_ENV_VULKAN_1_2);
+ENUM_CHECK(spv_target_env, SPV_ENV_MAX, SPV_TARGET_ENV_MAX);
 
 #pragma mark - Vector
 
@@ -137,6 +137,11 @@ void spvt_optimizer_register_strip_debug_info_pass(spvt_optimizer optimizer)
 void spvt_optimizer_register_strip_reflect_info_pass(spvt_optimizer optimizer) 
 {
     optimizer->optimizer->RegisterPass(CreateStripReflectInfoPass());
+}
+
+void spvt_optimizer_register_strip_non_semantic_info_pass(spvt_optimizer optimizer)
+{
+    optimizer->optimizer->RegisterPass(CreateStripNonSemanticInfoPass());
 }
 
 void spvt_optimizer_register_eliminate_dead_functions_pass(spvt_optimizer optimizer) 
@@ -418,9 +423,14 @@ void spvt_optimizer_register_fix_storage_class_pass(spvt_optimizer optimizer)
     optimizer->optimizer->RegisterPass(CreateFixStorageClassPass());
 }
 
-void spvt_optimizer_register_graphics_robust_access_pass(spvt_optimizer optimizer) 
+void spvt_optimizer_register_graphics_robust_access_pass(spvt_optimizer optimizer)
 {
     optimizer->optimizer->RegisterPass(CreateGraphicsRobustAccessPass());
+}
+
+void spvt_optimizer_register_spread_volatile_semantics_pass(spvt_optimizer optimizer)
+{
+    optimizer->optimizer->RegisterPass(CreateSpreadVolatileSemanticsPass());
 }
 
 void spvt_optimizer_register_descriptor_scalar_replacement_pass(spvt_optimizer optimizer) 
@@ -441,4 +451,14 @@ void spvt_optimizer_register_amd_ext_to_khr_pass(spvt_optimizer optimizer)
 void spvt_optimizer_register_interpolate_fixup_pass(spvt_optimizer optimizer)
 {
     optimizer->optimizer->RegisterPass(CreateInterpolateFixupPass());
+}
+
+void spvt_optimizer_register_eliminate_dead_input_components_pass(spvt_optimizer optimizer)
+{
+    optimizer->optimizer->RegisterPass(CreateEliminateDeadInputComponentsPass());
+}
+
+void spvt_optimizer_register_remove_dont_inline_pass(spvt_optimizer optimizer)
+{
+    optimizer->optimizer->RegisterPass(CreateRemoveDontInlinePass());
 }

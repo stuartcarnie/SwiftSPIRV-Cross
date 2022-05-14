@@ -6,9 +6,7 @@
 //
 
 import Foundation
-import GLSLang
-import SPIRVCross
-import SPIRVTools
+import SPIRV
 
 @main
 struct Test {
@@ -38,7 +36,7 @@ struct Test {
              if (false)
                  FragColor = vec4(1, 2, 3, 4);
              a = 6;
-             FragColor = vec4(1, FOO, 0, a);
+             FragColor = vec4(1, FOO, params.phosphor_power, a);
          }
         """#
         let vertShader = GLShader(source: code, stage: stage)

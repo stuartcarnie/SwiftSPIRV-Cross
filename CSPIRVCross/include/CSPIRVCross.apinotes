@@ -486,6 +486,8 @@ Enumerators:
     SwiftName: aliasedPointer
   - Name: SpvDecorationAliasedPointerEXT
     SwiftName: aliasedPointerEXT
+  - Name: SpvDecorationReferencedIndirectlyINTEL
+    SwiftName: referencedIndirectlyINTEL
   - Name: SpvDecorationCounterBuffer
     SwiftName: counterBuffer
   - Name: SpvDecorationHlslCounterBufferGOOGLE
@@ -496,6 +498,30 @@ Enumerators:
     SwiftName: userSemantic
   - Name: SpvDecorationUserTypeGOOGLE
     SwiftName: userTypeGOOGLE
+  - Name: SpvDecorationRegisterINTEL
+    SwiftName: registerINTEL
+  - Name: SpvDecorationMemoryINTEL
+    SwiftName: memoryINTEL
+  - Name: SpvDecorationNumbanksINTEL
+    SwiftName: numbanksINTEL
+  - Name: SpvDecorationBankwidthINTEL
+    SwiftName: bankwidthINTEL
+  - Name: SpvDecorationMaxPrivateCopiesINTEL
+    SwiftName: maxPrivateCopiesINTEL
+  - Name: SpvDecorationSinglepumpINTEL
+    SwiftName: singlepumpINTEL
+  - Name: SpvDecorationDoublepumpINTEL
+    SwiftName: doublepumpINTEL
+  - Name: SpvDecorationMaxReplicatesINTEL
+    SwiftName: maxReplicatesINTEL
+  - Name: SpvDecorationSimpleDualPortINTEL
+    SwiftName: simpleDualPortINTEL
+  - Name: SpvDecorationMergeINTEL
+    SwiftName: mergeINTEL
+  - Name: SpvDecorationBankBitsINTEL
+    SwiftName: bankBitsINTEL
+  - Name: SpvDecorationForcePow2DepthINTEL
+    SwiftName: forcePow2DepthINTEL
   - Name: SpvDecorationMax
     SwiftName: max
     SwiftPrivate: true
