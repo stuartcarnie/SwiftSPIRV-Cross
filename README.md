@@ -147,19 +147,26 @@ following sections.
 SPIRV-Tools requires additional steps to build the 
 generated files.
 
-1. Generate the SPIRV-Tools CMake build files:
+There is a `Makefile` in the `3rdparty` directory which automates
+most of the steps.
+
+1. Clean `spirv-tools`
 
     ```sh
-    $ cmake -B build -S . -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    make clean-spirv
     ```
 
-2. Build the generated files  
+2. Sync new headers
 
     ```sh
-    $ make extinst_tables core_tables enum_string_mapping spirv-tools-build-version
+    make spirv-sync-headers
     ```
 
-3. Copy the *.h, *.inc files to `Sources/CSPIRVTools/ext`
+4. Generate additional files
+
+    ```sh
+    make spirv-update-ext
+    ```
 
 [0]: https://github.com/khronosGroup/glslang
 [1]: https://github.com/khronosGroup/SPIRV-cross
