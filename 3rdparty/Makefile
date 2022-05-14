@@ -7,6 +7,9 @@ SPIRV_TOOLS_BUILD_DIR:=$(SPIRV_TOOLS_DIR)/build
 GLSLANG_DIR?=glslang
 GLSLANG_BUILD_DIR:=$(GLSLANG_DIR)/build
 
+PROJ_ROOT=..
+PROJ_CGLSLANG_DIR=$(PROJ_ROOT)/CGLSLang
+
 ifeq ($(origin CMAKE), undefined)
   CMAKE := $(shell ./find-cmake.sh)
 endif
@@ -37,8 +40,11 @@ clean-glslang:
 	rm -rf $(GLSLANG_BUILD_DIR)
 .PHONY: clean-glslang
 
-build_info.h: $(GLSLANG_BUILD_DIR)/include/glslang/build_info.h
+build_info.h: $(PROJ_CGLSLANG_DIR)/include/glslang/build_info.h $(GLSLANG_BUILD_DIR)/include/glslang/build_info.h
 .PHONY: build_info.h
+
+$(PROJ_CGLSLANG_DIR)/include/glslang/build_info.h: $(GLSLANG_BUILD_DIR)/include/glslang/build_info.h
+	cp -c $< $@
 
 $(GLSLANG_BUILD_DIR)/include/glslang/build_info.h: $(GLSLANG_DIR)/CHANGES.md $(GLSLANG_DIR)/build_info.h.tmpl $(GLSLANG_BUILD_DIR)/CMakeCache.txt
 	# $(MAKE) -C $(GLSLANG_BUILD_DIR) glslang-build-info/fast
