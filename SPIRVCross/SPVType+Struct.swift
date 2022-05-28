@@ -59,10 +59,7 @@ extension SPVType {
         let index: UInt32
         
         public var name: String {
-            guard let v = compiler.get_member_name(id: type.base_type_id, index: index) else {
-                fatalError("Expected name")
-            }
-            return String(cString: v)
+            return String(cString: compiler.get_member_name(id: type.base_type_id, index: index))
         }
         
         public var typeID: SPVTypeID { type.get_member_type(index: index) }

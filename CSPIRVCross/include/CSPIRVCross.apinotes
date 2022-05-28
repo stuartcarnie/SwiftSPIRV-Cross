@@ -136,6 +136,7 @@ Functions:
     SwiftName: SPVCompiler.unset_member_decoration(self:id:index:decoration:)
   - Name: spvc_compiler_get_member_name
     SwiftName: SPVCompiler.get_member_name(self:id:index:)
+    NullabilityOfRet: N
 
   # Metal Shader Language
   - Name: spvc_compiler_msl_is_rasterization_disabled
