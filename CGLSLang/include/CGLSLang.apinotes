@@ -24,6 +24,7 @@ Functions:
     SwiftName: CGLSLangShader.parse(self:input:)
   - Name: glslang_shader_get_preprocessed_code
     SwiftName: getter:CGLSLangShader.preprocessed_code(self:)
+    NullabilityOfRet: N
   - Name: glslang_shader_get_info_log
     SwiftName: getter:CGLSLangShader.info_log(self:)
   - Name: glslang_shader_get_info_debug_log
@@ -55,8 +56,10 @@ Functions:
     SwiftName: getter:CGLSLangProgram.spirv_messages(self:)
   - Name: glslang_program_get_info_log
     SwiftName: getter:CGLSLangProgram.info_log(self:)
+    NullabilityOfRet: N
   - Name: glslang_program_get_info_debug_log
     SwiftName: getter:CGLSLangProgram.info_debug_log(self:)
+    NullabilityOfRet: N
 
   # endregion
 
