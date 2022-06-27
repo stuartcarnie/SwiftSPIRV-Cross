@@ -68,7 +68,7 @@ struct Test {
                 .registerStaticSingleAssignmentRewritePass()
                 .registerAggressiveDeadCodeEliminationPass()
 
-            //vertSpv = opt.optimize(spirv: vertSpv1)!
+            // vertSpv = opt.optimize(spirv: vertSpv1)!
             vertSpv = vertSpv1
         } catch GLProgram.ProgramError.link {
             print("Link error")

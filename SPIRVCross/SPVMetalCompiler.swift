@@ -173,8 +173,8 @@ extension SPVMetalCompiler {
         public var bufferSizeBufferIndex: UInt32 = 25
         public var viewMaskBufferIndex: UInt32 = 24
         public var dynamicOffsetsBufferIndex: UInt32 = 23
-        public var shaderInputBufferIndex:UInt32 = 22;
-        public var shaderIndexBufferIndex:UInt32 = 21;
+        public var shaderInputBufferIndex: UInt32 = 22
+        public var shaderIndexBufferIndex: UInt32 = 21
         public var shaderInputWorkgroupIndex: UInt32 = 0
         public var deviceIndex: UInt32 = 0
         public var enableFragOutputMask: UInt32 = 0xffff_ffff
@@ -370,6 +370,8 @@ extension MTLLanguageVersion {
     @usableFromInline
     var spvcMetalVersion: UInt32 {
         switch self {
+        case .version1_0:
+            return makeVersion(major: 1, minor: 0)
         case .version1_1:
             return makeVersion(major: 1, minor: 1)
         case .version1_2:
@@ -384,6 +386,10 @@ extension MTLLanguageVersion {
             return makeVersion(major: 2, minor: 3)
         case .version2_4:
             return makeVersion(major: 2, minor: 4)
+#if swift(>=5.6)
+        case .version3_0:
+            return makeVersion(major: 3, minor: 0)
+#endif
         @unknown default:
             fatalError()
         }

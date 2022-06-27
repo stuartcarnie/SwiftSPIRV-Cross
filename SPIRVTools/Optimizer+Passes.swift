@@ -139,8 +139,6 @@ extension SPVTOptimizer {
     /// There are some operations not supported yet:
     ///   `OpSConvert`, `OpFConvert`, `OpQuantizeToF16` and
     ///   all the operations under Kernel capability.
-    /// - Todo:
-    /// TODO(qining): Add support for the operations listed above.
     public func registerFoldSpecConstantOpAndCompositePass() {
         optimizer.register_fold_spec_constant_op_and_composite_pass()
     }
@@ -773,10 +771,6 @@ extension SPVTOptimizer {
     /// `inputLengthEnable` controls instrumentation of runtime descriptor array
     /// references, and `inputInitEnable` controls instrumentation of descriptor
     /// initialization checking, both of which require input buffer support.
-    ///
-    /// - todo:
-    /// TODO(greg-lunarg): Add support for buffer references. Currently only does
-    /// checking for image references.
     public func registerInstBindlessCheckPass(descSet: UInt32, shaderId: UInt32,
                                               inputLengthEnable: Bool = false, inputInitEnable: Bool = false) {
         optimizer.register_inst_bindless_check_pass(descriptorSet: descSet, shaderId: shaderId,
@@ -863,8 +857,6 @@ extension SPVTOptimizer {
     /// - Access chain indices are wider than 64 bits.
     /// - Access chain index for a struct is not an OpConstant integer or is out
     ///   of range. (The module is already invalid if that is the case.)
-    /// - TODO(dneto): The `OpImageTexelPointer` coordinate component is not 32-bits
-    /// wide.
     ///
     /// Access chain indices are always treated as signed integers.  So
     ///   if an array has a fixed size of more than 2^31 elements, then elements
@@ -962,4 +954,3 @@ extension SPVTOptimizer {
     }
 
 }
-
