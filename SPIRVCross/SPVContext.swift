@@ -36,7 +36,7 @@ public final class SPVContext {
         var v: SPVParsedIR?
         let res = data.withUnsafeBytes { a -> SPVResult in
             let spirv = a.bindMemory(to: SpvId.self)
-            return ctx.parse(data: spirv.baseAddress!, data.count / MemoryLayout<SpvId>.size, &v)
+            return ctx.parse(data: spirv.baseAddress, data.count / MemoryLayout<SpvId>.size, &v)
         }
         
         if let res = res.errorResult {
