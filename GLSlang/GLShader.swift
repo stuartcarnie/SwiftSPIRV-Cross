@@ -26,7 +26,7 @@ var initialized: Bool = {
     return true
 }()
 
-@objc public class GLShader: NSObject {
+public class GLShader {
     public enum ShaderError: Error {
         case preprocess, parse
     }

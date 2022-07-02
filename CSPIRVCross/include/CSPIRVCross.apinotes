@@ -353,7 +353,7 @@ Enumerators:
   - Name: SPVC_RESOURCE_TYPE_RAY_QUERY
     SwiftName: rayQuery
   - Name: SPVC_RESOURCE_TYPE_INT_MAX
-    SwiftPrivate: true
+    Availability: nonswift
 
   # endregion
 
@@ -524,8 +524,7 @@ Enumerators:
   - Name: SpvDecorationForcePow2DepthINTEL
     SwiftName: forcePow2DepthINTEL
   - Name: SpvDecorationMax
-    SwiftName: max
-    SwiftPrivate: true
+    Availability: nonswift
 
   # endregion
 
@@ -572,8 +571,7 @@ Enumerators:
   - Name: SPVC_BASETYPE_ACCELERATION_STRUCTURE
     SwiftName: accelerationStructure
   - Name: SPVC_BASETYPE_INT_MAX
-    SwiftName: intMax
-    SwiftPrivate: true
+    Availability: nonswift
 
   # endregion
 
@@ -634,8 +632,7 @@ Enumerators:
   - Name: SpvStorageClassPhysicalStorageBufferEXT
     SwiftName: physicalStorageBufferEXT
   - Name: SpvStorageClassMax
-    SwiftName: max
-    SwiftPrivate: true
+    Availability: nonswift
 
   # endregion
 
@@ -684,7 +681,7 @@ Enumerators:
   - Name: SpvExecutionModelCallableNV
     SwiftName: callableNV
   - Name: SpvExecutionModelMax
-    SwiftPrivate: true
+    Availability: nonswift
 
   # endregion
 
@@ -705,7 +702,7 @@ Enumerators:
   - Name: SpvDimSubpassData
     SwiftName: subpassData
   - Name: SpvDimMax
-    SwiftName: max
+    Availability: nonswift
 
   # endregion
 
@@ -792,7 +789,7 @@ Enumerators:
   - Name: SpvImageFormatR8ui
     SwiftName: r8ui
   - Name: SpvImageFormatMax
-    SwiftName: max
+    Availability: nonswift
 
   # endregion
 
@@ -806,6 +803,6 @@ Enumerators:
   - Name: SpvAccessQualifierReadWrite
     SwiftName: readWrite
   - Name: SpvAccessQualifierMax
-    SwiftName: max
+    Availability: nonswift
 
   # endregion

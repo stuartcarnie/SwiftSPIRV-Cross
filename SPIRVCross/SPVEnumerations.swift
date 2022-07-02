@@ -55,8 +55,6 @@ extension SPVExecutionModel: CustomStringConvertible {
             return "missKHR"
         case .callableKHR:
             return "callableKHR"
-        case .__max:
-            return "__max"
         }
     }
 }
@@ -110,8 +108,6 @@ extension SPVBaseType: CustomStringConvertible {
             return "sampler"
         case .accelerationStructure:
             return "accelerationStructure"
-        case .intMax:
-            return "intMax"
         }
     }
 }
@@ -298,8 +294,8 @@ extension SPVDecoration: CustomStringConvertible {
             return "bankBitsINTEL"
         case .forcePow2DepthINTEL:
             return "forcePow2DepthINTEL"
-        case .max:
-            return "max"
+//        case .max:
+//            return "max"
         }
     }
 }
@@ -341,8 +337,6 @@ extension SPVResourceType: CustomStringConvertible {
             return "accelerationStructure"
         case .rayQuery:
             return "rayQuery"
-        case .__SPVC_RESOURCE_TYPE_INT_MAX:
-            return "__SPVC_RESOURCE_TYPE_INT_MAX"
         }
     }
 }
@@ -398,8 +392,6 @@ extension SPVStorageClass: CustomStringConvertible {
             return "physicalStorageBuffer"
         case .codeSectionINTEL:
             return "physicalStorageBuffer"
-        case .max:
-            return "max"
         }
     }
 }
@@ -427,8 +419,6 @@ extension SPVDim: CustomStringConvertible {
             return "buffer"
         case .subpassData:
             return "subpassData"
-        case .max:
-            return "max"
         }
     }
 }
@@ -526,8 +516,6 @@ extension SPVImageFormat: CustomStringConvertible {
             return "r64ui"
         case .r64i:
             return "r64i"
-        case .max:
-            return "max"
         }
     }
 }
@@ -547,8 +535,6 @@ extension SPVAccessQualifier: CustomStringConvertible {
             return "writeOnly"
         case .readWrite:
             return "readWrite"
-        case .max:
-            return "max"
         }
     }
 }
