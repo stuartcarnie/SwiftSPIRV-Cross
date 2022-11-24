@@ -3,6 +3,7 @@ Name: CGLSLang
 SwiftInferImportAsMember: true
 Availability: available
 
+# MARK: - Typedefs
 Typedefs:
   - Name: glslang_shader
     SwiftName: CGLSLangShader
@@ -11,7 +12,9 @@ Typedefs:
     SwiftName: CGLSLangProgram
     SwiftWrapper: struct
 
+# MARK: - Functions
 Functions:
+  # MARK: glslang_shader_t
   # region glslang_shader_t
 
   - Name: glslang_shader_create
@@ -32,6 +35,7 @@ Functions:
 
   # endregion
 
+  # MARK: glslang_program_t
   # region glslang_program_t
 
   - Name: glslang_program_create
@@ -63,6 +67,7 @@ Functions:
 
   # endregion
 
+# MARK: - Section: Tags
 Tags:
   - Name: glslang_stage_s
     SwiftName: GLStage
@@ -107,7 +112,9 @@ Tags:
     SwiftName: GLIncluderType
     EnumKind: CFClosedEnum
 
+# MARK: - Section: Enumerators
 Enumerators:
+  # MARK: glslang_stage_s
   # region glslang_stage_s
 
   - Name: GLSLANG_STAGE_VERTEX
@@ -143,6 +150,7 @@ Enumerators:
 
   # endregion
 
+  # MARK: glslang_source_s
   # region glslang_source_s
 
   - Name: GLSLANG_SOURCE_NONE
@@ -156,6 +164,7 @@ Enumerators:
 
   # endregion
 
+  # MARK: glslang_stage_mask_s
   # region glslang_stage_mask_s
 
   - Name: GLSLANG_STAGE_VERTEX_MASK
@@ -191,6 +200,7 @@ Enumerators:
 
   # endregion
 
+  # MARK: glslang_client_s
   # region glslang_client_s
 
   - Name: GLSLANG_CLIENT_NONE
@@ -204,6 +214,7 @@ Enumerators:
 
   # endregion
 
+  # MARK: glslang_target_language_s
   # region glslang_target_language_s
 
   - Name: GLSLANG_TARGET_NONE
@@ -215,6 +226,7 @@ Enumerators:
 
   # endregion
 
+  # MARK: glslang_target_client_version_s
   # region glslang_target_client_version_s
 
   - Name: GLSLANG_TARGET_VULKAN_1_0
@@ -232,6 +244,7 @@ Enumerators:
 
   # endregion
 
+  # MARK: glslang_target_language_version_s
   # region glslang_target_language_version_s
 
   - Name: GLSLANG_TARGET_SPV_1_0
@@ -253,6 +266,7 @@ Enumerators:
 
   # endregion
 
+  # MARK: glslang_executable_s
   # region glslang_executable_s
 
   - Name: GLSLANG_EX_VERTEX_FRAGMENT
@@ -262,6 +276,7 @@ Enumerators:
 
   # endregion
 
+  # MARK: glslang_optimization_level_s
   # region glslang_optimization_level_s
 
   - Name: GLSLANG_OPT_NO_GENERATION
@@ -277,6 +292,7 @@ Enumerators:
 
   # endregion
 
+  # MARK: glslang_texture_sampler_transform_mode_s
   # region glslang_texture_sampler_transform_mode_s
 
   - Name: GLSLANG_TEX_SAMP_TRANS_KEEP
@@ -288,6 +304,7 @@ Enumerators:
 
   # endregion
 
+  # MARK: glslang_messages_s
   # region glslang_messages_s
 
   - Name: GLSLANG_MSG_DEFAULT_BIT
@@ -327,7 +344,9 @@ Enumerators:
 
   # endregion
 
+  # MARK: glslang_reflection_options_s
   # region glslang_reflection_options_s
+  
   - Name: GLSLANG_REFLECTION_DEFAULT_BIT
     SwiftName: default
   - Name: GLSLANG_REFLECTION_STRICT_ARRAY_SUFFIX_BIT
@@ -352,7 +371,9 @@ Enumerators:
     Availability: nonswift
   # endregion
 
+  # MARK: glslang_profile_s
   # region glslang_profile_s
+  
   - Name: GLSLANG_BAD_PROFILE
     SwiftName: badProfile
   - Name: GLSLANG_NO_PROFILE
@@ -367,7 +388,9 @@ Enumerators:
     Availability: nonswift
   # endregion
 
+  # MARK: glslang_includer_type_s
   # region glslang_includer_type_s
+  
   - Name: GLSLANG_INCLUDER_TYPE_FORBID
     SwiftName: forbid
   - Name: GLSLANG_INCLUDER_TYPE_DIR_STACK
