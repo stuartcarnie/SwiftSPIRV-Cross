@@ -46,16 +46,17 @@
 
 namespace Spv
 {
+    using System;
 
     public static class Specification
     {
-        public const uint MagicNumber = 0x07230203;
-        public const uint Version = 0x00010600;
-        public const uint Revision = 1;
-        public const uint OpCodeMask = 0xffff;
-        public const uint WordCountShift = 16;
+        public const uint32 MagicNumber = 0x07230203;
+        public const uint32 Version = 0x00010600;
+        public const uint32 Revision = 1;
+        public const uint32 OpCodeMask = 0xffff;
+        public const uint32 WordCountShift = 16;
 
-        public enum SourceLanguage
+        [AllowDuplicates, CRepr] public enum SourceLanguage
         {
             Unknown = 0,
             ESSL = 1,
@@ -67,7 +68,7 @@ namespace Spv
             SYCL = 7,
         }
 
-        public enum ExecutionModel
+        [AllowDuplicates, CRepr] public enum ExecutionModel
         {
             Vertex = 0,
             TessellationControl = 1,
@@ -94,7 +95,7 @@ namespace Spv
             MeshEXT = 5365,
         }
 
-        public enum AddressingModel
+        [AllowDuplicates, CRepr] public enum AddressingModel
         {
             Logical = 0,
             Physical32 = 1,
@@ -103,7 +104,7 @@ namespace Spv
             PhysicalStorageBuffer64EXT = 5348,
         }
 
-        public enum MemoryModel
+        [AllowDuplicates, CRepr] public enum MemoryModel
         {
             Simple = 0,
             GLSL450 = 1,
@@ -112,7 +113,7 @@ namespace Spv
             VulkanKHR = 3,
         }
 
-        public enum ExecutionMode
+        [AllowDuplicates, CRepr] public enum ExecutionMode
         {
             Invocations = 0,
             SpacingEqual = 1,
@@ -196,7 +197,7 @@ namespace Spv
             NamedBarrierCountINTEL = 6417,
         }
 
-        public enum StorageClass
+        [AllowDuplicates, CRepr] public enum StorageClass
         {
             UniformConstant = 0,
             Input = 1,
@@ -232,7 +233,7 @@ namespace Spv
             HostOnlyINTEL = 5937,
         }
 
-        public enum Dim
+        [AllowDuplicates, CRepr] public enum Dim
         {
             Dim1D = 0,
             Dim2D = 1,
@@ -243,7 +244,7 @@ namespace Spv
             SubpassData = 6,
         }
 
-        public enum SamplerAddressingMode
+        [AllowDuplicates, CRepr] public enum SamplerAddressingMode
         {
             None = 0,
             ClampToEdge = 1,
@@ -252,13 +253,13 @@ namespace Spv
             RepeatMirrored = 4,
         }
 
-        public enum SamplerFilterMode
+        [AllowDuplicates, CRepr] public enum SamplerFilterMode
         {
             Nearest = 0,
             Linear = 1,
         }
 
-        public enum ImageFormat
+        [AllowDuplicates, CRepr] public enum ImageFormat
         {
             Unknown = 0,
             Rgba32f = 1,
@@ -304,7 +305,7 @@ namespace Spv
             R64i = 41,
         }
 
-        public enum ImageChannelOrder
+        [AllowDuplicates, CRepr] public enum ImageChannelOrder
         {
             R = 0,
             A = 1,
@@ -328,7 +329,7 @@ namespace Spv
             ABGR = 19,
         }
 
-        public enum ImageChannelDataType
+        [AllowDuplicates, CRepr] public enum ImageChannelDataType
         {
             SnormInt8 = 0,
             SnormInt16 = 1,
@@ -349,7 +350,7 @@ namespace Spv
             UnormInt101010_2 = 16,
         }
 
-        public enum ImageOperandsShift
+        [AllowDuplicates, CRepr] public enum ImageOperandsShift
         {
             Bias = 0,
             Lod = 1,
@@ -373,7 +374,7 @@ namespace Spv
             Offsets = 16,
         }
 
-        public enum ImageOperandsMask
+        [AllowDuplicates, CRepr] public enum ImageOperandsMask
         {
             MaskNone = 0,
             Bias = 0x00000001,
@@ -398,7 +399,7 @@ namespace Spv
             Offsets = 0x00010000,
         }
 
-        public enum FPFastMathModeShift
+        [AllowDuplicates, CRepr] public enum FPFastMathModeShift
         {
             NotNaN = 0,
             NotInf = 1,
@@ -409,7 +410,7 @@ namespace Spv
             AllowReassocINTEL = 17,
         }
 
-        public enum FPFastMathModeMask
+        [AllowDuplicates, CRepr] public enum FPFastMathModeMask
         {
             MaskNone = 0,
             NotNaN = 0x00000001,
@@ -421,7 +422,7 @@ namespace Spv
             AllowReassocINTEL = 0x00020000,
         }
 
-        public enum FPRoundingMode
+        [AllowDuplicates, CRepr] public enum FPRoundingMode
         {
             RTE = 0,
             RTZ = 1,
@@ -429,21 +430,21 @@ namespace Spv
             RTN = 3,
         }
 
-        public enum LinkageType
+        [AllowDuplicates, CRepr] public enum LinkageType
         {
             Export = 0,
             Import = 1,
             LinkOnceODR = 2,
         }
 
-        public enum AccessQualifier
+        [AllowDuplicates, CRepr] public enum AccessQualifier
         {
             ReadOnly = 0,
             WriteOnly = 1,
             ReadWrite = 2,
         }
 
-        public enum FunctionParameterAttribute
+        [AllowDuplicates, CRepr] public enum FunctionParameterAttribute
         {
             Zext = 0,
             Sext = 1,
@@ -456,7 +457,7 @@ namespace Spv
             RuntimeAlignedINTEL = 5940,
         }
 
-        public enum Decoration
+        [AllowDuplicates, CRepr] public enum Decoration
         {
             RelaxedPrecision = 0,
             SpecId = 1,
@@ -590,7 +591,7 @@ namespace Spv
             StableKernelArgumentINTEL = 6183,
         }
 
-        public enum BuiltIn
+        [AllowDuplicates, CRepr] public enum BuiltIn
         {
             Position = 0,
             PointSize = 1,
@@ -725,20 +726,20 @@ namespace Spv
             CullMaskKHR = 6021,
         }
 
-        public enum SelectionControlShift
+        [AllowDuplicates, CRepr] public enum SelectionControlShift
         {
             Flatten = 0,
             DontFlatten = 1,
         }
 
-        public enum SelectionControlMask
+        [AllowDuplicates, CRepr] public enum SelectionControlMask
         {
             MaskNone = 0,
             Flatten = 0x00000001,
             DontFlatten = 0x00000002,
         }
 
-        public enum LoopControlShift
+        [AllowDuplicates, CRepr] public enum LoopControlShift
         {
             Unroll = 0,
             DontUnroll = 1,
@@ -761,7 +762,7 @@ namespace Spv
             MaxReinvocationDelayINTEL = 25,
         }
 
-        public enum LoopControlMask
+        [AllowDuplicates, CRepr] public enum LoopControlMask
         {
             MaskNone = 0,
             Unroll = 0x00000001,
@@ -785,7 +786,7 @@ namespace Spv
             MaxReinvocationDelayINTEL = 0x02000000,
         }
 
-        public enum FunctionControlShift
+        [AllowDuplicates, CRepr] public enum FunctionControlShift
         {
             Inline = 0,
             DontInline = 1,
@@ -794,7 +795,7 @@ namespace Spv
             OptNoneINTEL = 16,
         }
 
-        public enum FunctionControlMask
+        [AllowDuplicates, CRepr] public enum FunctionControlMask
         {
             MaskNone = 0,
             Inline = 0x00000001,
@@ -804,7 +805,7 @@ namespace Spv
             OptNoneINTEL = 0x00010000,
         }
 
-        public enum MemorySemanticsShift
+        [AllowDuplicates, CRepr] public enum MemorySemanticsShift
         {
             Acquire = 1,
             Release = 2,
@@ -825,7 +826,7 @@ namespace Spv
             Volatile = 15,
         }
 
-        public enum MemorySemanticsMask
+        [AllowDuplicates, CRepr] public enum MemorySemanticsMask
         {
             MaskNone = 0,
             Acquire = 0x00000002,
@@ -847,7 +848,7 @@ namespace Spv
             Volatile = 0x00008000,
         }
 
-        public enum MemoryAccessShift
+        [AllowDuplicates, CRepr] public enum MemoryAccessShift
         {
             Volatile = 0,
             Aligned = 1,
@@ -862,7 +863,7 @@ namespace Spv
             NoAliasINTELMask = 17,
         }
 
-        public enum MemoryAccessMask
+        [AllowDuplicates, CRepr] public enum MemoryAccessMask
         {
             MaskNone = 0,
             Volatile = 0x00000001,
@@ -878,7 +879,7 @@ namespace Spv
             NoAliasINTELMask = 0x00020000,
         }
 
-        public enum Scope
+        [AllowDuplicates, CRepr] public enum Scope
         {
             CrossDevice = 0,
             Device = 1,
@@ -890,7 +891,7 @@ namespace Spv
             ShaderCallKHR = 6,
         }
 
-        public enum GroupOperation
+        [AllowDuplicates, CRepr] public enum GroupOperation
         {
             Reduce = 0,
             InclusiveScan = 1,
@@ -901,25 +902,25 @@ namespace Spv
             PartitionedExclusiveScanNV = 8,
         }
 
-        public enum KernelEnqueueFlags
+        [AllowDuplicates, CRepr] public enum KernelEnqueueFlags
         {
             NoWait = 0,
             WaitKernel = 1,
             WaitWorkGroup = 2,
         }
 
-        public enum KernelProfilingInfoShift
+        [AllowDuplicates, CRepr] public enum KernelProfilingInfoShift
         {
             CmdExecTime = 0,
         }
 
-        public enum KernelProfilingInfoMask
+        [AllowDuplicates, CRepr] public enum KernelProfilingInfoMask
         {
             MaskNone = 0,
             CmdExecTime = 0x00000001,
         }
 
-        public enum Capability
+        [AllowDuplicates, CRepr] public enum Capability
         {
             Matrix = 0,
             Shader = 1,
@@ -1161,7 +1162,7 @@ namespace Spv
             GroupUniformArithmeticKHR = 6400,
         }
 
-        public enum RayFlagsShift
+        [AllowDuplicates, CRepr] public enum RayFlagsShift
         {
             OpaqueKHR = 0,
             NoOpaqueKHR = 1,
@@ -1176,7 +1177,7 @@ namespace Spv
             ForceOpacityMicromap2StateEXT = 10,
         }
 
-        public enum RayFlagsMask
+        [AllowDuplicates, CRepr] public enum RayFlagsMask
         {
             MaskNone = 0,
             OpaqueKHR = 0x00000001,
@@ -1192,26 +1193,26 @@ namespace Spv
             ForceOpacityMicromap2StateEXT = 0x00000400,
         }
 
-        public enum RayQueryIntersection
+        [AllowDuplicates, CRepr] public enum RayQueryIntersection
         {
             RayQueryCandidateIntersectionKHR = 0,
             RayQueryCommittedIntersectionKHR = 1,
         }
 
-        public enum RayQueryCommittedIntersectionType
+        [AllowDuplicates, CRepr] public enum RayQueryCommittedIntersectionType
         {
             RayQueryCommittedIntersectionNoneKHR = 0,
             RayQueryCommittedIntersectionTriangleKHR = 1,
             RayQueryCommittedIntersectionGeneratedKHR = 2,
         }
 
-        public enum RayQueryCandidateIntersectionType
+        [AllowDuplicates, CRepr] public enum RayQueryCandidateIntersectionType
         {
             RayQueryCandidateIntersectionTriangleKHR = 0,
             RayQueryCandidateIntersectionAABBKHR = 1,
         }
 
-        public enum FragmentShadingRateShift
+        [AllowDuplicates, CRepr] public enum FragmentShadingRateShift
         {
             Vertical2Pixels = 0,
             Vertical4Pixels = 1,
@@ -1219,7 +1220,7 @@ namespace Spv
             Horizontal4Pixels = 3,
         }
 
-        public enum FragmentShadingRateMask
+        [AllowDuplicates, CRepr] public enum FragmentShadingRateMask
         {
             MaskNone = 0,
             Vertical2Pixels = 0x00000001,
@@ -1228,19 +1229,19 @@ namespace Spv
             Horizontal4Pixels = 0x00000008,
         }
 
-        public enum FPDenormMode
+        [AllowDuplicates, CRepr] public enum FPDenormMode
         {
             Preserve = 0,
             FlushToZero = 1,
         }
 
-        public enum FPOperationMode
+        [AllowDuplicates, CRepr] public enum FPOperationMode
         {
             IEEE = 0,
             ALT = 1,
         }
 
-        public enum QuantizationModes
+        [AllowDuplicates, CRepr] public enum QuantizationModes
         {
             TRN = 0,
             TRN_ZERO = 1,
@@ -1252,7 +1253,7 @@ namespace Spv
             RND_CONV_ODD = 7,
         }
 
-        public enum OverflowModes
+        [AllowDuplicates, CRepr] public enum OverflowModes
         {
             WRAP = 0,
             SAT = 1,
@@ -1260,13 +1261,13 @@ namespace Spv
             SAT_SYM = 3,
         }
 
-        public enum PackedVectorFormat
+        [AllowDuplicates, CRepr] public enum PackedVectorFormat
         {
             PackedVectorFormat4x8Bit = 0,
             PackedVectorFormat4x8BitKHR = 0,
         }
 
-        public enum Op
+        [AllowDuplicates, CRepr] public enum Op
         {
             OpNop = 0,
             OpUndef = 1,

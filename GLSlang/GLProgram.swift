@@ -46,7 +46,7 @@ public class GLProgram {
     public var debugLog: String { String(cString: program.info_debug_log) }
     
     public func generate(stage: GLStage) throws -> Data {
-        guard program.spirv_generate(stage: stage) else { throw ProgramError.noStage }
+        program.spirv_generate(stage: stage)
         let size = program.spirv_size * MemoryLayout<UInt32>.size
         return program.spirv_pointer.withMemoryRebound(to: UInt8.self, capacity: size) { bytes in
             Data(bytes: bytes, count: size)

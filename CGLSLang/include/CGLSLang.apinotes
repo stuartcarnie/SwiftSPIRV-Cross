@@ -108,6 +108,12 @@ Tags:
   - Name: glslang_profile_s
     SwiftName: GLProfile
     EnumKind: CFClosedEnum
+  - Name: glslang_shader_options_s
+    SwiftName: GLShaderOptions
+    EnumKind: CFClosedEnum
+  - Name: glslang_resource_type_s
+    SwiftName: GLResourceType
+    EnumKind: CFClosedEnum
   - Name: glslang_includer_type_s
     SwiftName: GLIncluderType
     EnumKind: CFClosedEnum
@@ -129,37 +135,23 @@ Enumerators:
     SwiftName: fragment
   - Name: GLSLANG_STAGE_COMPUTE
     SwiftName: compute
-  - Name: GLSLANG_STAGE_RAYGEN_NV
+  - Name: GLSLANG_STAGE_RAYGEN
     SwiftName: rayGen
-  - Name: GLSLANG_STAGE_INTERSECT_NV
+  - Name: GLSLANG_STAGE_INTERSECT
     SwiftName: intersect
-  - Name: GLSLANG_STAGE_ANYHIT_NV
+  - Name: GLSLANG_STAGE_ANYHIT
     SwiftName: anyHit
-  - Name: GLSLANG_STAGE_CLOSESTHIT_NV
+  - Name: GLSLANG_STAGE_CLOSESTHIT
     SwiftName: closestHit
-  - Name: GLSLANG_STAGE_MISS_NV
+  - Name: GLSLANG_STAGE_MISS
     SwiftName: miss
-  - Name: GLSLANG_STAGE_CALLABLE_NV
+  - Name: GLSLANG_STAGE_CALLABLE
     SwiftName: callable
-  - Name: GLSLANG_STAGE_TASK_NV
-    SwiftName: taskNV
-  - Name: GLSLANG_STAGE_MESH_NV
-    SwiftName: meshNV
+  - Name: GLSLANG_STAGE_TASK
+    SwiftName: task
+  - Name: GLSLANG_STAGE_MESH
+    SwiftName: mesh
   - Name: GLSLANG_STAGE_COUNT
-    Availability: nonswift
-
-  # endregion
-
-  # MARK: glslang_source_s
-  # region glslang_source_s
-
-  - Name: GLSLANG_SOURCE_NONE
-    SwiftName: none
-  - Name: GLSLANG_SOURCE_GLSL
-    SwiftName: glsl
-  - Name: GLSLANG_SOURCE_HLSL
-    SwiftName: hlsl
-  - Name: GLSLANG_SOURCE_COUNT
     Availability: nonswift
 
   # endregion
@@ -179,23 +171,37 @@ Enumerators:
     SwiftName: fragment
   - Name: GLSLANG_STAGE_COMPUTE_MASK
     SwiftName: compute
-  - Name: GLSLANG_STAGE_RAYGEN_NV_MASK
+  - Name: GLSLANG_STAGE_RAYGEN_MASK
     SwiftName: rayGen
-  - Name: GLSLANG_STAGE_INTERSECT_NV_MASK
+  - Name: GLSLANG_STAGE_INTERSECT_MASK
     SwiftName: intersect
-  - Name: GLSLANG_STAGE_ANYHIT_NV_MASK
+  - Name: GLSLANG_STAGE_ANYHIT_MASK
     SwiftName: anyHit
-  - Name: GLSLANG_STAGE_CLOSESTHIT_NV_MASK
+  - Name: GLSLANG_STAGE_CLOSESTHIT_MASK
     SwiftName: closestHit
-  - Name: GLSLANG_STAGE_MISS_NV_MASK
+  - Name: GLSLANG_STAGE_MISS_MASK
     SwiftName: miss
-  - Name: GLSLANG_STAGE_CALLABLE_NV_MASK
+  - Name: GLSLANG_STAGE_CALLABLE_MASK
     SwiftName: callable
-  - Name: GLSLANG_STAGE_TASK_NV_MASK
-    SwiftName: taskNV
-  - Name: GLSLANG_STAGE_MESH_NV_MASK
-    SwiftName: meshNV
+  - Name: GLSLANG_STAGE_TASK_MASK
+    SwiftName: task
+  - Name: GLSLANG_STAGE_MESH_MASK
+    SwiftName: mesh
   - Name: GLSLANG_STAGE_MASK_COUNT
+    Availability: nonswift
+
+  # endregion
+
+  # MARK: glslang_source_s
+  # region glslang_source_s
+
+  - Name: GLSLANG_SOURCE_NONE
+    SwiftName: none
+  - Name: GLSLANG_SOURCE_GLSL
+    SwiftName: glsl
+  - Name: GLSLANG_SOURCE_HLSL
+    SwiftName: hlsl
+  - Name: GLSLANG_SOURCE_COUNT
     Availability: nonswift
 
   # endregion
@@ -387,6 +393,42 @@ Enumerators:
   - Name: GLSLANG_PROFILE_COUNT
     Availability: nonswift
   # endregion
+  
+  # MARK: glslang_shader_options_s
+  # region glslang_shader_options_s
+  
+  - Name: GLSLANG_SHADER_DEFAULT_BIT
+    SwiftName: defaultBit
+  - Name: GLSLANG_SHADER_AUTO_MAP_BINDINGS
+    SwiftName: autoMapBindings
+  - Name: GLSLANG_SHADER_AUTO_MAP_LOCATIONS
+    SwiftName: autoMapLocations
+  - Name: GLSLANG_SHADER_VULKAN_RULES_RELAXED
+    SwiftName: vulkanRulesRelaxed
+  - Name: GLSLANG_SHADER_COUNT
+    Availability: nonswift
+  
+  # endregion
+  
+  # MARK: glslang_resource_type_s
+  # region glslang_resource_type_s
+  
+  - Name: GLSLANG_RESOURCE_TYPE_SAMPLER
+    SwiftName: sampler
+  - Name: GLSLANG_RESOURCE_TYPE_TEXTURE
+    SwiftName: texture
+  - Name: GLSLANG_RESOURCE_TYPE_IMAGE
+    SwiftName: image
+  - Name: GLSLANG_RESOURCE_TYPE_UBO
+    SwiftName: ubo
+  - Name: GLSLANG_RESOURCE_TYPE_SSBO
+    SwiftName: ssbo
+  - Name: GLSLANG_RESOURCE_TYPE_UAV
+    SwiftName: uav
+  - Name: GLSLANG_RESOURCE_TYPE_COUNT
+    Availability: nonswift
+  
+  # endregion
 
   # MARK: glslang_includer_type_s
   # region glslang_includer_type_s
@@ -397,4 +439,5 @@ Enumerators:
     SwiftName: dirStack
   - Name: GLSLANG_INCLUDER_TYPE_CUSTOM
     SwiftName: custom
+
   # endregion

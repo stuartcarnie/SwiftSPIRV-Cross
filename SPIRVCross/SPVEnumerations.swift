@@ -55,6 +55,10 @@ extension SPVExecutionModel: CustomStringConvertible {
             return "missKHR"
         case .callableKHR:
             return "callableKHR"
+        case .taskEXT:
+            return "taskEXT"
+        case .meshEXT:
+            return "meshEXT"
         }
     }
 }
@@ -248,28 +252,70 @@ extension SPVDecoration: CustomStringConvertible {
             return "viewportRelativeNV"
         case .secondaryViewportRelativeNV:
             return "secondaryViewportRelativeNV"
+        case .perPrimitiveEXT:
+            return "perPrimitiveEXT"
         case .perPrimitiveNV:
             return "perPrimitiveNV"
         case .perViewNV:
             return "perViewNV"
         case .perTaskNV:
             return "perTaskNV"
+        case .perVertexKHR:
+            return "perVertexKHR"
         case .perVertexNV:
             return "perVertexNV"
         case .nonUniform:
             return "nonUniform"
+        case .nonUniformEXT:
+            return "nonUniformEXT"
         case .restrictPointer:
             return "restrictPointer"
+        case .restrictPointerEXT:
+            return "restrictPointerEXT"
         case .aliasedPointer:
             return "aliasedPointer"
+        case .aliasedPointerEXT:
+            return "aliasedPointerEXT"
+        case .bindlessSamplerNV:
+            return "bindlessSamplerNV"
+        case .bindlessImageNV:
+            return "bindlessImageNV"
+        case .boundSamplerNV:
+            return "boundSamplerNV"
+        case .boundImageNV:
+            return "boundImageNV"
+        case .sIMTCallINTEL:
+            return "sIMTCallINTEL"
         case .referencedIndirectlyINTEL:
             return "referencedIndirectlyINTEL"
+        case .clobberINTEL:
+            return "clobberINTEL"
+        case .sideEffectsINTEL:
+            return "sideEffectsINTEL"
+        case .vectorComputeVariableINTEL:
+            return "vectorComputeVariableINTEL"
+        case .funcParamIOKindINTEL:
+            return "funcParamIOKindINTEL"
+        case .vectorComputeFunctionINTEL:
+            return "vectorComputeFunctionINTEL"
+        case .stackCallINTEL:
+            return "stackCallINTEL"
+        case .globalVariableOffsetINTEL:
+            return "globalVariableOffsetINTEL"
         case .counterBuffer:
             return "counterBuffer"
+        case .hlslCounterBufferGOOGLE:
+            return "hlslCounterBufferGOOGLE"
         case .hlslSemanticGOOGLE:
             return "hlslSemanticGOOGLE"
+        case .userSemantic:
+            return "userSemantic"
         case .userTypeGOOGLE:
             return "userTypeGOOGLE"
+        case .functionRoundingModeINTEL:
+            return "functionRoundingModeINTEL"
+        case .functionDenormModeINTEL:
+            return "functionDenormModeINTEL"
         case .registerINTEL:
             return "registerINTEL"
         case .memoryINTEL:
@@ -294,8 +340,34 @@ extension SPVDecoration: CustomStringConvertible {
             return "bankBitsINTEL"
         case .forcePow2DepthINTEL:
             return "forcePow2DepthINTEL"
-//        case .max:
-//            return "max"
+        case .burstCoalesceINTEL:
+            return "burstCoalesceINTEL"
+        case .cacheSizeINTEL:
+            return "cacheSizeINTEL"
+        case .dontStaticallyCoalesceINTEL:
+            return "dontStaticallyCoalesceINTEL"
+        case .prefetchINTEL:
+            return "prefetchINTEL"
+        case .stallEnableINTEL:
+            return "stallEnableINTEL"
+        case .fuseLoopsInFunctionINTEL:
+            return "fuseLoopsInFunctionINTEL"
+        case .aliasScopeINTEL:
+            return "aliasScopeINTEL"
+        case .noAliasINTEL:
+            return "noAliasINTEL"
+        case .bufferLocationINTEL:
+            return "bufferLocationINTEL"
+        case .iOPipeStorageINTEL:
+            return "iOPipeStorageINTEL"
+        case .functionFloatingPointModeINTEL:
+            return "functionFloatingPointModeINTEL"
+        case .singleElementVectorINTEL:
+            return "singleElementVectorINTEL"
+        case .vectorComputeCallableFunctionINTEL:
+            return "vectorComputeCallableFunctionINTEL"
+        case .mediaBlockIOINTEL:
+            return "mediaBlockIOINTEL"
         }
     }
 }
@@ -337,6 +409,8 @@ extension SPVResourceType: CustomStringConvertible {
             return "accelerationStructure"
         case .rayQuery:
             return "rayQuery"
+        case .shaderRecordBuffer:
+            return "shaderRecordBuffer"
         }
     }
 }
@@ -378,20 +452,40 @@ extension SPVStorageClass: CustomStringConvertible {
             return "storageBuffer"
         case .callableDataKHR:
             return "callableDataKHR"
+        case .callableDataNV:
+            return "callableDataNV"
         case .incomingCallableDataKHR:
             return "incomingCallableDataKHR"
+        case .incomingCallableDataNV:
+            return "incomingCallableDataNV"
         case .rayPayloadKHR:
             return "rayPayloadKHR"
+        case .rayPayloadNV:
+            return "rayPayloadNV"
         case .hitAttributeKHR:
             return "hitAttributeKHR"
+        case .hitAttributeNV:
+            return "hitAttributeNV"
         case .incomingRayPayloadKHR:
             return "incomingRayPayloadKHR"
+        case .incomingRayPayloadNV:
+            return "incomingRayPayloadNV"
         case .shaderRecordBufferKHR:
             return "shaderRecordBufferKHR"
+        case .shaderRecordBufferNV:
+            return "shaderRecordBufferNV"
         case .physicalStorageBuffer:
             return "physicalStorageBuffer"
+        case .physicalStorageBufferEXT:
+            return "physicalStorageBufferEXT"
+        case .taskPayloadWorkgroupEXT:
+            return "taskPayloadWorkgroupEXT"
         case .codeSectionINTEL:
-            return "physicalStorageBuffer"
+            return "codeSectionINTEL"
+        case .deviceOnlyINTEL:
+            return "deviceOnlyINTEL"
+        case .hostOnlyINTEL:
+            return "hostOnlyINTEL"
         }
     }
 }

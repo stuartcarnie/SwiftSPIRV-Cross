@@ -352,6 +352,8 @@ Enumerators:
     SwiftName: accelerationStructure
   - Name: SPVC_RESOURCE_TYPE_RAY_QUERY
     SwiftName: rayQuery
+  - Name: SPVC_RESOURCE_TYPE_SHADER_RECORD_BUFFER
+    SwiftName: shaderRecordBuffer
   - Name: SPVC_RESOURCE_TYPE_INT_MAX
     Availability: nonswift
 
@@ -467,12 +469,16 @@ Enumerators:
     SwiftName: viewportRelativeNV
   - Name: SpvDecorationSecondaryViewportRelativeNV
     SwiftName: secondaryViewportRelativeNV
+  - Name: SpvDecorationPerPrimitiveEXT
+    SwiftName: perPrimitiveEXT
   - Name: SpvDecorationPerPrimitiveNV
     SwiftName: perPrimitiveNV
   - Name: SpvDecorationPerViewNV
     SwiftName: perViewNV
   - Name: SpvDecorationPerTaskNV
     SwiftName: perTaskNV
+  - Name: SpvDecorationPerVertexKHR
+    SwiftName: perVertexKHR
   - Name: SpvDecorationPerVertexNV
     SwiftName: perVertexNV
   - Name: SpvDecorationNonUniform
@@ -487,8 +493,32 @@ Enumerators:
     SwiftName: aliasedPointer
   - Name: SpvDecorationAliasedPointerEXT
     SwiftName: aliasedPointerEXT
+  - Name: SpvDecorationBindlessSamplerNV
+    SwiftName: bindlessSamplerNV
+  - Name: SpvDecorationBindlessImageNV
+    SwiftName: bindlessImageNV
+  - Name: SpvDecorationBoundSamplerNV
+    SwiftName: boundSamplerNV
+  - Name: SpvDecorationBoundImageNV
+    SwiftName: boundImageNV
+  - Name: SpvDecorationSIMTCallINTEL
+    SwiftName: sIMTCallINTEL
   - Name: SpvDecorationReferencedIndirectlyINTEL
     SwiftName: referencedIndirectlyINTEL
+  - Name: SpvDecorationClobberINTEL
+    SwiftName: clobberINTEL
+  - Name: SpvDecorationSideEffectsINTEL
+    SwiftName: sideEffectsINTEL
+  - Name: SpvDecorationVectorComputeVariableINTEL
+    SwiftName: vectorComputeVariableINTEL
+  - Name: SpvDecorationFuncParamIOKindINTEL
+    SwiftName: funcParamIOKindINTEL
+  - Name: SpvDecorationVectorComputeFunctionINTEL
+    SwiftName: vectorComputeFunctionINTEL
+  - Name: SpvDecorationStackCallINTEL
+    SwiftName: stackCallINTEL
+  - Name: SpvDecorationGlobalVariableOffsetINTEL
+    SwiftName: globalVariableOffsetINTEL
   - Name: SpvDecorationCounterBuffer
     SwiftName: counterBuffer
   - Name: SpvDecorationHlslCounterBufferGOOGLE
@@ -499,6 +529,10 @@ Enumerators:
     SwiftName: userSemantic
   - Name: SpvDecorationUserTypeGOOGLE
     SwiftName: userTypeGOOGLE
+  - Name: SpvDecorationFunctionRoundingModeINTEL
+    SwiftName: functionRoundingModeINTEL
+  - Name: SpvDecorationFunctionDenormModeINTEL
+    SwiftName: functionDenormModeINTEL
   - Name: SpvDecorationRegisterINTEL
     SwiftName: registerINTEL
   - Name: SpvDecorationMemoryINTEL
@@ -523,6 +557,34 @@ Enumerators:
     SwiftName: bankBitsINTEL
   - Name: SpvDecorationForcePow2DepthINTEL
     SwiftName: forcePow2DepthINTEL
+  - Name: SpvDecorationBurstCoalesceINTEL
+    SwiftName: burstCoalesceINTEL
+  - Name: SpvDecorationCacheSizeINTEL
+    SwiftName: cacheSizeINTEL
+  - Name: SpvDecorationDontStaticallyCoalesceINTEL
+    SwiftName: dontStaticallyCoalesceINTEL
+  - Name: SpvDecorationPrefetchINTEL
+    SwiftName: prefetchINTEL
+  - Name: SpvDecorationStallEnableINTEL
+    SwiftName: stallEnableINTEL
+  - Name: SpvDecorationFuseLoopsInFunctionINTEL
+    SwiftName: fuseLoopsInFunctionINTEL
+  - Name: SpvDecorationAliasScopeINTEL
+    SwiftName: aliasScopeINTEL
+  - Name: SpvDecorationNoAliasINTEL
+    SwiftName: noAliasINTEL
+  - Name: SpvDecorationBufferLocationINTEL
+    SwiftName: bufferLocationINTEL
+  - Name: SpvDecorationIOPipeStorageINTEL
+    SwiftName: iOPipeStorageINTEL
+  - Name: SpvDecorationFunctionFloatingPointModeINTEL
+    SwiftName: functionFloatingPointModeINTEL
+  - Name: SpvDecorationSingleElementVectorINTEL
+    SwiftName: singleElementVectorINTEL
+  - Name: SpvDecorationVectorComputeCallableFunctionINTEL
+    SwiftName: vectorComputeCallableFunctionINTEL
+  - Name: SpvDecorationMediaBlockIOINTEL
+    SwiftName: mediaBlockIOINTEL
   - Name: SpvDecorationMax
     Availability: nonswift
 
@@ -631,6 +693,14 @@ Enumerators:
     SwiftName: physicalStorageBuffer
   - Name: SpvStorageClassPhysicalStorageBufferEXT
     SwiftName: physicalStorageBufferEXT
+  - Name: SpvStorageClassTaskPayloadWorkgroupEXT
+    SwiftName: taskPayloadWorkgroupEXT
+  - Name: SpvStorageClassCodeSectionINTEL
+    SwiftName: codeSectionINTEL
+  - Name: SpvStorageClassDeviceOnlyINTEL
+    SwiftName: deviceOnlyINTEL
+  - Name: SpvStorageClassHostOnlyINTEL
+    SwiftName: hostOnlyINTEL
   - Name: SpvStorageClassMax
     Availability: nonswift
 
@@ -680,6 +750,10 @@ Enumerators:
     SwiftName: callableKHR
   - Name: SpvExecutionModelCallableNV
     SwiftName: callableNV
+  - Name: SpvExecutionModelTaskEXT
+    SwiftName: taskEXT
+  - Name: SpvExecutionModelMeshEXT
+    SwiftName: meshEXT
   - Name: SpvExecutionModelMax
     Availability: nonswift
 

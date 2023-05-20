@@ -33,11 +33,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "glslang_c_interface.h"
 
 #include "StandAlone/DirStackFileIncluder.h"
-#include "StandAlone/ResourceLimits.h"
+#include "glslang/Public/ResourceLimits.h"
 #include "glslang/Include/ShHandle.h"
 
 #include "glslang/Include/ResourceLimits.h"
 #include "glslang/MachineIndependent/Versions.h"
+#include "glslang/MachineIndependent/localintermediate.h"
 
 static_assert(int(GLSLANG_STAGE_COUNT) == EShLangCount, "");
 static_assert(int(GLSLANG_STAGE_MASK_COUNT) == EShLanguageMaskCount, "");
@@ -80,26 +81,7 @@ typedef struct glslang_program_s {
 */
 class CallbackIncluder : public glslang::TShader::Includer {
 public:
-    /* Wrapper of IncludeResult which stores a glsl_include_result object internally */
-    class CallbackIncludeResult : public glslang::TShader::Includer::IncludeResult {
-    public:
-        CallbackIncludeResult(const std::string& headerName, const char* const headerData, const size_t headerLength,
-                              void* userData, glslang_include_result_t* includeResult)
-            : glslang::TShader::Includer::IncludeResult(headerName, headerData, headerLength, userData),
-              includeResult(includeResult)
-        {
-        }
-
-        virtual ~CallbackIncludeResult() {}
-
-    protected:
-        friend class CallbackIncluder;
-
-        glslang_include_result_t* includeResult;
-    };
-
-public:
-    CallbackIncluder(glslang_include_callbacks_t _callbacks, void* _context) : callbacks(_callbacks), context(_context) {}
+    CallbackIncluder(glsl_include_callbacks_t _callbacks, void* _context) : callbacks(_callbacks), context(_context) {}
 
     virtual ~CallbackIncluder() {}
 
@@ -107,11 +89,9 @@ public:
                                          size_t inclusionDepth) override
     {
         if (this->callbacks.include_system) {
-            glslang_include_result_t* result =
+            glsl_include_result_t* result =
                 this->callbacks.include_system(this->context, headerName, includerName, inclusionDepth);
-
-            return new CallbackIncludeResult(std::string(headerName), result->header_data, result->header_length,
-                                             nullptr, result);
+            return makeIncludeResult(result);
         }
 
         return glslang::TShader::Includer::includeSystem(headerName, includerName, inclusionDepth);
@@ -121,11 +101,9 @@ public:
                                         size_t inclusionDepth) override
     {
         if (this->callbacks.include_local) {
-            glslang_include_result_t* result =
+            glsl_include_result_t* result =
                 this->callbacks.include_local(this->context, headerName, includerName, inclusionDepth);
-
-            return new CallbackIncludeResult(std::string(headerName), result->header_data, result->header_length,
-                                             nullptr, result);
+            return makeIncludeResult(result);
         }
 
         return glslang::TShader::Includer::includeLocal(headerName, includerName, inclusionDepth);
@@ -138,24 +116,27 @@ public:
         if (result == nullptr)
             return;
 
-        if (this->callbacks.free_include_result && (result->userData == nullptr)) {
-            CallbackIncludeResult* innerResult = static_cast<CallbackIncludeResult*>(result);
-            /* use internal free() function */
-            this->callbacks.free_include_result(this->context, innerResult->includeResult);
-            /* ignore internal fields of TShader::Includer::IncludeResult */
-            delete result;
-            return;
+        if (this->callbacks.free_include_result) {
+            this->callbacks.free_include_result(this->context, static_cast<glsl_include_result_t*>(result->userData));
         }
 
-        delete[] static_cast<char*>(result->userData);
         delete result;
     }
 
 private:
     CallbackIncluder() {}
 
+    IncludeResult* makeIncludeResult(glsl_include_result_t* result) {
+        if (!result) {
+            return nullptr;
+        }
+
+        return new glslang::TShader::Includer::IncludeResult(
+            std::string(result->header_name), result->header_data, result->header_length, result);
+    }
+
     /* C callback pointers */
-    glslang_include_callbacks_t callbacks;
+    glsl_include_callbacks_t callbacks;
     /* User-defined context */
     void* context;
 };
@@ -166,7 +147,7 @@ void glslang_finalize_process() { glslang::FinalizeProcess(); }
 
 glslang_resource_t const * glslang_get_default_resource(void)
 {
-    return reinterpret_cast<glslang_resource_t const *>(&glslang::DefaultTBuiltInResource);
+    return reinterpret_cast<glslang_resource_t const *>(GetDefaultResources());
 }
 
 static EShLanguage c_shader_stage(glslang_stage_t stage)
@@ -196,10 +177,10 @@ static EShLanguage c_shader_stage(glslang_stage_t stage)
         return EShLangMiss;
     case GLSLANG_STAGE_CALLABLE_NV:
         return EShLangCallable;
-    case GLSLANG_STAGE_TASK_NV:
-        return EShLangTaskNV;
-    case GLSLANG_STAGE_MESH_NV:
-        return EShLangMeshNV;
+    case GLSLANG_STAGE_TASK:
+        return EShLangTask;
+    case GLSLANG_STAGE_MESH:
+        return EShLangMesh;
     default:
         break;
     }
@@ -355,6 +336,10 @@ glslang_shader_t* glslang_shader_create(const glslang_input_t* input)
     return shader;
 }
 
+GLSLANG_EXPORT void glslang_shader_set_preamble(glslang_shader_t* shader, const char* s) {
+    shader->shader->setPreamble(s);
+}
+
 GLSLANG_EXPORT void glslang_shader_shift_binding(glslang_shader_t* shader, glslang_resource_type_t res, unsigned int base)
 {
     const glslang::TResourceType res_type = glslang::TResourceType(res);
@@ -400,7 +385,7 @@ bool glslang_shader_preprocess(glslang_shader_t* shader, const glslang_input_t* 
             includer.reset(new glslang::TShader::ForbidIncluder);
             break;
         case GLSLANG_INCLUDER_TYPE_CUSTOM: {
-            includer.reset(new CallbackIncluder(*input->includer, const_cast<void *>(input->includer_context)));
+            includer.reset(new CallbackIncluder(input->callbacks, input->callbacks_ctx));
             break;
         }
             
@@ -473,6 +458,16 @@ void glslang_program_add_shader(glslang_program_t* program, glslang_shader_t* sh
 bool glslang_program_link(glslang_program_t* program, glslang_messages_t messages)
 {
     return (int)program->program->link((EShMessages)messages);
+}
+
+GLSLANG_EXPORT void glslang_program_add_source_text(glslang_program_t* program, glslang_stage_t stage, const char* text, size_t len) {
+    glslang::TIntermediate* intermediate = program->program->getIntermediate(c_shader_stage(stage));
+    intermediate->addSourceText(text, len);
+}
+
+GLSLANG_EXPORT void glslang_program_set_source_file(glslang_program_t* program, glslang_stage_t stage, const char* file) {
+    glslang::TIntermediate* intermediate = program->program->getIntermediate(c_shader_stage(stage));
+    intermediate->setSourceFile(file);
 }
 
 GLSLANG_EXPORT int glslang_program_map_io(glslang_program_t* program)

@@ -49,9 +49,9 @@ extension GLStage: CustomStringConvertible {
             return "miss"
         case .callable:
             return "callable"
-        case .taskNV:
+        case .task:
             return "taskNV"
-        case .meshNV:
+        case .mesh:
             return "meshNV"
         }
     }
@@ -67,7 +67,7 @@ extension GLStageOptions: CaseIterable {
     public static var allCases: [Self] = [
         .vertex, .tessControl, .tessEvaluation, .geometry,
         .fragment, .compute, .rayGen, .intersect, .anyHit, .closestHit,
-        .miss, .callable, .taskNV, .meshNV,
+        .miss, .callable, .task, .mesh,
     ]
 }
 

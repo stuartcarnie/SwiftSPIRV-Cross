@@ -81,7 +81,7 @@ extension glslang_input_s {
             messages: messages,
             resource: glslang_get_default_resource(),
             includer_type: .forbid,
-            includer: nil,
-            includer_context: nil)
+            callbacks: .init(),
+            callbacks_ctx: nil)
     }
 }
